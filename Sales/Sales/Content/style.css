@@ -1,0 +1,365 @@
+@font-face {
+  font-family: mainFont;
+  src: url("../fonts/Droid.Arabic.Kufi_DownloadSoftware.iR_.ttf");
+}
+* {
+  font-family: mainFont, sans-serif;
+}
+
+* {
+  font-family: mainFont, sans-serif;
+}
+
+.authFormWrapper {
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+  position: relative;
+}
+.authFormWrapper .formAnotherLink {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #276DEF;
+  font-weight: bold;
+  font-size: 13px;
+}
+.authFormWrapper .languageTogglerLink {
+  position: absolute;
+  top: 20px;
+  right: 300px;
+  color: white;
+  font-weight: bold;
+}
+.authFormWrapper .authform {
+  width: 450px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+.authFormWrapper .authform header {
+  display: block;
+  text-align: center;
+  color: #276DEF;
+}
+.authFormWrapper .authform header h4 {
+  padding: 10px;
+}
+.authFormWrapper .authform header img {
+  width: 270px;
+  display: block;
+  margin: 10px auto;
+}
+.authFormWrapper .authform .form label {
+  display: block;
+  color: #276DEF;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.relativeGroup {
+  position: relative;
+}
+
+.bttn {
+  padding: 10px;
+  width: 180px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.bttn.bttn-default {
+  background-color: #276DEF;
+  color: white;
+  border-color: #276DEF;
+}
+.bttn.bttn-default:hover {
+  background-color: white;
+  color: #276DEF;
+}
+.bttn.bttn-secondry {
+  background-color: white;
+  color: #276DEF;
+  border-color: white;
+}
+.bttn.bttn-secondry:hover {
+  background-color: white;
+  color: white;
+}
+
+.widget-content {
+  text-decoration: none !important;
+}
+
+.closed-sidebar.fixed-sidebar .app-main__outer {
+  padding-right: 80px;
+}
+
+.offwhiteTextcolor {
+  color: #333 !important;
+}
+
+.panel-heading {
+  text-align: left;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 15px;
+  background-color: #ececec;
+}
+
+.panel-body {
+  text-align: left;
+  background-color: white;
+  padding: 15px;
+}
+
+.app-sidebar.sidebar-text-light .vertical-nav-menu li a {
+  color: white;
+  font-size: 12px;
+}
+
+.input-sm {
+  font-size: 12px;
+}
+
+.form-control {
+  height: auto;
+}
+
+.app-sidebar.sidebar-text-light .app-sidebar__heading {
+  color: white;
+  font-weight: 100;
+  font-size: 16px;
+}
+
+.vertical-nav-menu i.metismenu-state-icon, .vertical-nav-menu i.metismenu-icon {
+  opacity: 1 !important;
+}
+
+.vertical-nav-menu li a {
+  font-weight: 100;
+}
+
+.app-sidebar.sidebar-text-light .vertical-nav-menu ul > li > a {
+  color: white;
+}
+
+.app-sidebar.sidebar-text-light .vertical-nav-menu li a.mm-active {
+  color: white;
+}
+
+.scrollbar-sidebar, .scrollbar-container {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.scrollbar-sidebar::-webkit-scrollbar, .scrollbar-container::-webkit-scrollbar {
+  display: none;
+}
+
+.to-left {
+  float: left;
+}
+
+.to-right {
+  float: right;
+}
+
+.requestResponse {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.hide {
+  display: none !important;
+}
+
+.UpdateOld, .cancelUpdate {
+  display: none;
+}
+
+.placeOuterWrapper {
+  padding: 15px;
+  word-wrap: break-word;
+}
+
+.innerPlaceWrapper {
+  padding: 10px;
+  height: 580px;
+  overflow: hidden;
+  border: 0.5px solid #b9b9b9;
+  border-radius: 5px;
+}
+
+.placeImagesSlided {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: auto;
+  overflow: hidden;
+}
+
+.placeDescription {
+  color: gray;
+}
+
+.palceRating i {
+  color: #969696;
+}
+
+.pickedStar {
+  color: #d3d31b !important;
+}
+
+.placeLocation i {
+  color: gray;
+}
+
+.placeImage {
+  width: 200px;
+}
+
+.palceMediaImageWrapping {
+  position: relative;
+  overflow: hidden;
+}
+
+#RegisterTripDateWrapper {
+  display: none;
+}
+
+#FixedPriceWrapper {
+  display: none;
+}
+
+#registerpassenger {
+  display: none;
+}
+
+#nonregisterPassenger {
+  display: none;
+}
+
+#map {
+  overflow: unset !important;
+}
+#map div:first-child {
+  top: 149px;
+}
+
+.description-hover {
+  position: relative;
+}
+.description-hover .hoverarble-wrapper {
+  display: none;
+  position: absolute;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0.5px solid lightgray;
+  width: 400px;
+  left: -80px;
+  height: auto;
+  word-wrap: break-word;
+  z-index: 999;
+}
+.description-hover:hover .hoverarble-wrapper {
+  display: block;
+}
+
+.printable-outer-container {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+}
+.printable-outer-container.A5-paper {
+  width: 100%;
+  height: 21cm;
+}
+.printable-outer-container.A4-paper {
+  width: 100%;
+  height: 29.7cm;
+}
+.printable-outer-container .header-printable {
+  background-color: #276DEF;
+  -webkit-print-color-adjust: exact !important;
+  color: white;
+  padding: 10px;
+}
+.printable-outer-container .header-printable .row div p {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+.printable-outer-container .body-printable {
+  padding: 10px;
+  color: #333;
+}
+
+.qrcode {
+  width: 500px;
+  margin: auto;
+}
+
+.validate-wrapper {
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  background-image: url(../Imgs/homepage-background.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+.validate-wrapper .row {
+  padding: 10px;
+}
+.validate-wrapper .qrcode-card-banner {
+  padding: 15px;
+}
+.validate-wrapper .qrcode-card-banner .qrcode-card-inner-wrapper {
+  text-align: center;
+}
+.validate-wrapper .qrcode-card-banner .qrcode-card-inner-wrapper header {
+  background-color: #276DEF;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+}
+.validate-wrapper .qrcode-card-banner .qrcode-card-inner-wrapper p {
+  background-color: white;
+  text-align: center;
+  font-size: 19px;
+  color: #333;
+}
+.validate-wrapper .qrcode-card-banner .qrcode-card-inner-wrapper p span.actives {
+  color: green;
+}
+.validate-wrapper .qrcode-card-banner .qrcode-card-inner-wrapper p span.disableds {
+  color: red;
+}
+.validate-wrapper .attending-form {
+  padding: 15px;
+  width: 300px;
+  border-radius: 5px;
+  background-color: white;
+  border: 0.5px solid lightgray;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+/*# sourceMappingURL=style.css.map */

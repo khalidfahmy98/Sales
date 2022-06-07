@@ -1,0 +1,78 @@
+﻿@model Entity.Admins
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading">
+            <div class="page-title-icon"><i class="pe-7s-home icon-gradient bg-mean-fruit"></i></div>
+            <div>
+                My Profile Settings
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-heading">
+        Profile Information
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <input type="hidden" value="@Model.Id" id="Id" />
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Name </label>
+                <div class="form-control input-sm">@Model.Name</div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Username </label>
+                <div class="form-control input-sm">@Model.Username</div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Password </label>
+                <div class="form-control input-sm">@Model.Password</div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Rule </label>
+                @{
+                    if (Model.Permission == 0)
+                    {
+                        <div class="form-control input-sm"> Manager</div>
+                    }
+                    else
+                    {
+                        <div class="form-control input-sm">Editor</div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-primary" onclick="edit(1)">Edit Account Information</button>
+        </div>
+    </div>
+</div>
+
+<div class="panel hide" id="editPanel">
+    <div class="panel-heading">
+        Edit Account Security Information
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <input type="hidden" value="@Model.Id" id="id" />
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Name </label>
+                <input class="form-control input-sm" id="name" value="@Model.Name">
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Username </label>
+                <input class="form-control input-sm" id="username" value="@Model.Username">
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Password </label>
+                <input class="form-control input-sm" id="password" value="@Model.Password">
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-primary" onclick="update()">Update Infromation</button>
+            <button type="button" class="btn btn-sm btn-danger" onclick="edit(0)"> Cancel </button>
+        </div>
+        <div id="errorHandler" class="alert hide"></div>
+    </div>
+</div>
+<script src="~/Scripts/Home/Account.js"></script>
