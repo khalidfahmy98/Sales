@@ -8,7 +8,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta content="" name="descriptison">
     <meta content="" name="keywords">
-    <title>@ViewBag.Title | HR System </title>
+    <title>@ViewBag.Title | El-Gharib System </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -94,48 +94,35 @@
                 <div class="scrollbar-sidebar">
                     <div class="app-sidebar__inner">
                         <ul class="vertical-nav-menu">
-                            <li class="app-sidebar__heading">Main System</li>
+                            <li class="app-sidebar__heading">Dashboard</li>
                             <li><a class="mm-active" href="~/Home/"><i class="metismenu-icon pe-7s-home"> </i>Homepage </a></li>
-                            @{
-                                if (Convert.ToInt32(Session["Rule"]) == 0)
-                                {
-                                    <li><a href="~/QrCode/"><i class="metismenu-icon pe-7s-server"> </i>QR Code </a></li>
-                                    <li class="app-sidebar__heading">Dashboard Controls</li>
-                                    <li>
-                                        <a href="#"><i class="metismenu-icon pe-7s-user"></i>Moderators Management <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
-                                        <ul>
-                                            <li><a href="~/Moderators/"><i class="metismenu-icon"> </i>Register Moderator</a></li>
-                                            <li><a href="~/Moderators/Operations"><i class="metismenu-icon"> </i> Moderators Operations     </a></li>
-                                        </ul>
-                                    </li>
-                                }
-                            }
                             <li>
-                                <a href="#"><i class="metismenu-icon pe-7s-users"></i>Employees Management <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
+                                <a href="#"><i class="metismenu-icon pe-7s-users"></i>Managers Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
                                 <ul>
-                                    <li><a href="~/Employees/"><i class="metismenu-icon"> </i>Register Employee</a></li>
-                                    <li><a href="~/Employees/Operations"><i class="metismenu-icon"> </i> Employees Operations </a></li>
+                                    <li><a href="~/Employees/"><i class="metismenu-icon"> </i>Create New</a></li>
+                                    <li><a href="~/Employees/Operations"><i class="metismenu-icon"> </i>  Operations </a></li>
+                                </ul>
+                            </li>
+                            <li class="app-sidebar__heading">Main System</li>
+                            <li>
+                                <a href="#"><i class="metismenu-icon pe-7s-users"></i>Customers Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
+                                <ul>
+                                    <li><a href="~/Employees/"><i class="metismenu-icon"> </i>Create New</a></li>
+                                    <li><a href="~/Employees/Operations"><i class="metismenu-icon"> </i> Operations </a></li>
+                                    <li><a href="~/Employees/Operations"><i class="metismenu-icon"> </i> Areas </a></li>
+                                    <li><a href="~/Employees/Operations"><i class="metismenu-icon"> </i> Grades </a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><i class="metismenu-icon pe-7s-users"></i>Jobs Management <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
+                                <a href="#"><i class="metismenu-icon pe-7s-users"></i>Employees Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
                                 <ul>
-                                    <li><a href="~/Job/"><i class="metismenu-icon"> </i>Post Jobs</a></li>
-                                    <li><a href="~/Job/Operations"><i class="metismenu-icon"> </i> Proposals </a></li>
+                                    <li><a href="~/Employees/"><i class="metismenu-icon"> </i> Create New </a></li>
+                                    <li><a href="~/Employees/Operations"><i class="metismenu-icon"> </i> Operations</a></li>
                                 </ul>
                             </li>
-                            <li><a href="~/Categories/"><i class="metismenu-icon pe-7s-browser"> </i>Work Categories </a></li>
-                            <li><a href="~/Departments/"><i class="metismenu-icon pe-7s-disk"> </i> Departments </a></li>
-                            <li class="app-sidebar__heading"> Finance</li>
-                            @{
-                                if (Convert.ToInt32(Session["Rule"]) == 0)
-                                {
-                                    <li><a href="~/Invoices/"><i class="metismenu-icon pe-7s-credit"> </i> Create Invoice </a></li>
-                                }
-                            }
-                            <li class="app-sidebar__heading">System Reports</li>
-                            <li><a href="~/Attendance/"><i class="metismenu-icon pe-7s-file"> </i> Attendance Report </a></li>
-                            <li><a href="~/Invoices/Operations"><i class="metismenu-icon pe-7s-credit"> </i> Invoices Report </a></li>
+                            <li><a href="~/Attendance/"><i class="metismenu-icon pe-7s-file"> </i> Products </a></li>
+                            <li><a href="~/Invoices/Operations"><i class="metismenu-icon pe-7s-credit"> </i>  Sales Scheduale </a></li>
+                            <li><a href="~/Invoices/Operations"><i class="metismenu-icon pe-7s-credit"> </i>   Type Colors  </a></li>
                         </ul>
                     </div>
                 </div>
