@@ -17,5 +17,30 @@ namespace Sales.Controllers
             ViewBag.Title = "Areas Operations";
             return View();
         }
+        [IsLogged]
+        public ActionResult DataView()
+        {
+            List<Areas> types = AreasBLL.List().ToList();
+            return View(types);
+        }
+        [IsLogged]
+        public JsonResult Create(Areas model)
+        {
+            if (AreasBLL.Add(model) != 0)
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [IsLogged]
+        public JsonResult Del(int Id)
+        {
+            AreasBLL.Delete(Id);
+            return Json("success", JsonRequestBehavior.AllowGet);
+        }
+
     }
 }
