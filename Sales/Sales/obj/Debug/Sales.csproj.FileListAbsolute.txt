@@ -1,3 +1,5 @@
+C:\Users\khali\Desktop\Sales\Sales\Sales\obj\Debug\Sales.csprojAssemblyReference.cache
+C:\Users\khali\Desktop\Sales\Sales\Sales\obj\Debug\Sales.csproj.CoreCompileInputs.cache
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Sales.dll.config
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Sales.dll
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Sales.pdb
@@ -51,6 +53,10 @@ C:\Users\khali\Desktop\Sales\Sales\Sales\bin\roslyn\vbc.rsp
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\roslyn\VBCSCompiler.exe
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Antlr3.Runtime.dll
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\BLL.dll
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Entity.dll
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\EntityFramework.dll
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\EntityFramework.SqlServer.dll
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Newtonsoft.Json.dll
@@ -62,6 +68,12 @@ C:\Users\khali\Desktop\Sales\Sales\Sales\bin\System.Web.WebPages.Deployment.dll
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\System.Web.WebPages.dll
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\System.Web.WebPages.Razor.dll
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\WebGrease.dll
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\BLL.pdb
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\BLL.dll.config
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Entity.pdb
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Entity.dll.config
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\EntityFramework.xml
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\EntityFramework.SqlServer.xml
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\System.Web.Helpers.xml
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\System.Web.Mvc.xml
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\System.Web.Optimization.xml
@@ -72,8 +84,6 @@ C:\Users\khali\Desktop\Sales\Sales\Sales\bin\System.Web.WebPages.Razor.xml
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Newtonsoft.Json.xml
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Antlr3.Runtime.pdb
 C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\khali\Desktop\Sales\Sales\Sales\obj\Debug\Sales.csprojAssemblyReference.cache
-C:\Users\khali\Desktop\Sales\Sales\Sales\obj\Debug\Sales.csproj.CoreCompileInputs.cache
 C:\Users\khali\Desktop\Sales\Sales\Sales\obj\Debug\Sales.csproj.CopyComplete
 C:\Users\khali\Desktop\Sales\Sales\Sales\obj\Debug\Sales.dll
 C:\Users\khali\Desktop\Sales\Sales\Sales\obj\Debug\Sales.pdb
