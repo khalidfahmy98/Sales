@@ -18,23 +18,30 @@ namespace Sales.Controllers
         {
             return View();
         }
-        //[HttpPost]
-        //public JsonResult Authorize(Admins model)
-        //{
-        //    Admins admin = BLL.ManEmp.Login(model.Username, model.Password);
-        //    if (admin != null)
-        //    {
-        //        Session["UserID"] = admin.Id;
-        //        Session["Username"] = admin.Username;
-        //        Session["Rule"] = admin.Permission;
-        //        return Json(new { success = "success", link = "/" }, JsonRequestBehavior.AllowGet);
-        //    }
-        //    else
-        //    {
-        //        return Json(new { error = "error", msg = "Username Or Password Incorrect" }, JsonRequestBehavior.AllowGet);
+        [HttpPost]
+        public JsonResult Authorize(ManEmp model)
+        {
+            ManEmp user = ManEmpBLL.Login(model.Username, model.Password);
+            if (user != null)
+            {
+                if ( Convert.ToInt32(user.Status) == 1)
+                {
+                    Session["UserID"] = user.Id;
+                    Session["Username"] = user.Username;
+                    Session["Rule"] = user.Rule;
+                    return Json(new { success = "success", link = "/" }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { error = "error", msg = "Contact Support Your Account Blocked .. ! " }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            else
+            {
+                return Json(new { error = "error", msg = "Username Or Password Incorrect" }, JsonRequestBehavior.AllowGet);
 
-        //    }
-        //}
+            }
+        }
 
 
     }
