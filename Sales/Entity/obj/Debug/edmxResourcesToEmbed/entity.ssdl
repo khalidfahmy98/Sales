@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Areas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Area" Type="varchar(max)" />
+    <Property Name="Comment" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Colors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Color" Type="varchar(max)" />
+    <Property Name="Hexa" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="CustomerBridgeGrade">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="GradeId" Type="int" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="int" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="Phone" Type="varchar(max)" />
+    <Property Name="MobileP" Type="varchar(max)" />
+    <Property Name="MobileS" Type="varchar(max)" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="NearestPharmacyP" Type="varchar(max)" />
+    <Property Name="NearestPharmacyS" Type="varchar(max)" />
+    <Property Name="TypeId" Type="int" />
+    <Property Name="SpecialId" Type="int" />
+    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="CusWorkId" Type="int" />
+    <Property Name="AreaId" Type="int" />
+  </EntityType>
+  <EntityType Name="CusWork">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Day" Type="int" />
+    <Property Name="Time" Type="varchar(max)" />
+    <Property Name="Comment" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Grades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Grade" Type="varchar(max)" />
+    <Property Name="Comment" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="ManEmp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="Username" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="NationalId" Type="int" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Phone" Type="int" />
+    <Property Name="Password" Type="varchar(max)" />
+    <Property Name="Rule" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="Comment" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Scheduale">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ManEmpId" Type="int" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="Month" Type="int" />
+    <Property Name="VisitDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Specials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="Comment" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Types">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="varchar(max)" />
+    <Property Name="NoVisits" Type="int" />
+    <Property Name="ColorId" Type="int" />
+  </EntityType>
+  <Association Name="FK_CustomerBridgeGrade_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="CustomerBridgeGrade" Type="Self.CustomerBridgeGrade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomerBridgeGrade">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerBridgeGrade_Grades">
+    <End Role="Grades" Type="Self.Grades" Multiplicity="0..1" />
+    <End Role="CustomerBridgeGrade" Type="Self.CustomerBridgeGrade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grades">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomerBridgeGrade">
+        <PropertyRef Name="GradeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_Areas">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_CusWork">
+    <End Role="CusWork" Type="Self.CusWork" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CusWork">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="CusWorkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_Specials">
+    <End Role="Specials" Type="Self.Specials" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specials">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="SpecialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_Types">
+    <End Role="Types" Type="Self.Types" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Types">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Scheduale_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="Scheduale" Type="Self.Scheduale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Scheduale">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Scheduale_ManEmp">
+    <End Role="ManEmp" Type="Self.ManEmp" Multiplicity="0..1" />
+    <End Role="Scheduale" Type="Self.Scheduale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManEmp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Scheduale">
+        <PropertyRef Name="ManEmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Types_Colors">
+    <End Role="Colors" Type="Self.Colors" Multiplicity="0..1" />
+    <End Role="Types" Type="Self.Types" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Types">
+        <PropertyRef Name="ColorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SalesModelStoreContainer">
+    <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerBridgeGrade" EntityType="Self.CustomerBridgeGrade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CusWork" EntityType="Self.CusWork" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ManEmp" EntityType="Self.ManEmp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Scheduale" EntityType="Self.Scheduale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specials" EntityType="Self.Specials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Types" EntityType="Self.Types" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CustomerBridgeGrade_Customers" Association="Self.FK_CustomerBridgeGrade_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerBridgeGrade_Grades" Association="Self.FK_CustomerBridgeGrade_Grades">
+      <End Role="Grades" EntitySet="Grades" />
+      <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_Areas" Association="Self.FK_Customers_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_CusWork" Association="Self.FK_Customers_CusWork">
+      <End Role="CusWork" EntitySet="CusWork" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_Specials" Association="Self.FK_Customers_Specials">
+      <End Role="Specials" EntitySet="Specials" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_Types" Association="Self.FK_Customers_Types">
+      <End Role="Types" EntitySet="Types" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Scheduale_Customers" Association="Self.FK_Scheduale_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Scheduale" EntitySet="Scheduale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Scheduale_ManEmp" Association="Self.FK_Scheduale_ManEmp">
+      <End Role="ManEmp" EntitySet="ManEmp" />
+      <End Role="Scheduale" EntitySet="Scheduale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Types_Colors" Association="Self.FK_Types_Colors">
+      <End Role="Colors" EntitySet="Colors" />
+      <End Role="Types" EntitySet="Types" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

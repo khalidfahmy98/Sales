@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Areas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Area" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customers_Areas" FromRole="Areas" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="Colors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Color" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Hexa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Types" Relationship="Self.FK_Types_Colors" FromRole="Colors" ToRole="Types" />
+  </EntityType>
+  <EntityType Name="CustomerBridgeGrade">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="GradeId" Type="Int32" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_CustomerBridgeGrade_Customers" FromRole="CustomerBridgeGrade" ToRole="Customers" />
+    <NavigationProperty Name="Grades" Relationship="Self.FK_CustomerBridgeGrade_Grades" FromRole="CustomerBridgeGrade" ToRole="Grades" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MobileP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MobileS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NearestPharmacyP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NearestPharmacyS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TypeId" Type="Int32" />
+    <Property Name="SpecialId" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CusWorkId" Type="Int32" />
+    <Property Name="AreaId" Type="Int32" />
+    <NavigationProperty Name="Areas" Relationship="Self.FK_Customers_Areas" FromRole="Customers" ToRole="Areas" />
+    <NavigationProperty Name="CustomerBridgeGrade" Relationship="Self.FK_CustomerBridgeGrade_Customers" FromRole="Customers" ToRole="CustomerBridgeGrade" />
+    <NavigationProperty Name="CusWork" Relationship="Self.FK_Customers_CusWork" FromRole="Customers" ToRole="CusWork" />
+    <NavigationProperty Name="Specials" Relationship="Self.FK_Customers_Specials" FromRole="Customers" ToRole="Specials" />
+    <NavigationProperty Name="Types" Relationship="Self.FK_Customers_Types" FromRole="Customers" ToRole="Types" />
+    <NavigationProperty Name="Scheduale" Relationship="Self.FK_Scheduale_Customers" FromRole="Customers" ToRole="Scheduale" />
+  </EntityType>
+  <EntityType Name="CusWork">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Day" Type="Int32" />
+    <Property Name="Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customers_CusWork" FromRole="CusWork" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="Grades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Grade" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CustomerBridgeGrade" Relationship="Self.FK_CustomerBridgeGrade_Grades" FromRole="Grades" ToRole="CustomerBridgeGrade" />
+  </EntityType>
+  <EntityType Name="ManEmp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NationalId" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="Int32" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Rule" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="Scheduale" Relationship="Self.FK_Scheduale_ManEmp" FromRole="ManEmp" ToRole="Scheduale" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Scheduale">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ManEmpId" Type="Int32" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Month" Type="Int32" />
+    <Property Name="VisitDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Scheduale_Customers" FromRole="Scheduale" ToRole="Customers" />
+    <NavigationProperty Name="ManEmp" Relationship="Self.FK_Scheduale_ManEmp" FromRole="Scheduale" ToRole="ManEmp" />
+  </EntityType>
+  <EntityType Name="Specials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customers_Specials" FromRole="Specials" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Types">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NoVisits" Type="Int32" />
+    <Property Name="ColorId" Type="Int32" />
+    <NavigationProperty Name="Colors" Relationship="Self.FK_Types_Colors" FromRole="Types" ToRole="Colors" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customers_Types" FromRole="Types" ToRole="Customers" />
+  </EntityType>
+  <Association Name="FK_Customers_Areas">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Types_Colors">
+    <End Role="Colors" Type="Self.Colors" Multiplicity="0..1" />
+    <End Role="Types" Type="Self.Types" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Types">
+        <PropertyRef Name="ColorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerBridgeGrade_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="CustomerBridgeGrade" Type="Self.CustomerBridgeGrade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomerBridgeGrade">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerBridgeGrade_Grades">
+    <End Role="Grades" Type="Self.Grades" Multiplicity="0..1" />
+    <End Role="CustomerBridgeGrade" Type="Self.CustomerBridgeGrade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grades">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomerBridgeGrade">
+        <PropertyRef Name="GradeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_CusWork">
+    <End Role="CusWork" Type="Self.CusWork" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CusWork">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="CusWorkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_Specials">
+    <End Role="Specials" Type="Self.Specials" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specials">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="SpecialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customers_Types">
+    <End Role="Types" Type="Self.Types" Multiplicity="0..1" />
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Types">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customers">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Scheduale_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="Scheduale" Type="Self.Scheduale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Scheduale">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Scheduale_ManEmp">
+    <End Role="ManEmp" Type="Self.ManEmp" Multiplicity="0..1" />
+    <End Role="Scheduale" Type="Self.Scheduale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManEmp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Scheduale">
+        <PropertyRef Name="ManEmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SalesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Areas" EntityType="Self.Areas" />
+    <EntitySet Name="Colors" EntityType="Self.Colors" />
+    <EntitySet Name="CustomerBridgeGrade" EntityType="Self.CustomerBridgeGrade" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" />
+    <EntitySet Name="CusWork" EntityType="Self.CusWork" />
+    <EntitySet Name="Grades" EntityType="Self.Grades" />
+    <EntitySet Name="ManEmp" EntityType="Self.ManEmp" />
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="Scheduale" EntityType="Self.Scheduale" />
+    <EntitySet Name="Specials" EntityType="Self.Specials" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Types" EntityType="Self.Types" />
+    <AssociationSet Name="FK_Customers_Areas" Association="Self.FK_Customers_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Types_Colors" Association="Self.FK_Types_Colors">
+      <End Role="Colors" EntitySet="Colors" />
+      <End Role="Types" EntitySet="Types" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerBridgeGrade_Customers" Association="Self.FK_CustomerBridgeGrade_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerBridgeGrade_Grades" Association="Self.FK_CustomerBridgeGrade_Grades">
+      <End Role="Grades" EntitySet="Grades" />
+      <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_CusWork" Association="Self.FK_Customers_CusWork">
+      <End Role="CusWork" EntitySet="CusWork" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_Specials" Association="Self.FK_Customers_Specials">
+      <End Role="Specials" EntitySet="Specials" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customers_Types" Association="Self.FK_Customers_Types">
+      <End Role="Types" EntitySet="Types" />
+      <End Role="Customers" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Scheduale_Customers" Association="Self.FK_Scheduale_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Scheduale" EntitySet="Scheduale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Scheduale_ManEmp" Association="Self.FK_Scheduale_ManEmp">
+      <End Role="ManEmp" EntitySet="ManEmp" />
+      <End Role="Scheduale" EntitySet="Scheduale" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
