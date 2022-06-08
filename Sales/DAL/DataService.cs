@@ -8,6 +8,6 @@ namespace DAL
 {
    public class DataService
     {
-        //public static GenericDAL<Employees> Employees = new GenericDAL<Employees>();
+        public static GenericDAL<ManEmp> ManEmp = new GenericDAL<ManEmp>();
     }
 }
