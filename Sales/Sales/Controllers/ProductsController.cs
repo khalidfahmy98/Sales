@@ -14,8 +14,15 @@ namespace Sales.Controllers
         [IsLogged]
         public ActionResult Index()
         {
+            ViewBag.Title = "Create Product";
+            return View();
+        }
+        [IsLogged]
+        public ActionResult Operations()
+        {
             ViewBag.Title = "Products Operations";
             return View();
         }
+
     }
 }

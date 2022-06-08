@@ -199,6 +199,8 @@
     <Content Include="Scripts\Managers\Operations.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\primary.js" />
+    <Content Include="Scripts\Products\Add.js" />
+    <Content Include="Scripts\Products\Operations.js" />
     <Content Include="Scripts\qrcode.min.js" />
     <Content Include="Scripts\select2\i18n\az.js" />
     <Content Include="Scripts\select2\i18n\bg.js" />
@@ -276,6 +278,7 @@
     <Content Include="Views\Employees\Operations.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Operations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
