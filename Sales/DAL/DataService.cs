@@ -6,11 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 namespace DAL
 {
-   public class DataService
+    public class DataService
     {
         public static GenericDAL<ManEmp> ManEmp = new GenericDAL<ManEmp>();
         public static GenericDAL<Products> Products = new GenericDAL<Products>();
         public static GenericDAL<Colors> Colors = new GenericDAL<Colors>();
         public static GenericDAL<Types> Types = new GenericDAL<Types>();
+        public static GenericDAL<Grades> Grades = new GenericDAL<Grades>();
+        public static GenericDAL<Areas> Areas = new GenericDAL<Areas>();
+        public static GenericDAL<Specials> Specials = new GenericDAL<Specials>();
     }
 }
