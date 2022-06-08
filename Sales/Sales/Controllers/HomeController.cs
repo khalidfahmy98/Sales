@@ -54,6 +54,12 @@ namespace Sales.Controllers
             Session.Remove("Rule");
             return View("Login");
         }
+        [IsLogged]
+        public ActionResult RuleError()
+        {
+            ViewBag.Title = " Rule Error";
+            return View();
+        }
 
 
 
