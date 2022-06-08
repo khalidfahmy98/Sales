@@ -250,8 +250,8 @@
     <Content Include="Scripts\select2\select2.min.css" />
     <Content Include="Scripts\select2\select2.min.js" />
     <Content Include="Scripts\site.js" />
-    <Content Include="Scripts\TypeColors\Add.js" />
-    <Content Include="Scripts\TypeColors\Operations.js" />
+    <Content Include="Scripts\Colors\Add.js" />
+    <Content Include="Scripts\Colors\Operations.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -1,1 +1,30 @@
-﻿
+﻿@model IEnumerable<Entity.Products>
+<div class="panel">
+    <div class="panel-heading">
+        Employee Operations
+    </div>
+    <div class="panel-body">
+        <table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Product Name </th>
+                    <th>Comment</th>
+                    <th>OPR</th>
+                </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Comment</td>
+                        <td> <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="alert hide" id="errorHandler"></div>
+    </div>
+</div>
+<script src="~/Scripts/Products/Operations.js"></script>
