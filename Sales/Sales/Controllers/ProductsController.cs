@@ -39,15 +39,8 @@ namespace Sales.Controllers
         [IsLogged]
         public JsonResult Del(int Id)
         {
-            if (Id > 1)
-            {
-                ProductsBLL.Delete(Id);
-                return Json("success", JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                return Json("error", JsonRequestBehavior.AllowGet);
-            }
+            ProductsBLL.Delete(Id);
+            return Json("success", JsonRequestBehavior.AllowGet);
         }
 
 

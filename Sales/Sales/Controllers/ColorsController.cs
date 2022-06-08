@@ -20,8 +20,27 @@ namespace Sales.Controllers
         [IsLogged]
         public ActionResult Operations()
         {
+            List<Colors> Colors = ColorsBLL.List().ToList();
             ViewBag.Title = "Type colors Operations";
-            return View();
+            return View(Colors);
+        }
+        [IsLogged]
+        public JsonResult Create(Colors model)
+        {
+            if (ColorsBLL.Add(model) != 0)
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [IsLogged]
+        public JsonResult Del(int Id)
+        {
+            ColorsBLL.Delete(Id);
+            return Json("success", JsonRequestBehavior.AllowGet);
         }
 
     }
