@@ -134,6 +134,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
     <Compile Include="Controllers\SpecialsController.cs" />
+    <Compile Include="Controllers\TypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -261,6 +262,7 @@
     <Content Include="Views\Customers\Operations.cshtml" />
     <Content Include="Views\Specials\Index.cshtml" />
     <Content Include="Views\Grades\Index.cshtml" />
+    <Content Include="Views\Types\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
