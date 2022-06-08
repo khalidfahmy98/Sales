@@ -87,3 +87,6 @@ C:\Users\khali\Desktop\Sales\Sales\Sales\bin\Microsoft.CodeDom.Providers.DotNetC
 C:\Users\khali\Desktop\Sales\Sales\Sales\obj\Debug\Sales.csproj.CopyComplete
 C:\Users\khali\Desktop\Sales\Sales\Sales\obj\Debug\Sales.dll
 C:\Users\khali\Desktop\Sales\Sales\Sales\obj\Debug\Sales.pdb
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\DAL.dll
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\DAL.pdb
+C:\Users\khali\Desktop\Sales\Sales\Sales\bin\DAL.dll.config

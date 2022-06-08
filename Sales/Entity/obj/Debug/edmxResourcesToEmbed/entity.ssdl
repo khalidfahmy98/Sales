@@ -68,7 +68,7 @@
     <Property Name="Name" Type="varchar(max)" />
     <Property Name="Username" Type="varchar(max)" />
     <Property Name="Email" Type="varchar(max)" />
-    <Property Name="NationalId" Type="int" />
+    <Property Name="NationalId" Type="varchar(max)" />
     <Property Name="Address" Type="varchar(max)" />
     <Property Name="Phone" Type="int" />
     <Property Name="Password" Type="varchar(max)" />

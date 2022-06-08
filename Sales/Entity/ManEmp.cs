@@ -24,7 +24,7 @@ namespace Entity
         public string Name { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
-        public Nullable<int> NationalId { get; set; }
+        public string NationalId { get; set; }
         public string Address { get; set; }
         public Nullable<int> Phone { get; set; }
         public string Password { get; set; }
