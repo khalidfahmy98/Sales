@@ -250,6 +250,8 @@
     <Content Include="Scripts\select2\select2.min.css" />
     <Content Include="Scripts\select2\select2.min.js" />
     <Content Include="Scripts\site.js" />
+    <Content Include="Scripts\TypeColors\Add.js" />
+    <Content Include="Scripts\TypeColors\Operations.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -279,6 +281,7 @@
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Operations.cshtml" />
+    <Content Include="Views\Colors\Operations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
