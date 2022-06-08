@@ -18,11 +18,11 @@ namespace Entity
         public Customers()
         {
             this.CustomerBridgeGrade = new HashSet<CustomerBridgeGrade>();
+            this.CusWork = new HashSet<CusWork>();
             this.Scheduale = new HashSet<Scheduale>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> Code { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
         public string MobileP { get; set; }
@@ -33,15 +33,15 @@ namespace Entity
         public Nullable<int> TypeId { get; set; }
         public Nullable<int> SpecialId { get; set; }
         public string Comment { get; set; }
-        public Nullable<int> CusWorkId { get; set; }
         public Nullable<int> AreaId { get; set; }
     
         public virtual Areas Areas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomerBridgeGrade> CustomerBridgeGrade { get; set; }
-        public virtual CusWork CusWork { get; set; }
         public virtual Specials Specials { get; set; }
         public virtual Types Types { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CusWork> CusWork { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Scheduale> Scheduale { get; set; }
     }

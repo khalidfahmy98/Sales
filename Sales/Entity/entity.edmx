@@ -34,7 +34,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Code" Type="int" />
           <Property Name="Name" Type="varchar(max)" />
           <Property Name="Phone" Type="varchar(max)" />
           <Property Name="MobileP" Type="varchar(max)" />
@@ -45,7 +44,6 @@
           <Property Name="TypeId" Type="int" />
           <Property Name="SpecialId" Type="int" />
           <Property Name="Comment" Type="varchar(max)" />
-          <Property Name="CusWorkId" Type="int" />
           <Property Name="AreaId" Type="int" />
         </EntityType>
         <EntityType Name="CusWork">
@@ -56,6 +54,7 @@
           <Property Name="Day" Type="int" />
           <Property Name="Time" Type="varchar(max)" />
           <Property Name="Comment" Type="varchar(max)" />
+          <Property Name="CustomerId" Type="int" />
         </EntityType>
         <EntityType Name="Grades">
           <Key>
@@ -161,18 +160,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Customers_CusWork">
-          <End Role="CusWork" Type="Self.CusWork" Multiplicity="0..1" />
-          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CusWork">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Customers">
-              <PropertyRef Name="CusWorkId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Customers_Specials">
           <End Role="Specials" Type="Self.Specials" Multiplicity="0..1" />
           <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
@@ -194,6 +181,18 @@
             </Principal>
             <Dependent Role="Customers">
               <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CusWork_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="CusWork" Type="Self.CusWork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CusWork">
+              <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -258,10 +257,6 @@
             <End Role="Areas" EntitySet="Areas" />
             <End Role="Customers" EntitySet="Customers" />
           </AssociationSet>
-          <AssociationSet Name="FK_Customers_CusWork" Association="Self.FK_Customers_CusWork">
-            <End Role="CusWork" EntitySet="CusWork" />
-            <End Role="Customers" EntitySet="Customers" />
-          </AssociationSet>
           <AssociationSet Name="FK_Customers_Specials" Association="Self.FK_Customers_Specials">
             <End Role="Specials" EntitySet="Specials" />
             <End Role="Customers" EntitySet="Customers" />
@@ -269,6 +264,10 @@
           <AssociationSet Name="FK_Customers_Types" Association="Self.FK_Customers_Types">
             <End Role="Types" EntitySet="Types" />
             <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CusWork_Customers" Association="Self.FK_CusWork_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CusWork" EntitySet="CusWork" />
           </AssociationSet>
           <AssociationSet Name="FK_Scheduale_Customers" Association="Self.FK_Scheduale_Customers">
             <End Role="Customers" EntitySet="Customers" />
@@ -316,10 +315,6 @@
             <End Role="Grades" EntitySet="Grades" />
             <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
           </AssociationSet>
-          <AssociationSet Name="FK_Customers_CusWork" Association="SalesModel.FK_Customers_CusWork">
-            <End Role="CusWork" EntitySet="CusWork" />
-            <End Role="Customers" EntitySet="Customers" />
-          </AssociationSet>
           <AssociationSet Name="FK_Customers_Specials" Association="SalesModel.FK_Customers_Specials">
             <End Role="Specials" EntitySet="Specials" />
             <End Role="Customers" EntitySet="Customers" />
@@ -327,6 +322,10 @@
           <AssociationSet Name="FK_Customers_Types" Association="SalesModel.FK_Customers_Types">
             <End Role="Types" EntitySet="Types" />
             <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CusWork_Customers" Association="SalesModel.FK_CusWork_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CusWork" EntitySet="CusWork" />
           </AssociationSet>
           <AssociationSet Name="FK_Scheduale_Customers" Association="SalesModel.FK_Scheduale_Customers">
             <End Role="Customers" EntitySet="Customers" />
@@ -370,7 +369,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Code" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="MobileP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -381,13 +379,12 @@
           <Property Name="TypeId" Type="Int32" />
           <Property Name="SpecialId" Type="Int32" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="CusWorkId" Type="Int32" />
           <Property Name="AreaId" Type="Int32" />
           <NavigationProperty Name="Areas" Relationship="SalesModel.FK_Customers_Areas" FromRole="Customers" ToRole="Areas" />
           <NavigationProperty Name="CustomerBridgeGrade" Relationship="SalesModel.FK_CustomerBridgeGrade_Customers" FromRole="Customers" ToRole="CustomerBridgeGrade" />
-          <NavigationProperty Name="CusWork" Relationship="SalesModel.FK_Customers_CusWork" FromRole="Customers" ToRole="CusWork" />
           <NavigationProperty Name="Specials" Relationship="SalesModel.FK_Customers_Specials" FromRole="Customers" ToRole="Specials" />
           <NavigationProperty Name="Types" Relationship="SalesModel.FK_Customers_Types" FromRole="Customers" ToRole="Types" />
+          <NavigationProperty Name="CusWork" Relationship="SalesModel.FK_CusWork_Customers" FromRole="Customers" ToRole="CusWork" />
           <NavigationProperty Name="Scheduale" Relationship="SalesModel.FK_Scheduale_Customers" FromRole="Customers" ToRole="Scheduale" />
         </EntityType>
         <EntityType Name="CusWork">
@@ -398,7 +395,8 @@
           <Property Name="Day" Type="Int32" />
           <Property Name="Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Customers" Relationship="SalesModel.FK_Customers_CusWork" FromRole="CusWork" ToRole="Customers" />
+          <Property Name="CustomerId" Type="Int32" />
+          <NavigationProperty Name="Customers" Relationship="SalesModel.FK_CusWork_Customers" FromRole="CusWork" ToRole="Customers" />
         </EntityType>
         <EntityType Name="Grades">
           <Key>
@@ -523,18 +521,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Customers_CusWork">
-          <End Type="SalesModel.CusWork" Role="CusWork" Multiplicity="0..1" />
-          <End Type="SalesModel.Customers" Role="Customers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CusWork">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Customers">
-              <PropertyRef Name="CusWorkId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Customers_Specials">
           <End Type="SalesModel.Specials" Role="Specials" Multiplicity="0..1" />
           <End Type="SalesModel.Customers" Role="Customers" Multiplicity="*" />
@@ -556,6 +542,18 @@
             </Principal>
             <Dependent Role="Customers">
               <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CusWork_Customers">
+          <End Type="SalesModel.Customers" Role="Customers" Multiplicity="0..1" />
+          <End Type="SalesModel.CusWork" Role="CusWork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CusWork">
+              <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -583,7 +581,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -620,7 +618,6 @@
             <EntityTypeMapping TypeName="SalesModel.Customers">
               <MappingFragment StoreEntitySet="Customers">
                 <ScalarProperty Name="AreaId" ColumnName="AreaId" />
-                <ScalarProperty Name="CusWorkId" ColumnName="CusWorkId" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="SpecialId" ColumnName="SpecialId" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
@@ -631,7 +628,6 @@
                 <ScalarProperty Name="MobileP" ColumnName="MobileP" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -639,6 +635,7 @@
           <EntitySetMapping Name="CusWork">
             <EntityTypeMapping TypeName="SalesModel.CusWork">
               <MappingFragment StoreEntitySet="CusWork">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Day" ColumnName="Day" />
