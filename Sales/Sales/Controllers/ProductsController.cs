@@ -24,6 +24,32 @@ namespace Sales.Controllers
             ViewBag.Title = "Products Operations";
             return View(products);
         }
+        [IsLogged]
+        public JsonResult Create(Products model)
+        {
+            if (ProductsBLL.Add(model) != 0)
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [IsLogged]
+        public JsonResult Del(int Id)
+        {
+            if (Id > 1)
+            {
+                ProductsBLL.Delete(Id);
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json("error", JsonRequestBehavior.AllowGet);
+            }
+        }
+
 
     }
 }
