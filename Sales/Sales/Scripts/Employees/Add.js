@@ -7,13 +7,13 @@
         nationalid = $("#nationalid").val(),
         address = $("#address").val(),
         status = 1,
-        rule = 1,
+        rule = 0,
         model = { Name: fullname, Username: username, Password: password, Email: email, NationalId: nationalid, Address: address, Phone: phone, Rule: rule , Status : status };
     if (fullname !== "" && username !== "" && password !== "") {
         if (username.length > 6) {
             if (password.length > 6) {
                 $.ajax({
-                    url: "/Managers/Create",
+                    url: "/Employees/Create",
                     type: 'POST',
                     data: JSON.stringify({ model: model }),
                     async: false,

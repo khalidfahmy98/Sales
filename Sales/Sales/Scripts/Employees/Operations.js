@@ -1,7 +1,7 @@
 ﻿function Del(id, ele) {
     if (id > 1) {
         $.ajax({
-            url: "/Managers/Del",
+            url: "/Employees/Del",
             type: 'POST',
             data: JSON.stringify({ Id: id }),
             async: false,
@@ -11,7 +11,7 @@
             success: function (data, textStatus, jqXHR) {
                 if (data == "success") {
                     $(ele).parent("td").parent("tr").remove();
-                    $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Manager Deleted Successfully");
+                    $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Employee Deleted Successfully");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
