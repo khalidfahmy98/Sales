@@ -283,6 +283,7 @@
     <Content Include="Views\Products\Operations.cshtml" />
     <Content Include="Views\Colors\Operations.cshtml" />
     <Content Include="Views\Colors\Select.cshtml" />
+    <Content Include="Views\Types\DataView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

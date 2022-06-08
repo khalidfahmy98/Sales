@@ -11,5 +11,6 @@ namespace DAL
         public static GenericDAL<ManEmp> ManEmp = new GenericDAL<ManEmp>();
         public static GenericDAL<Products> Products = new GenericDAL<Products>();
         public static GenericDAL<Colors> Colors = new GenericDAL<Colors>();
+        public static GenericDAL<Types> Types = new GenericDAL<Types>();
     }
 }

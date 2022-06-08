@@ -17,5 +17,11 @@ namespace Sales.Controllers
             ViewBag.Title = "Types Operations";
             return View();
         }
+        [IsLogged]
+        public ActionResult DataView()
+        {
+            return View();
+        }
+
     }
 }
