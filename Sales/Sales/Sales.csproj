@@ -181,6 +181,8 @@
     <Content Include="Scripts\datatablemin.js" />
     <Content Include="Scripts\Employees\Add.js" />
     <Content Include="Scripts\Employees\Operations.js" />
+    <Content Include="Scripts\Grades\Add.js" />
+    <Content Include="Scripts\Grades\Operations.js" />
     <Content Include="Scripts\Home\Account.js" />
     <Content Include="Scripts\Home\EAccount.js" />
     <Content Include="Scripts\Home\Requests.js" />
@@ -286,6 +288,7 @@
     <Content Include="Views\Colors\Operations.cshtml" />
     <Content Include="Views\Colors\Select.cshtml" />
     <Content Include="Views\Types\DataView.cshtml" />
+    <Content Include="Views\Grades\DataView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
