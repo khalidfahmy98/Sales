@@ -20,8 +20,9 @@ namespace Sales.Controllers
         [IsLogged]
         public ActionResult Operations()
         {
+            List<Products> products = ProductsBLL.List().ToList();
             ViewBag.Title = "Products Operations";
-            return View();
+            return View(products);
         }
 
     }
