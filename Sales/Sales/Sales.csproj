@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\IsLogged.cs" />
     <Compile Include="Common\IsManager.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -254,6 +255,8 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Managers\Index.cshtml" />
     <Content Include="Views\Managers\Operations.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customers\Operations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
