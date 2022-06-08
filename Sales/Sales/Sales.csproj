@@ -172,6 +172,8 @@
     <Content Include="Imgs\nik-younie-6aWQ9tvOK9c-unsplash.jpg" />
     <Content Include="Imgs\register-background.png" />
     <Content Include="Imgs\simon-matzinger-boyXZfqpwpU-unsplash.jpg" />
+    <Content Include="Scripts\Areas\Add.js" />
+    <Content Include="Scripts\Areas\Operations.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\style.css.map" />
@@ -289,6 +291,7 @@
     <Content Include="Views\Colors\Select.cshtml" />
     <Content Include="Views\Types\DataView.cshtml" />
     <Content Include="Views\Grades\DataView.cshtml" />
+    <Content Include="Views\Areas\DataView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
