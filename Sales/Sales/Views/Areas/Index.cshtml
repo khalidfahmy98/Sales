@@ -1,1 +1,30 @@
-﻿
+﻿<div class="panel">
+    <div class="panel-heading">
+        Create New Customer Area 
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <input type="hidden" id="id" />
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Area Name</label>
+                <input type="text" class="form-control input-sm" id="name" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Comment</label>
+                <input type="text" class="form-control input-sm" id="comment" />
+            </div>
+        </div>
+        <button class="btn btn-sm btn-primary" onclick="Add()"> Create New Customer Area </button>
+        <div class="alert hide" id="errorHandler"></div>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-heading">
+        Customer Areas  Management
+    </div>
+    <div class="panel-body">
+        <div id="View"></div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Scripts/Areas/Operations.js"></script>
+<script type="text/javascript" src="~/Scripts/Areas/Add.js"></script>

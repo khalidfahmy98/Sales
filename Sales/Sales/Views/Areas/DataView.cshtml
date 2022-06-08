@@ -1,7 +1,30 @@
-﻿
-@{
-    ViewBag.Title = "DataView";
+﻿@{
+    Layout = null;
 }
-
-<h2>DataView</h2>
-
+@model IEnumerable<Entity.Areas>
+<table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Area Name</th>
+            <th>Comment</th>
+            <th>OPR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Area</td>
+                <td>@item.Comment</td>
+                <td> <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable();
+    });
+</script>
