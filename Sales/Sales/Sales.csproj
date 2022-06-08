@@ -193,6 +193,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Login\Operations.js" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\Managers\Add.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\primary.js" />
     <Content Include="Scripts\qrcode.min.js" />

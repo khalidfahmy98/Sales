@@ -25,5 +25,33 @@ namespace Sales.Controllers
             ViewBag.Title = "Managers Operations";
             return View();
         }
+        [IsLogged]
+        [IsManager]
+        public JsonResult Create(ManEmp model)
+        {
+            if (ManEmpBLL.Add(model) != 0)
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { error = "error", msg = "Username Already Registered" }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [IsLogged]
+        [IsManager]
+        public JsonResult Del(int Id)
+        {
+            if (Id > 1)
+            {
+                ManEmpBLL.Delete(Id);
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json("error", JsonRequestBehavior.AllowGet);
+            }
+        }
+
     }
 }
