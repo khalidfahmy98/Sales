@@ -1,0 +1,12 @@
+﻿
+@{
+    Layout = null;
+}
+@model IEnumerable<Entity.Grades>
+
+<select class="form-control input-sm" id="grade">
+    @foreach (var item in Model)
+    {
+        <option value="@item.Id" @(ViewBag.Id == item.Id ? "selected" : "")>@item.Grade</option>
+    }
+</select>

@@ -24,6 +24,17 @@ namespace Sales.Controllers
             return View(types);
         }
         [IsLogged]
+        public ActionResult Select(int Id = 0)
+        {
+            if (Id != 0)
+            {
+                ViewBag.Id = Id;
+            }
+            List<Areas> types = AreasBLL.List().ToList();
+            return View(types);
+        }
+
+        [IsLogged]
         public JsonResult Create(Areas model)
         {
             if (AreasBLL.Add(model) != 0)

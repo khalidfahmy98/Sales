@@ -24,6 +24,17 @@ namespace Sales.Controllers
             return View(grades);
         }
         [IsLogged]
+        public ActionResult Select(int Id = 0)
+        {
+            if (Id != 0)
+            {
+                ViewBag.Id = Id;
+            }
+            List<Grades> grades = GradesBLL.List().ToList();
+            return View(grades);
+        }
+
+        [IsLogged]
         public JsonResult Create(Grades model)
         {
             if (GradesBLL.Add(model) != 0)
