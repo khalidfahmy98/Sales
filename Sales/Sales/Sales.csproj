@@ -132,6 +132,7 @@
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\ColorsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\GradesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
@@ -267,6 +268,8 @@
     <Content Include="Views\Types\Index.cshtml" />
     <Content Include="Views\Areas\Index.cshtml" />
     <Content Include="Views\Colors\Index.cshtml" />
+    <Content Include="Views\Employees\Operations.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
