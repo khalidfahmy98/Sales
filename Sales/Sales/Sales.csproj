@@ -256,6 +256,8 @@
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\Colors\Add.js" />
     <Content Include="Scripts\Colors\Operations.js" />
+    <Content Include="Scripts\Specials\Add.js" />
+    <Content Include="Scripts\Specials\Operations.js" />
     <Content Include="Scripts\Types\Add.js" />
     <Content Include="Scripts\Types\Operations.js" />
     <Content Include="Web.config" />
@@ -292,6 +294,7 @@
     <Content Include="Views\Types\DataView.cshtml" />
     <Content Include="Views\Grades\DataView.cshtml" />
     <Content Include="Views\Areas\DataView.cshtml" />
+    <Content Include="Views\Specials\DataView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
