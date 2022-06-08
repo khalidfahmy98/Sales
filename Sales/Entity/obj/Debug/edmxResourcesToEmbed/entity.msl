@@ -32,7 +32,6 @@
       <EntityTypeMapping TypeName="SalesModel.Customers">
         <MappingFragment StoreEntitySet="Customers">
           <ScalarProperty Name="AreaId" ColumnName="AreaId" />
-          <ScalarProperty Name="CusWorkId" ColumnName="CusWorkId" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />
           <ScalarProperty Name="SpecialId" ColumnName="SpecialId" />
           <ScalarProperty Name="TypeId" ColumnName="TypeId" />
@@ -43,7 +42,6 @@
           <ScalarProperty Name="MobileP" ColumnName="MobileP" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -51,6 +49,7 @@
     <EntitySetMapping Name="CusWork">
       <EntityTypeMapping TypeName="SalesModel.CusWork">
         <MappingFragment StoreEntitySet="CusWork">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Day" ColumnName="Day" />

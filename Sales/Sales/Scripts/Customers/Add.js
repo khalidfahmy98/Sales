@@ -15,7 +15,7 @@
             , MobileS: mobiles, Address: address, NearestPharmacyP: pharmap
             , NearestPharmacyS: pharmas, TypeId: type, SpecialId: special , Comment : comment , AreaId : area
         };
-    if (fullname !== "" && username !== "" && password !== "") {
+    if (fullname !== "" && phone !== "" && mobilep !== "" && mobiles !== "" && pharmap !== "" && pharmas !== "" && address !== "") {
         $.ajax({
             url: "/Customers/Create",
             type: 'POST',
