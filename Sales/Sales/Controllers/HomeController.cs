@@ -5,17 +5,20 @@ using System.Web;
 using System.Web.Mvc;
 using Entity;
 using BLL;
+using Sales.Common;
 
 namespace Sales.Controllers
 {
     public class HomeController : Controller
     {
+        [IsLogged]
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult Login()
         {
+            ViewBag.Title = "Login";
             return View();
         }
         [HttpPost]
@@ -42,6 +45,16 @@ namespace Sales.Controllers
 
             }
         }
+
+        [IsLogged]
+        public ActionResult Logout()
+        {
+            Session.Remove("UserID");
+            Session.Remove("Username");
+            Session.Remove("Rule");
+            return View("Login");
+        }
+
 
 
     }
