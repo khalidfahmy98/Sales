@@ -22,8 +22,9 @@ namespace Sales.Controllers
         [IsManager]
         public ActionResult Operations()
         {
+            List<ManEmp> users = ManEmpBLL.List().ToList();
             ViewBag.Title = "Managers Operations";
-            return View();
+            return View(users);
         }
         [IsLogged]
         [IsManager]
