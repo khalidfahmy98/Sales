@@ -45,13 +45,13 @@
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">@Session["Username"]</div>
                                     <div class="widget-subheading">
-                                        @if (Convert.ToInt32(Session["Rule"]) == 0)
+                                        @if (Convert.ToInt32(Session["Rule"]) == 1)
                                         {
                                             <span>Manager</span>
                                         }
                                         else
                                         {
-                                            <span>Editor</span>
+                                            <span>Employee</span>
                                         }
                                     </div>
                                 </div>
