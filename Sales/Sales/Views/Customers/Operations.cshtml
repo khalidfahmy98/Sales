@@ -1,1 +1,42 @@
-﻿
+﻿@model IEnumerable<Entity.Customers>
+<div class="panel">
+    <div class="panel-heading">
+        Customers Operations
+    </div>
+    <div class="panel-body">
+        <table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Phone </th>
+                    <th>1st Mobile - 2nd Mobile</th>
+                    <th>1st Pharmacy - 2nd Pharmacy</th>
+                    <th>Area</th>
+                    <th>Address</th>
+                    <th>Type</th>
+                    <th>Special</th>
+                    <th>OPR</th>
+                </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Phone</td>
+                    <td>@item.MobileP - @item.MobileS</td>
+                    <td>@item.NearestPharmacyP - @item.NearestPharmacyS</td>
+                    <td>@item.Areas.Area</td>
+                    <td>@item.Address</td>
+                    <td>@item.Types.Type</td>
+                    <td>@item.Specials.Name</td>
+                    <td> <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <div class="alert hide" id="errorHandler"></div>
+    </div>
+</div>
+<script src="~/Scripts/Customers/Operations.js"></script>

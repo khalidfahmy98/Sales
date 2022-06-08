@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
                 <label>Area</label>
-                @Html.Action("Select" , "Areas")
+                @Html.Action("Select", "Areas")
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
                 <label>Type</label>
@@ -43,6 +43,10 @@
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
                 <label>Special</label>
                 @Html.Action("Select", "Specials")
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Comment</label>
+                <input type="text" class="form-control input-sm" id="comment" />
             </div>
         </div>
         <button class="btn btn-sm btn-primary" onclick="Add()">Create New Customer Account</button>
