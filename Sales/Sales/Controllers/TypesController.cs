@@ -23,6 +23,25 @@ namespace Sales.Controllers
             List<Types> types = TypesBLL.List().ToList();
             return View(types);
         }
+        [IsLogged]
+        public JsonResult Create(Types model)
+        {
+            if (TypesBLL.Add(model) != 0)
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [IsLogged]
+        public JsonResult Del(int Id)
+        {
+            TypesBLL.Delete(Id);
+            return Json("success", JsonRequestBehavior.AllowGet);
+        }
+
 
     }
 }

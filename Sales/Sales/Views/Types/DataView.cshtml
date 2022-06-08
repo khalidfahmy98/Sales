@@ -1,15 +1,30 @@
 ﻿@{
     Layout = null;
 }
-@*@model IEnumerable<Entity.Departments>*@
+@model IEnumerable<Entity.Types>
 <table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
             <th>#</th>
-            <th>Name</th>
+            <th>Type Name </th>
+            <th>No. Of Visits</th>
+            <th>Color Hexa</th>
+            <th>Color Preview</th>
+            <th>OPR</th>
         </tr>
     </thead>
     <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Type</td>
+            <td>@item.NoVisits</td>
+            <td>@item.Colors.Hexa</td>
+            <td><span style="display:block;width:40px;height:25px;padding:10px;background-color:@item.Colors.Hexa"></span></td>
+            <td> <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button></td>
+        </tr>
+        }
     </tbody>
 </table>
 <script>

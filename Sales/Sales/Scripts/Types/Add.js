@@ -1,7 +1,9 @@
 ﻿function Add() {
     var name = $("#name").val(),
-        model = { Name: name };
-    if (name !== "") {
+        novisits = $("#novisits").val(),
+        color = $("#color").val(),
+        model = { Type: name, NoVisits: novisits, ColorId: color };
+    if (name !== "" && novisits !== "") {
         $.ajax({
             url: "/Types/Create",
             type: 'POST',
@@ -13,7 +15,7 @@
             success: function (data, textStatus, jqXHR) {
                 if (data == "success") {
                     ReloadView();
-                    $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Registered Department");
+                    $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Created New Customer Type Successfully .. ! ");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {

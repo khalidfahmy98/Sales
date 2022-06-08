@@ -6,11 +6,19 @@
         <div class="row">
             <input type="hidden" id="id" />
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
-                <label>Department Name</label>
+                <label>Type Name</label>
                 <input type="text" class="form-control input-sm" id="name" />
             </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>No. Of Visits </label>
+                <input type="text" class="form-control input-sm" id="novisits" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Color</label>
+                @Html.Action("Select", "Colors")
+            </div>
         </div>
-        <button class="btn btn-sm btn-primary" id="save" onclick="Add()">Register Department</button>
+        <button class="btn btn-sm btn-primary"  onclick="Add()"> Create New Customer Type </button>
         <div class="alert hide" id="errorHandler"></div>
     </div>
 </div>

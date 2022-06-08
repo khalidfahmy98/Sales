@@ -3,7 +3,7 @@
 }
 @model IEnumerable<Entity.Colors>
 
-<select class="form-control input-sm" id="department">
+<select class="form-control input-sm" id="color">
     @foreach (var item in Model)
     {
         <option value="@item.Id" @(ViewBag.Id == item.Id ? "selected" : "")>@item.Color</option>
