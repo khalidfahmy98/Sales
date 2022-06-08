@@ -1,1 +1,40 @@
-﻿
+﻿<div class="panel">
+    <div class="panel-heading">
+        Create New System Manager
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Full Name</label>
+                <input type="text" class="form-control input-sm" id="fullname" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Email </label>
+                <input type="text" class="form-control input-sm" id="email" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Phone </label>
+                <input type="text" class="form-control input-sm" id="phone" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Address </label>
+                <input type="text" class="form-control input-sm" id="address" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>National Id </label>
+                <input type="text" class="form-control input-sm" id="nationalid" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Username</label>
+                <input type="text" class="form-control input-sm" id="username" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Password</label>
+                <input type="text" class="form-control input-sm" id="password" />
+            </div>
+        </div>
+        <button class="btn btn-sm btn-primary" onclick="Add()">Create New Employee Account</button>
+        <div class="alert hide" id="errorHandler"></div>
+    </div>
+</div>
+<script src="~/Scripts/Employees/Add.js"></script>

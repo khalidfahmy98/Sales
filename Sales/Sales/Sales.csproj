@@ -179,6 +179,8 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\datatablebootstrap.js" />
     <Content Include="Scripts\datatablemin.js" />
+    <Content Include="Scripts\Employees\Add.js" />
+    <Content Include="Scripts\Employees\Operations.js" />
     <Content Include="Scripts\Home\Account.js" />
     <Content Include="Scripts\Home\EAccount.js" />
     <Content Include="Scripts\Home\Requests.js" />
