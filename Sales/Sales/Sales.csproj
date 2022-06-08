@@ -252,6 +252,8 @@
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\Colors\Add.js" />
     <Content Include="Scripts\Colors\Operations.js" />
+    <Content Include="Scripts\Types\Add.js" />
+    <Content Include="Scripts\Types\Operations.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

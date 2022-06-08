@@ -1,1 +1,26 @@
-﻿
+﻿<div class="panel">
+    <div class="panel-heading">
+        Create New Customer Type  
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <input type="hidden" id="id" />
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Department Name</label>
+                <input type="text" class="form-control input-sm" id="name" />
+            </div>
+        </div>
+        <button class="btn btn-sm btn-primary" id="save" onclick="Add()">Register Department</button>
+        <div class="alert hide" id="errorHandler"></div>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-heading">
+        Customer Types Management 
+    </div>
+    <div class="panel-body">
+        <div id="View"></div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Scripts/Types/Operations.js"></script>
+<script type="text/javascript" src="~/Scripts/Types/Add.js"></script>

@@ -20,7 +20,8 @@ namespace Sales.Controllers
         [IsLogged]
         public ActionResult DataView()
         {
-            return View();
+            List<Types> types = TypesBLL.List().ToList();
+            return View(types);
         }
 
     }
