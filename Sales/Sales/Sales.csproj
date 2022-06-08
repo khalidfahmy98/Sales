@@ -130,6 +130,7 @@
     <Compile Include="Common\IsLogged.cs" />
     <Compile Include="Common\IsManager.cs" />
     <Compile Include="Controllers\AreasController.cs" />
+    <Compile Include="Controllers\ColorsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\GradesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -265,6 +266,7 @@
     <Content Include="Views\Grades\Index.cshtml" />
     <Content Include="Views\Types\Index.cshtml" />
     <Content Include="Views\Areas\Index.cshtml" />
+    <Content Include="Views\Colors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
