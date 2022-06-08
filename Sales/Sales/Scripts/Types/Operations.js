@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     ReloadView();
 });
-function del(id, ele) {
+function Del(id, ele) {
     $.ajax({
         url: "/Types/Del",
         type: 'POST',
