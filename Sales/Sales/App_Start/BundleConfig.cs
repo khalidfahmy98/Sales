@@ -21,6 +21,7 @@ namespace Sales
                       "~/Scripts/datatablemin.js",
                       "~/Scripts/datatablebootstrap.js",
                       "~/Scripts/qrcode.min.js",
+                      "~/Scripts/jquery.dateandtime.js",
                       "~/Scripts/primary.js"
                       ));
 

@@ -12,9 +12,9 @@ namespace Sales.Controllers
     public class CusWorkController : Controller
     {
         [IsLogged]
-        public ActionResult DataView()
+        public ActionResult DataView(int Id )
         {
-            List<CusWork> times = CusWorkBLL.List().ToList();
+            List<CusWork> times = CusWorkBLL.List().Where(e => e.CustomerId == Id).ToList();
             return View(times);
         }
 

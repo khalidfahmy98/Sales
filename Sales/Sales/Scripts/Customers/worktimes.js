@@ -1,10 +1,10 @@
 ﻿$(document).ready(function () {
-    ReloadView();
+    $('#time').dateAndTime();
 });
 function Add() {
-    var customer = $("#name").val(),
-        day = $("#comment").val(),
-        time = $("#comment").val(),
+    var customer = $("#id").val(),
+        day = $("#day").val(),
+        time = $("#time").val(),
         comment = $("#comment").val(),
         model = { Day: day, Time: time , Comment: comment, CustomerId: customer };
     if (day !== "" && comment !== "" && customer !== "") {
@@ -18,7 +18,7 @@ function Add() {
             processData: false,
             success: function (data, textStatus, jqXHR) {
                 if (data == "success") {
-                    ReloadView();
+                    ReloadView(customer);
                     $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Created New Customer Work Time Successfully .. ! ");
                 }
             },
@@ -50,9 +50,9 @@ function Del(id, ele) {
         }
     });
 }
-function ReloadView() {
+function ReloadView(id) {
     $.ajax({
-        url: "/CusWork/DataView",
+        url: "/CusWork/DataView/"+id,
         type: 'GET',
         async: false,
         contentType: 'charset=utf-8',
