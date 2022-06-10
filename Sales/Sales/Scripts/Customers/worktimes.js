@@ -41,7 +41,7 @@ function Del(id, ele) {
         processData: false,
         success: function (data, textStatus, jqXHR) {
             if (data == "success") {
-                ReloadView();
+                ReloadView(id);
                 $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Deleted Customer Work Time Successfully");
             }
         },
