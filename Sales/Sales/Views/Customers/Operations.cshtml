@@ -31,7 +31,10 @@
                     <td>@item.Address</td>
                     <td>@item.Types.Type</td>
                     <td>@item.Specials.Name</td>
-                    <td> <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button></td>
+                    <td> 
+                        <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button>
+                        <a href="~/Customers/WorkTimes/@item.Id" class="btn btn-xs btn-warning"> Work Times</a>
+                    </td>
                 </tr>
                 }
             </tbody>

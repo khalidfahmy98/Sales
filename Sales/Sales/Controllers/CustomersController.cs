@@ -25,6 +25,13 @@ namespace Sales.Controllers
             return View(customer);
         }
         [IsLogged]
+        public ActionResult WorkTimes(int id)
+        {
+            Customers customer = CustomersBLL.List().Where(e => e.Id == id).FirstOrDefault();
+            ViewBag.Title = "Assign Customer Work Times";
+            return View(customer);
+        }
+        [IsLogged]
         public JsonResult Create(Customers model)
         {
             if (CustomersBLL.Add(model) != 0)

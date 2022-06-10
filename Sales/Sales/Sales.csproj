@@ -132,6 +132,7 @@
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\ColorsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\CusWorkController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\GradesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -181,6 +182,7 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Customers\Add.js" />
     <Content Include="Scripts\Customers\Operations.js" />
+    <Content Include="Scripts\Customers\worktimes.js" />
     <Content Include="Scripts\datatablebootstrap.js" />
     <Content Include="Scripts\datatablemin.js" />
     <Content Include="Scripts\Employees\Add.js" />
@@ -301,6 +303,8 @@
     <Content Include="Views\Grades\Select.cshtml" />
     <Content Include="Views\Specials\Select.cshtml" />
     <Content Include="Views\Types\Select.cshtml" />
+    <Content Include="Views\Customers\WorkTimes.cshtml" />
+    <Content Include="Views\CusWork\DataView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

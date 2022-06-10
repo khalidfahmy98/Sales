@@ -16,5 +16,6 @@ namespace DAL
         public static GenericDAL<Grades> Grades = new GenericDAL<Grades>();
         public static GenericDAL<Areas> Areas = new GenericDAL<Areas>();
         public static GenericDAL<Specials> Specials = new GenericDAL<Specials>();
+        public static GenericDAL<CusWork> CusWork = new GenericDAL<CusWork>();
     }
 }
