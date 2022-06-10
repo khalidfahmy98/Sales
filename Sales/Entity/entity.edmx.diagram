@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d192a11f688b4a1585acb72faea56149" Name="Diagram1">
-        <EntityTypeShape EntityType="SalesModel.Areas" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="SalesModel.Areas" Width="1.5" PointX="3" PointY="8" />
         <EntityTypeShape EntityType="SalesModel.Colors" Width="1.5" PointX="0.75" PointY="4.75" />
         <EntityTypeShape EntityType="SalesModel.CustomerBridgeGrade" Width="1.5" PointX="7.5" PointY="4.625" />
         <EntityTypeShape EntityType="SalesModel.Customers" Width="1.5" PointX="5.25" PointY="3.375" />
@@ -14,8 +14,7 @@
         <EntityTypeShape EntityType="SalesModel.ManEmp" Width="1.5" PointX="5.25" PointY="9.5" />
         <EntityTypeShape EntityType="SalesModel.Products" Width="1.5" PointX="9.75" PointY="1.125" />
         <EntityTypeShape EntityType="SalesModel.Scheduale" Width="1.5" PointX="7.5" PointY="1.5" />
-        <EntityTypeShape EntityType="SalesModel.Specials" Width="1.5" PointX="3" PointY="8" />
-        <EntityTypeShape EntityType="SalesModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="4.125" />
+        <EntityTypeShape EntityType="SalesModel.Specials" Width="1.5" PointX="3" PointY="1.5" />
         <EntityTypeShape EntityType="SalesModel.Types" Width="1.5" PointX="3" PointY="4.5" />
         <AssociationConnector Association="SalesModel.FK_Customers_Areas" />
         <AssociationConnector Association="SalesModel.FK_Types_Colors" />

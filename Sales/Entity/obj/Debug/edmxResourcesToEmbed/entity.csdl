@@ -11,7 +11,6 @@
     <EntitySet Name="Products" EntityType="SalesModel.Products" />
     <EntitySet Name="Scheduale" EntityType="SalesModel.Scheduale" />
     <EntitySet Name="Specials" EntityType="SalesModel.Specials" />
-    <EntitySet Name="sysdiagrams" EntityType="SalesModel.sysdiagrams" />
     <EntitySet Name="Types" EntityType="SalesModel.Types" />
     <AssociationSet Name="FK_Customers_Areas" Association="SalesModel.FK_Customers_Areas">
       <End Role="Areas" EntitySet="Areas" />
@@ -165,16 +164,6 @@
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Customers" Relationship="SalesModel.FK_Customers_Specials" FromRole="Specials" ToRole="Customers" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Types">
     <Key>
