@@ -1,0 +1,13 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<Entity.Customers>
+
+<select class="form-control input-sm" id="customer">
+    @foreach (var item in Model)
+    {
+        <option value="@item.Id" @(ViewBag.Id == item.Id ? "selected" : "")>@item.Name</option>
+    }
+</select>
+
+

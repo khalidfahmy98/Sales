@@ -34,6 +34,17 @@ namespace Sales.Controllers
             }
         }
         [IsLogged]
+        public ActionResult Select(int Id = 0)
+        {
+            if (Id != 0)
+            {
+                ViewBag.Id = Id;
+            }
+            int UserId = Convert.ToInt32(Session["UserID"]);
+            List<Customers> customer = CustomersBLL.List().Where(e => e.ManEmpId == UserId).ToList();
+            return View(customer);
+        }
+        [IsLogged]
         public ActionResult WorkTimes(int id)
         {
             Customers customer = CustomersBLL.List().Where(e => e.Id == id).FirstOrDefault();

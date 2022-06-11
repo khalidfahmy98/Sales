@@ -131,6 +131,7 @@
     <Compile Include="Common\IsManager.cs" />
     <Compile Include="Controllers\AreasController.cs" />
     <Compile Include="Controllers\ColorsController.cs" />
+    <Compile Include="Controllers\CustomerBridgeGradeController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\CusWorkController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
@@ -180,6 +181,8 @@
     <Content Include="Content\style.css.map" />
     <Content Include="Content\style.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\CustomerBridgeGrade\Add.js" />
+    <Content Include="Scripts\CustomerBridgeGrade\Operations.js" />
     <Content Include="Scripts\Customers\Add.js" />
     <Content Include="Scripts\Customers\Operations.js" />
     <Content Include="Scripts\Customers\worktimes.js" />
@@ -306,6 +309,9 @@
     <Content Include="Views\Types\Select.cshtml" />
     <Content Include="Views\Customers\WorkTimes.cshtml" />
     <Content Include="Views\CusWork\DataView.cshtml" />
+    <Content Include="Views\CustomerBridgeGrade\DataView.cshtml" />
+    <Content Include="Views\CustomerBridgeGrade\Index.cshtml" />
+    <Content Include="Views\Customers\Select.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
