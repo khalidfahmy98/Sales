@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="AreasBLL.cs" />
     <Compile Include="ColorsBLL.cs" />
+    <Compile Include="CustomerBridgeGradeBLL.cs" />
     <Compile Include="CustomersBLL.cs" />
     <Compile Include="CusWorkBLL.cs" />
     <Compile Include="GradesBLL.cs" />
