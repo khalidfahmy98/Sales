@@ -22,6 +22,7 @@
     <EntitySetMapping Name="CustomerBridgeGrade">
       <EntityTypeMapping TypeName="SalesModel.CustomerBridgeGrade">
         <MappingFragment StoreEntitySet="CustomerBridgeGrade">
+          <ScalarProperty Name="ManEmpId" ColumnName="ManEmpId" />
           <ScalarProperty Name="GradeId" ColumnName="GradeId" />
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
           <ScalarProperty Name="Id" ColumnName="Id" />

@@ -3,7 +3,7 @@
 });
 function Del(id, ele) {
     $.ajax({
-        url: "/Grades/Del",
+        url: "/CustomerBridgeGrade/Del",
         type: 'POST',
         data: JSON.stringify({ Id: id }),
         async: false,
@@ -13,7 +13,7 @@ function Del(id, ele) {
         success: function (data, textStatus, jqXHR) {
             if (data == "success") {
                 ReloadView();
-                $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Deleted Customer Grade Category Successfully");
+                $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Deleted Customer Grade Assigned Successfully");
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -23,7 +23,7 @@ function Del(id, ele) {
 }
 function ReloadView() {
     $.ajax({
-        url: "/Grades/DataView",
+        url: "/CustomerBridgeGrade/DataView",
         type: 'GET',
         async: false,
         contentType: 'charset=utf-8',

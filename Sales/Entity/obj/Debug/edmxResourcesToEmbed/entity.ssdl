@@ -23,6 +23,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerId" Type="int" />
     <Property Name="GradeId" Type="int" />
+    <Property Name="ManEmpId" Type="int" />
   </EntityType>
   <EntityType Name="Customers">
     <Key>
@@ -144,6 +145,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_CustomerBridgeGrade_ManEmp">
+    <End Role="ManEmp" Type="Self.ManEmp" Multiplicity="0..1" />
+    <End Role="CustomerBridgeGrade" Type="Self.CustomerBridgeGrade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManEmp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomerBridgeGrade">
+        <PropertyRef Name="ManEmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Customers_Areas">
     <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
     <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
@@ -259,6 +272,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_CustomerBridgeGrade_Grades" Association="Self.FK_CustomerBridgeGrade_Grades">
       <End Role="Grades" EntitySet="Grades" />
+      <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerBridgeGrade_ManEmp" Association="Self.FK_CustomerBridgeGrade_ManEmp">
+      <End Role="ManEmp" EntitySet="ManEmp" />
       <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
     </AssociationSet>
     <AssociationSet Name="FK_Customers_Areas" Association="Self.FK_Customers_Areas">

@@ -21,19 +21,29 @@ namespace Sales.Controllers
         [IsLogged]
         public ActionResult DataView()
         {
-
-            return View();
+            int userId = Convert.ToInt32(Session["UserId"]);
+            List<CustomerBridgeGrade> bridge = CustomerBridgeGradeBLL.List().Where(e => e.ManEmpId == userId).ToList();
+            return View(bridge);
         }
         [IsLogged]
         public JsonResult Create(CustomerBridgeGrade model)
         {
-            if (CustomerBridgeGradeBLL.Add(model) != 0)
-            {
-                return Json("success", JsonRequestBehavior.AllowGet);
+            CustomerBridgeGrade grade = new CustomerBridgeGrade();
+            int userId = Convert.ToInt32(Session["UserId"]);
+            grade = CustomerBridgeGradeBLL.List().Where(e => e.CustomerId == model.CustomerId && e.ManEmpId == userId).FirstOrDefault();
+            if (grade == null) {
+                if (CustomerBridgeGradeBLL.Add(model) != 0)
+                {
+                    return Json("success", JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+                }
             }
             else
             {
-                return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+                return Json(new { error = "error", msg = "Already Assigned Grade For This Customer " }, JsonRequestBehavior.AllowGet);
             }
         }
         [IsLogged]

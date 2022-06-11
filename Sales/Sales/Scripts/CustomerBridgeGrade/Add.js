@@ -1,10 +1,11 @@
 ﻿function Add() {
-    var name = $("#name").val(),
-        comment = $("#comment").val(),
-        model = { Grade: name, Comment: comment};
-    if (name !== "" && comment !== "") {
+    var customer = $("#customer").val(),
+        grade = $("#grade").val(),
+        manemp = $("#id").val(),
+        model = { CustomerId: customer, GradeId: grade, ManEmpId: manemp };
+    if (customer !== "" && grade !== "") {
         $.ajax({
-            url: "/Grades/Create",
+            url: "/CustomerBridgeGrade/Create",
             type: 'POST',
             data: JSON.stringify({ model: model }),
             async: false,
@@ -14,7 +15,7 @@
             success: function (data, textStatus, jqXHR) {
                 if (data == "success") {
                     ReloadView();
-                    $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Created New Customer Grade Category Successfully .. ! ");
+                    $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Created New Customer Grade Assigned Successfully .. ! ");
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {

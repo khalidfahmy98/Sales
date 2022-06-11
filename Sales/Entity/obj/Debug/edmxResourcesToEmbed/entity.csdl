@@ -29,6 +29,10 @@
       <End Role="Grades" EntitySet="Grades" />
       <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
     </AssociationSet>
+    <AssociationSet Name="FK_CustomerBridgeGrade_ManEmp" Association="SalesModel.FK_CustomerBridgeGrade_ManEmp">
+      <End Role="ManEmp" EntitySet="ManEmp" />
+      <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
+    </AssociationSet>
     <AssociationSet Name="FK_Customers_ManEmp" Association="SalesModel.FK_Customers_ManEmp">
       <End Role="ManEmp" EntitySet="ManEmp" />
       <End Role="Customers" EntitySet="Customers" />
@@ -79,8 +83,10 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CustomerId" Type="Int32" />
     <Property Name="GradeId" Type="Int32" />
+    <Property Name="ManEmpId" Type="Int32" />
     <NavigationProperty Name="Customers" Relationship="SalesModel.FK_CustomerBridgeGrade_Customers" FromRole="CustomerBridgeGrade" ToRole="Customers" />
     <NavigationProperty Name="Grades" Relationship="SalesModel.FK_CustomerBridgeGrade_Grades" FromRole="CustomerBridgeGrade" ToRole="Grades" />
+    <NavigationProperty Name="ManEmp" Relationship="SalesModel.FK_CustomerBridgeGrade_ManEmp" FromRole="CustomerBridgeGrade" ToRole="ManEmp" />
   </EntityType>
   <EntityType Name="Customers">
     <Key>
@@ -141,6 +147,7 @@
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Rule" Type="Int32" />
     <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="CustomerBridgeGrade" Relationship="SalesModel.FK_CustomerBridgeGrade_ManEmp" FromRole="ManEmp" ToRole="CustomerBridgeGrade" />
     <NavigationProperty Name="Customers" Relationship="SalesModel.FK_Customers_ManEmp" FromRole="ManEmp" ToRole="Customers" />
     <NavigationProperty Name="Scheduale" Relationship="SalesModel.FK_Scheduale_ManEmp" FromRole="ManEmp" ToRole="Scheduale" />
   </EntityType>
@@ -239,6 +246,18 @@
       </Principal>
       <Dependent Role="CustomerBridgeGrade">
         <PropertyRef Name="GradeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerBridgeGrade_ManEmp">
+    <End Type="SalesModel.ManEmp" Role="ManEmp" Multiplicity="0..1" />
+    <End Type="SalesModel.CustomerBridgeGrade" Role="CustomerBridgeGrade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManEmp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomerBridgeGrade">
+        <PropertyRef Name="ManEmpId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
