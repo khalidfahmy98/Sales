@@ -4,7 +4,7 @@
         date = $("#date").val(),
         manemp = $("#id").val(),
         model = { CustomerId: customer, Month: month, ManEmpId: manemp, VisitDate: date};
-    if (customer !== "" && month !== "") {
+    if (customer !== "" && month !== "" && date !== "") {
         $.ajax({
             url: "/Scheduale/Create",
             type: 'POST',
