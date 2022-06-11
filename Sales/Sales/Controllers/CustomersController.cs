@@ -21,9 +21,17 @@ namespace Sales.Controllers
         [IsLogged]
         public ActionResult Operations()
         {
-            List<Customers> customer = CustomersBLL.List().ToList();
             ViewBag.Title = " Customers Operations";
-            return View(customer);
+            if (Convert.ToInt32(Session["Rule"]) == 1)
+            {
+                List<Customers> customer = CustomersBLL.List().ToList();
+                return View(customer);
+            }
+            else {
+                int UserId = Convert.ToInt32(Session["UserID"]);
+                List<Customers> customer = CustomersBLL.List().Where(e => e.ManEmpId == UserId).ToList();
+                return View(customer);
+            }
         }
         [IsLogged]
         public ActionResult WorkTimes(int id)
