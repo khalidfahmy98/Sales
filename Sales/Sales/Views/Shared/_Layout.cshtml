@@ -96,46 +96,56 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Dashboard</li>
                             <li><a class="mm-active" href="~/Home/"><i class="metismenu-icon pe-7s-home"> </i>Homepage </a></li>
-                            <li>
-                                <a href="#"><i class="metismenu-icon pe-7s-key"></i>Managers Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
-                                <ul>
-                                    <li><a href="~/Managers/"><i class="metismenu-icon"> </i>Create New</a></li>
-                                    <li><a href="~/Managers/Operations"><i class="metismenu-icon"> </i>  Operations </a></li>
-                                </ul>
-                            </li>
+                            @if (Convert.ToInt32(Session["Rule"]) == 1)
+                            {
+                                <li>
+                                    <a href="#"><i class="metismenu-icon pe-7s-key"></i>Managers Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
+                                    <ul>
+                                        <li><a href="~/Managers/"><i class="metismenu-icon"> </i>Create New</a></li>
+                                        <li><a href="~/Managers/Operations"><i class="metismenu-icon"> </i>  Operations </a></li>
+                                    </ul>
+                                </li>
+                            }
                             <li class="app-sidebar__heading">Main System</li>
                             <li>
                                 <a href="#"><i class="metismenu-icon pe-7s-users"></i>Customers Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
                                 <ul>
                                     <li><a href="~/Customers/"><i class="metismenu-icon"> </i>Create New</a></li>
                                     <li><a href="~/Customers/Operations"><i class="metismenu-icon"> </i> Operations </a></li>
-                                    <li><a href="~/Specials/"><i class="metismenu-icon"> </i> Specials </a></li>
-                                    <li><a href="~/Areas/"><i class="metismenu-icon"> </i> Areas </a></li>
-                                    <li><a href="~/Grades/"><i class="metismenu-icon"> </i> Grades </a></li>
-                                    <li><a href="~/Types/"><i class="metismenu-icon"> </i> Types </a></li>
+                                    @if (Convert.ToInt32(Session["Rule"]) == 1)
+                                    {
+                                        <li><a href="~/Specials/"><i class="metismenu-icon"> </i> Specials </a></li>
+                                        <li><a href="~/Areas/"><i class="metismenu-icon"> </i> Areas </a></li>
+                                        <li><a href="~/Grades/"><i class="metismenu-icon"> </i> Grades </a></li>
+                                        <li><a href="~/Types/"><i class="metismenu-icon"> </i> Types </a></li>
+                                    }
                                 </ul>
                             </li>
-                            <li>
-                                <a href="#"><i class="metismenu-icon pe-7s-world"></i>Employees Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
-                                <ul>
-                                    <li><a href="~/Employees/"><i class="metismenu-icon"> </i> Create New </a></li>
-                                    <li><a href="~/Employees/Operations"><i class="metismenu-icon"> </i> Operations</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="metismenu-icon pe-7s-cup"></i>Products Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
-                                <ul>
-                                    <li><a href="~/Products/"><i class="metismenu-icon"> </i> Create New </a></li>
-                                    <li><a href="~/Products/Operations"><i class="metismenu-icon"> </i> Operations</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="metismenu-icon pe-7s-config"></i>Type Colors Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
-                                <ul>
-                                    <li><a href="~/Colors/"><i class="metismenu-icon"> </i> Create New </a></li>
-                                    <li><a href="~/Colors/Operations"><i class="metismenu-icon"> </i> Operations</a></li>
-                                </ul>
-                            </li>
+                            @if (Convert.ToInt32(Session["Rule"]) == 1)
+                            {
+                                <li>
+                                    <a href="#"><i class="metismenu-icon pe-7s-world"></i>Employees Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
+                                    <ul>
+                                        <li><a href="~/Employees/"><i class="metismenu-icon"> </i> Create New </a></li>
+                                        <li><a href="~/Employees/Operations"><i class="metismenu-icon"> </i> Operations</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="metismenu-icon pe-7s-cup"></i>Products Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
+                                    <ul>
+                                        <li><a href="~/Products/"><i class="metismenu-icon"> </i> Create New </a></li>
+                                        <li><a href="~/Products/Operations"><i class="metismenu-icon"> </i> Operations</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="metismenu-icon pe-7s-config"></i>Type Colors Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
+                                    <ul>
+                                        <li><a href="~/Colors/"><i class="metismenu-icon"> </i> Create New </a></li>
+                                        <li><a href="~/Colors/Operations"><i class="metismenu-icon"> </i> Operations</a></li>
+                                    </ul>
+                                </li>
+
+                            }
                             <li><a href="#"><i class="metismenu-icon pe-7s-ticket"> </i>  Sales Scheduale </a></li>
                         </ul>
                     </div>
