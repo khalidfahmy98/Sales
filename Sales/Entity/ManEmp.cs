@@ -17,6 +17,7 @@ namespace Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ManEmp()
         {
+            this.CustomerBridgeGrade = new HashSet<CustomerBridgeGrade>();
             this.Customers = new HashSet<Customers>();
             this.Scheduale = new HashSet<Scheduale>();
         }
@@ -32,6 +33,8 @@ namespace Entity
         public Nullable<int> Rule { get; set; }
         public Nullable<int> Status { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CustomerBridgeGrade> CustomerBridgeGrade { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customers> Customers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

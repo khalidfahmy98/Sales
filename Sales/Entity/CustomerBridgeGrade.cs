@@ -17,8 +17,10 @@ namespace Entity
         public int Id { get; set; }
         public Nullable<int> CustomerId { get; set; }
         public Nullable<int> GradeId { get; set; }
+        public Nullable<int> ManEmpId { get; set; }
     
         public virtual Customers Customers { get; set; }
         public virtual Grades Grades { get; set; }
+        public virtual ManEmp ManEmp { get; set; }
     }
 }
