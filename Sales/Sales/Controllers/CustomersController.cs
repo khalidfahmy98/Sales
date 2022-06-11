@@ -14,6 +14,7 @@ namespace Sales.Controllers
         [IsLogged]
         public ActionResult Index()
         {
+            ViewBag.ManEmp = Session["UserID"]; 
             ViewBag.Title = "Create Customer";
             return View();
         }

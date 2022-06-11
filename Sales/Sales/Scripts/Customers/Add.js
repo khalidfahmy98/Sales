@@ -1,5 +1,6 @@
 ﻿function Add() {
     var fullname = $("#fullname").val(),
+        id = $("#id").val(),
         phone = $("#phone").val(),
         mobilep = $("#mobilep").val(),
         mobiles = $("#mobiles").val(),
@@ -13,7 +14,7 @@
         model = {
             Name: fullname, Phone: phone, MobileP: mobilep
             , MobileS: mobiles, Address: address, NearestPharmacyP: pharmap
-            , NearestPharmacyS: pharmas, TypeId: type, SpecialId: special , Comment : comment , AreaId : area
+            , NearestPharmacyS: pharmas, TypeId: type, SpecialId: special , Comment : comment , AreaId : area , ManEmpId : id 
         };
     if (fullname !== "" && phone !== "" && mobilep !== "" && mobiles !== "" && pharmap !== "" && pharmas !== "" && address !== "") {
         $.ajax({

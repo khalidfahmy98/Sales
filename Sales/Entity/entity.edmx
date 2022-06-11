@@ -45,6 +45,7 @@
           <Property Name="SpecialId" Type="int" />
           <Property Name="Comment" Type="varchar(max)" />
           <Property Name="AreaId" Type="int" />
+          <Property Name="ManEmpId" Type="int" />
         </EntityType>
         <EntityType Name="CusWork">
           <Key>
@@ -105,6 +106,16 @@
           <Property Name="Name" Type="varchar(max)" />
           <Property Name="Comment" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Types">
           <Key>
             <PropertyRef Name="Id" />
@@ -147,6 +158,18 @@
             </Principal>
             <Dependent Role="Customers">
               <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customers_ManEmp">
+          <End Role="ManEmp" Type="Self.ManEmp" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ManEmp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="ManEmpId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -233,6 +256,7 @@
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Scheduale" EntityType="Self.Scheduale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Specials" EntityType="Self.Specials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Types" EntityType="Self.Types" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CustomerBridgeGrade_Customers" Association="Self.FK_CustomerBridgeGrade_Customers">
             <End Role="Customers" EntitySet="Customers" />
@@ -244,6 +268,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Customers_Areas" Association="Self.FK_Customers_Areas">
             <End Role="Areas" EntitySet="Areas" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customers_ManEmp" Association="Self.FK_Customers_ManEmp">
+            <End Role="ManEmp" EntitySet="ManEmp" />
             <End Role="Customers" EntitySet="Customers" />
           </AssociationSet>
           <AssociationSet Name="FK_Customers_Specials" Association="Self.FK_Customers_Specials">
@@ -286,6 +314,7 @@
           <EntitySet Name="Products" EntityType="SalesModel.Products" />
           <EntitySet Name="Scheduale" EntityType="SalesModel.Scheduale" />
           <EntitySet Name="Specials" EntityType="SalesModel.Specials" />
+          <EntitySet Name="sysdiagrams" EntityType="SalesModel.sysdiagrams" />
           <EntitySet Name="Types" EntityType="SalesModel.Types" />
           <AssociationSet Name="FK_Customers_Areas" Association="SalesModel.FK_Customers_Areas">
             <End Role="Areas" EntitySet="Areas" />
@@ -302,6 +331,10 @@
           <AssociationSet Name="FK_CustomerBridgeGrade_Grades" Association="SalesModel.FK_CustomerBridgeGrade_Grades">
             <End Role="Grades" EntitySet="Grades" />
             <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customers_ManEmp" Association="SalesModel.FK_Customers_ManEmp">
+            <End Role="ManEmp" EntitySet="ManEmp" />
+            <End Role="Customers" EntitySet="Customers" />
           </AssociationSet>
           <AssociationSet Name="FK_Customers_Specials" Association="SalesModel.FK_Customers_Specials">
             <End Role="Specials" EntitySet="Specials" />
@@ -368,8 +401,10 @@
           <Property Name="SpecialId" Type="Int32" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="AreaId" Type="Int32" />
+          <Property Name="ManEmpId" Type="Int32" />
           <NavigationProperty Name="Areas" Relationship="SalesModel.FK_Customers_Areas" FromRole="Customers" ToRole="Areas" />
           <NavigationProperty Name="CustomerBridgeGrade" Relationship="SalesModel.FK_CustomerBridgeGrade_Customers" FromRole="Customers" ToRole="CustomerBridgeGrade" />
+          <NavigationProperty Name="ManEmp" Relationship="SalesModel.FK_Customers_ManEmp" FromRole="Customers" ToRole="ManEmp" />
           <NavigationProperty Name="Specials" Relationship="SalesModel.FK_Customers_Specials" FromRole="Customers" ToRole="Specials" />
           <NavigationProperty Name="Types" Relationship="SalesModel.FK_Customers_Types" FromRole="Customers" ToRole="Types" />
           <NavigationProperty Name="CusWork" Relationship="SalesModel.FK_CusWork_Customers" FromRole="Customers" ToRole="CusWork" />
@@ -409,6 +444,7 @@
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Rule" Type="Int32" />
           <Property Name="Status" Type="Int32" />
+          <NavigationProperty Name="Customers" Relationship="SalesModel.FK_Customers_ManEmp" FromRole="ManEmp" ToRole="Customers" />
           <NavigationProperty Name="Scheduale" Relationship="SalesModel.FK_Scheduale_ManEmp" FromRole="ManEmp" ToRole="Scheduale" />
         </EntityType>
         <EntityType Name="Products">
@@ -439,6 +475,16 @@
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Customers" Relationship="SalesModel.FK_Customers_Specials" FromRole="Specials" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Types">
           <Key>
@@ -496,6 +542,18 @@
             </Principal>
             <Dependent Role="CustomerBridgeGrade">
               <PropertyRef Name="GradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customers_ManEmp">
+          <End Type="SalesModel.ManEmp" Role="ManEmp" Multiplicity="0..1" />
+          <End Type="SalesModel.Customers" Role="Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ManEmp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="ManEmpId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -595,6 +653,7 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="SalesModel.Customers">
               <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="ManEmpId" ColumnName="ManEmpId" />
                 <ScalarProperty Name="AreaId" ColumnName="AreaId" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="SpecialId" ColumnName="SpecialId" />
@@ -672,6 +731,17 @@
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SalesModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
