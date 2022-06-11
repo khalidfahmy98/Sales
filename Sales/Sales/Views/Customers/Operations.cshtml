@@ -10,12 +10,13 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Phone </th>
-                    <th>1st Mobile - 2nd Mobile</th>
-                    <th>1st Pharmacy - 2nd Pharmacy</th>
+                    <th>1st - 2nd Mobile</th>
+                    <th>1st - 2nd Pharmacy</th>
                     <th>Area</th>
                     <th>Address</th>
                     <th>Type</th>
                     <th>Special</th>
+                    <th>Created By</th>
                     <th>OPR</th>
                 </tr>
             <tbody>
@@ -31,7 +32,8 @@
                     <td>@item.Address</td>
                     <td>@item.Types.Type</td>
                     <td>@item.Specials.Name</td>
-                    <td> 
+                    <td>@item.ManEmp.Name</td>
+                    <td>
                         <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button>
                         <a href="~/Customers/WorkTimes/@item.Id" class="btn btn-xs btn-warning"> Work Times</a>
                     </td>
