@@ -21,7 +21,7 @@ namespace Sales.Controllers
         [IsLogged]
         public ActionResult DataView()
         {
-            int userId = Convert.ToInt32(Session["UserId"]);
+            int userId = Convert.ToInt32(Session["UserID"]);
             List<CustomerBridgeGrade> bridge = CustomerBridgeGradeBLL.List().Where(e => e.ManEmpId == userId).ToList();
             return View(bridge);
         }
@@ -29,7 +29,7 @@ namespace Sales.Controllers
         public JsonResult Create(CustomerBridgeGrade model)
         {
             CustomerBridgeGrade grade = new CustomerBridgeGrade();
-            int userId = Convert.ToInt32(Session["UserId"]);
+            int userId = Convert.ToInt32(Session["UserID"]);
             grade = CustomerBridgeGradeBLL.List().Where(e => e.CustomerId == model.CustomerId && e.ManEmpId == userId).FirstOrDefault();
             if (grade == null) {
                 if (CustomerBridgeGradeBLL.Add(model) != 0)

@@ -121,7 +121,7 @@
                                     }
                                 </ul>
                             </li>
-                            <li><a  href="~/CustomerBridgeGrade/"><i class="metismenu-icon pe-7s-graph"> </i>My Grades </a></li>
+                            <li><a href="~/CustomerBridgeGrade/"><i class="metismenu-icon pe-7s-graph"> </i>My Grades </a></li>
                             @if (Convert.ToInt32(Session["Rule"]) == 1)
                             {
                                 <li>
@@ -145,9 +145,10 @@
                                         <li><a href="~/Colors/Operations"><i class="metismenu-icon"> </i> Operations</a></li>
                                     </ul>
                                 </li>
-
+                                <li><a href="~/Scheduale/"><i class="metismenu-icon pe-7s-ticket"> </i>  Sales Scheduales </a></li>
+                            }else{
+                                <li><a href="~/Scheduale/MyScheduales"><i class="metismenu-icon pe-7s-ticket"> </i>  My Scheduales </a></li>
                             }
-                            <li><a href="#"><i class="metismenu-icon pe-7s-ticket"> </i>  Sales Scheduale </a></li>
                         </ul>
                     </div>
                 </div>

@@ -139,6 +139,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\SchedualeController.cs" />
     <Compile Include="Controllers\SpecialsController.cs" />
     <Compile Include="Controllers\TypesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -214,6 +215,8 @@
     <Content Include="Scripts\Products\Add.js" />
     <Content Include="Scripts\Products\Operations.js" />
     <Content Include="Scripts\qrcode.min.js" />
+    <Content Include="Scripts\Scheduale\Add.js" />
+    <Content Include="Scripts\Scheduale\Operations.js" />
     <Content Include="Scripts\select2\i18n\az.js" />
     <Content Include="Scripts\select2\i18n\bg.js" />
     <Content Include="Scripts\select2\i18n\ca.js" />
@@ -312,6 +315,9 @@
     <Content Include="Views\CustomerBridgeGrade\DataView.cshtml" />
     <Content Include="Views\CustomerBridgeGrade\Index.cshtml" />
     <Content Include="Views\Customers\Select.cshtml" />
+    <Content Include="Views\Scheduale\Index.cshtml" />
+    <Content Include="Views\Scheduale\MyScheduales.cshtml" />
+    <Content Include="Views\Scheduale\DataView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

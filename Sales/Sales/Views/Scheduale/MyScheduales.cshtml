@@ -1,0 +1,47 @@
+﻿<div class="panel">
+    <div class="panel-heading">
+        Scheduale Visits 
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <input type="hidden" id="id" value="@Convert.ToInt32(Session["UserID"])" />
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Customer Name </label>
+                @Html.Action("Select", "Customers");
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Schedualed For Month</label>
+                <select class="form-control input-sm" id="month">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label> Visist Date  </label>
+                <input type="date" id="date" class="form-contorl input-sm"/>
+            </div>
+        </div>
+        <button class="btn btn-sm btn-primary" onclick="Add()"> Create New Schedualed Visit </button>
+        <div class="alert hide" id="errorHandler"></div>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-heading">
+        My Schedualed Visits 
+    </div>
+    <div class="panel-body">
+        <div id="View"></div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Scripts/Scheduale/Operations.js"></script>
+<script type="text/javascript" src="~/Scripts/Scheduale/Add.js"></script>

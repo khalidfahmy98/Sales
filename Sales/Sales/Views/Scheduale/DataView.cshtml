@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<Entity.Scheduale>
+<table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Customer</th>
+            <th>Month</th>
+            <th>Visit Date</th>
+            <th>OPR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Customers.Name</td>
+            <td>@item.Month</td>
+            <td>@item.VisitDate</td>
+            <td> <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable();
+    });
+</script>
