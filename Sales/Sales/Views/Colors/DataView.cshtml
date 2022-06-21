@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<Entity.Colors>
+<table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Color Name </th>
+            <th>Hexa</th>
+            <th>Color</th>
+            <th>OPR</th>
+        </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Color</td>
+                <td>@item.Hexa</td>
+                <td><span style="display:block;width:40px;height:25px;padding:10px;background-color:@item.Hexa"></span></td>
+                <td> <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable();
+    });
+</script>

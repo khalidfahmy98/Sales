@@ -13,6 +13,7 @@
             processData: false,
             success: function (data, textStatus, jqXHR) {
                 if (data == "success") {
+                    ReloadView();
                     $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Created New Type Color Successfully ..  ! ");
                 } else {
                     $("#errorHandler").removeClass("hide").addClass("alert-danger").text(data.msg);

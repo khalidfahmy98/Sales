@@ -25,6 +25,12 @@ namespace Sales.Controllers
             return View(Colors);
         }
         [IsLogged]
+        public ActionResult DataView()
+        {
+            List<Colors> Colors = ColorsBLL.List().ToList();
+            return View(Colors);
+        }
+        [IsLogged]
         public ActionResult Select(int Id = 0 )
         {
             if (Id != 0)
