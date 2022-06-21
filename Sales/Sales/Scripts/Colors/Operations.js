@@ -24,7 +24,7 @@ function Del(id, ele) {
 }
 function ReloadView() {
     $.ajax({
-        url: "/Grades/DataView",
+        url: "/Colors/DataView",
         type: 'GET',
         async: false,
         contentType: 'charset=utf-8',
