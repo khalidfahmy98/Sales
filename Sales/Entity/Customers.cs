@@ -28,6 +28,8 @@ namespace Entity
         public string MobileP { get; set; }
         public string MobileS { get; set; }
         public string Address { get; set; }
+        public string Lang { get; set; }
+        public string Lat { get; set; }
         public string NearestPharmacyP { get; set; }
         public string NearestPharmacyS { get; set; }
         public Nullable<int> TypeId { get; set; }
