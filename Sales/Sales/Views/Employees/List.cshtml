@@ -1,0 +1,30 @@
+﻿<div class="panel">
+    <div class="panel-heading">
+        Choose Employee & Filter Customers By Area To Assign    
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Employee</label>
+                @Html.Action("Select", "Areas")
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Customers Area</label>
+                @Html.Action("Select","Areas")
+            </div>
+        </div>
+        <button class="btn btn-sm btn-primary" onclick="Add()">Create New Type Color </button>
+        <div class="alert hide" id="errorHandler"></div>
+    </div>
+</div>
+
+<div class="panel">
+    <div class="panel-heading">
+        Assign Customer To List
+    </div>
+    <div class="panel-body">
+        <div id="View"></div>
+    </div>
+</div>
+<script src="~/Scripts/Colors/Add.js"></script>
+<script src="~/Scripts/Colors/Operations.js"></script>

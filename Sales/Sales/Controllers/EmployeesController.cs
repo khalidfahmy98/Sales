@@ -19,6 +19,27 @@ namespace Sales.Controllers
             return View();
         }
         [IsLogged]
+        public ActionResult List()
+        {
+            ViewBag.Title = "Employee Customer List";
+            return View();
+        }
+        [IsLogged]
+        public ActionResult ListDataview()
+        {
+            return View();
+        }
+        [IsLogged]
+        public ActionResult Select(int Id = 0)
+        {
+            if (Id != 0)
+            {
+                ViewBag.Id = Id;
+            }
+            List<ManEmp> ManEmps = ManEmpBLL.List().ToList();
+            return View(ManEmps);
+        }
+        [IsLogged]
         [IsManager]
         public ActionResult Operations()
         {
