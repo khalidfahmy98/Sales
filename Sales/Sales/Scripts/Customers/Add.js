@@ -11,16 +11,19 @@
         type = $("#type").val(),
         comment = $("#comment").val(),
         special = $("#special").val(),
+        lang = $("#lang").val(),
+        lat = $("#lat").val(),
         model = {
             Name: fullname, Phone: phone, MobileP: mobilep
             , MobileS: mobiles, Address: address, NearestPharmacyP: pharmap
-            , NearestPharmacyS: pharmas, TypeId: type, SpecialId: special , Comment : comment , AreaId : area , ManEmpId : id 
+            , NearestPharmacyS: pharmas, TypeId: type, SpecialId: special, Comment: comment
+            , AreaId: area, ManEmpId: id  , Lang : lang , Lat : lat 
         };
-    if (fullname !== "" && phone !== "" && mobilep !== "" && mobiles !== "" && pharmap !== "" && pharmas !== "" && address !== "") {
+    if (fullname !== "" && phone !== "" && mobilep !== "" && mobiles !== "" && pharmap !== "" && pharmas !== "" && address !== "" && lang !== "" && lat !== "") {
         $.ajax({
             url: "/Customers/Create",
             type: 'POST',
-            data: JSON.stringify({ model: model }),
+            data: JSON.stringify({ model: model }), 
             async: false,
             contentType: 'application/json; charset=utf-8',
             cache: false,
