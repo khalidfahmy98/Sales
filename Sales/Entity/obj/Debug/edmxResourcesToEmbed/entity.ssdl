@@ -35,6 +35,8 @@
     <Property Name="MobileP" Type="varchar(max)" />
     <Property Name="MobileS" Type="varchar(max)" />
     <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Lang" Type="varchar(max)" />
+    <Property Name="Lat" Type="varchar(max)" />
     <Property Name="NearestPharmacyP" Type="varchar(max)" />
     <Property Name="NearestPharmacyS" Type="varchar(max)" />
     <Property Name="TypeId" Type="int" />
@@ -51,6 +53,14 @@
     <Property Name="Day" Type="int" />
     <Property Name="Time" Type="varchar(max)" />
     <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="CustomerId" Type="int" />
+  </EntityType>
+  <EntityType Name="EmpList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
     <Property Name="CustomerId" Type="int" />
   </EntityType>
   <EntityType Name="Grades">
@@ -259,6 +269,7 @@
     <EntitySet Name="CustomerBridgeGrade" EntityType="Self.CustomerBridgeGrade" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CusWork" EntityType="Self.CusWork" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpList" EntityType="Self.EmpList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ManEmp" EntityType="Self.ManEmp" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />

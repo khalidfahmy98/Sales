@@ -68,6 +68,9 @@
     <Compile Include="CusWork.cs">
       <DependentUpon>entity.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmpList.cs">
+      <DependentUpon>entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="entity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

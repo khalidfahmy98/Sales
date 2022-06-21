@@ -30,6 +30,7 @@ namespace Entity
         public virtual DbSet<CustomerBridgeGrade> CustomerBridgeGrade { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<CusWork> CusWork { get; set; }
+        public virtual DbSet<EmpList> EmpList { get; set; }
         public virtual DbSet<Grades> Grades { get; set; }
         public virtual DbSet<ManEmp> ManEmp { get; set; }
         public virtual DbSet<Products> Products { get; set; }

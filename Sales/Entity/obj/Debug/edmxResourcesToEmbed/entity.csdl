@@ -6,6 +6,7 @@
     <EntitySet Name="CustomerBridgeGrade" EntityType="SalesModel.CustomerBridgeGrade" />
     <EntitySet Name="Customers" EntityType="SalesModel.Customers" />
     <EntitySet Name="CusWork" EntityType="SalesModel.CusWork" />
+    <EntitySet Name="EmpList" EntityType="SalesModel.EmpList" />
     <EntitySet Name="Grades" EntityType="SalesModel.Grades" />
     <EntitySet Name="ManEmp" EntityType="SalesModel.ManEmp" />
     <EntitySet Name="Products" EntityType="SalesModel.Products" />
@@ -98,6 +99,8 @@
     <Property Name="MobileP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="MobileS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Lang" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Lat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="NearestPharmacyP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="NearestPharmacyS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="TypeId" Type="Int32" />
@@ -123,6 +126,14 @@
     <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="CustomerId" Type="Int32" />
     <NavigationProperty Name="Customers" Relationship="SalesModel.FK_CusWork_Customers" FromRole="CusWork" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="EmpList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="CustomerId" Type="Int32" />
   </EntityType>
   <EntityType Name="Grades">
     <Key>

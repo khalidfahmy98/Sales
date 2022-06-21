@@ -60,6 +60,14 @@
           <Property Name="Comment" Type="varchar(max)" />
           <Property Name="CustomerId" Type="int" />
         </EntityType>
+        <EntityType Name="EmpList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+        </EntityType>
         <EntityType Name="Grades">
           <Key>
             <PropertyRef Name="Id" />
@@ -266,6 +274,7 @@
           <EntitySet Name="CustomerBridgeGrade" EntityType="Self.CustomerBridgeGrade" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CusWork" EntityType="Self.CusWork" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmpList" EntityType="Self.EmpList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ManEmp" EntityType="Self.ManEmp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
@@ -328,6 +337,7 @@
           <EntitySet Name="CustomerBridgeGrade" EntityType="SalesModel.CustomerBridgeGrade" />
           <EntitySet Name="Customers" EntityType="SalesModel.Customers" />
           <EntitySet Name="CusWork" EntityType="SalesModel.CusWork" />
+          <EntitySet Name="EmpList" EntityType="SalesModel.EmpList" />
           <EntitySet Name="Grades" EntityType="SalesModel.Grades" />
           <EntitySet Name="ManEmp" EntityType="SalesModel.ManEmp" />
           <EntitySet Name="Products" EntityType="SalesModel.Products" />
@@ -447,6 +457,14 @@
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CustomerId" Type="Int32" />
           <NavigationProperty Name="Customers" Relationship="SalesModel.FK_CusWork_Customers" FromRole="CusWork" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="EmpList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
         </EntityType>
         <EntityType Name="Grades">
           <Key>
@@ -719,6 +737,15 @@
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpList">
+            <EntityTypeMapping TypeName="SalesModel.EmpList">
+              <MappingFragment StoreEntitySet="EmpList">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

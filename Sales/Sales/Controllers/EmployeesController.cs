@@ -25,9 +25,11 @@ namespace Sales.Controllers
             return View();
         }
         [IsLogged]
-        public ActionResult ListDataview()
+        public ActionResult ListDataview(String Id)
         {
-            return View();
+            int Area = Convert.ToInt32(Id);
+            List<Customers> customers = CustomersBLL.List().Where(e => e.AreaId == Area).ToList();
+            return View(customers);
         }
         [IsLogged]
         public ActionResult Select(int Id = 0)

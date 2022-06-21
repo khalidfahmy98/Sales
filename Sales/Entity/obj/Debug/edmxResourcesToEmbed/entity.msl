@@ -39,6 +39,8 @@
           <ScalarProperty Name="TypeId" ColumnName="TypeId" />
           <ScalarProperty Name="NearestPharmacyS" ColumnName="NearestPharmacyS" />
           <ScalarProperty Name="NearestPharmacyP" ColumnName="NearestPharmacyP" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="Lang" ColumnName="Lang" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="MobileS" ColumnName="MobileS" />
           <ScalarProperty Name="MobileP" ColumnName="MobileP" />
@@ -55,6 +57,15 @@
           <ScalarProperty Name="Comment" ColumnName="Comment" />
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpList">
+      <EntityTypeMapping TypeName="SalesModel.EmpList">
+        <MappingFragment StoreEntitySet="EmpList">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

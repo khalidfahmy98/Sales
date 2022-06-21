@@ -8,7 +8,7 @@
     if (Rule == 0)
     {
         //means he is employee
-        int Id = @Convert.ToInt32("Session[\"UserID\"]");
+        int Id = @Convert.ToInt32(Session["UserID"]);
         <div class="form-control input-sm">@Model.Where(e => e.Id == Id).FirstOrDefault().Name</div>
         <input type="text" id="employee" value="@Id" class="hide" />
     }
