@@ -25,6 +25,12 @@ namespace Sales.Controllers
             return View(products);
         }
         [IsLogged]
+        public ActionResult DataView()
+        {
+            List<Products> products = ProductsBLL.List().ToList();
+            return View(products);
+        }
+        [IsLogged]
         public JsonResult Create(Products model)
         {
             if (ProductsBLL.Add(model) != 0)

@@ -1,4 +1,8 @@
-﻿function Del(id, ele) {
+﻿$(document).ready(function () {
+    ReloadView();
+});
+
+function Del(id, ele) {
     $.ajax({
         url: "/Products/Del",
         type: 'POST',
@@ -9,7 +13,8 @@
         processData: false,
         success: function (data, textStatus, jqXHR) {
             if (data == "success") {
-                $(ele).parent("td").parent("tr").remove();
+                //$(ele).parent("td").parent("tr").remove();
+                ReloadView();
                 $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Product Deleted Successfully");
             }
         },
@@ -18,4 +23,21 @@
         }
     });
 }
+function ReloadView() {
+    $.ajax({
+        url: "/Products/DataView",
+        type: 'GET',
+        async: false,
+        contentType: 'charset=utf-8',
+        cache: false,
+        processData: false,
+        success: function (data, textStatus, jqXHR) {
+            $("#View").html(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
+}
+
 

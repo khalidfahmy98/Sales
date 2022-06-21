@@ -319,6 +319,7 @@
     <Content Include="Views\Scheduale\MyScheduales.cshtml" />
     <Content Include="Views\Scheduale\DataView.cshtml" />
     <Content Include="Views\Colors\DataView.cshtml" />
+    <Content Include="Views\Products\DataView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
