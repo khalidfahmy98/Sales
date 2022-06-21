@@ -76,6 +76,8 @@
           <Property Name="Email" Type="varchar(max)" />
           <Property Name="NationalId" Type="varchar(max)" />
           <Property Name="Address" Type="varchar(max)" />
+          <Property Name="Lang" Type="varchar(max)" />
+          <Property Name="Lat" Type="varchar(max)" />
           <Property Name="Phone" Type="int" />
           <Property Name="Password" Type="varchar(max)" />
           <Property Name="Rule" Type="int" />
@@ -463,6 +465,8 @@
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="NationalId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Lang" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Lat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="Int32" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Rule" Type="Int32" />
@@ -733,6 +737,8 @@
                 <ScalarProperty Name="Rule" ColumnName="Rule" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="NationalId" ColumnName="NationalId" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
