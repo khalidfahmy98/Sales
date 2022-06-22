@@ -56,6 +56,7 @@
     <Compile Include="CustomerBridgeGradeBLL.cs" />
     <Compile Include="CustomersBLL.cs" />
     <Compile Include="CusWorkBLL.cs" />
+    <Compile Include="EmpListBLL.cs" />
     <Compile Include="GradesBLL.cs" />
     <Compile Include="ManEmpBLL.cs" />
     <Compile Include="ProductsBLL.cs" />

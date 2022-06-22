@@ -19,5 +19,6 @@ namespace DAL
         public static GenericDAL<CusWork> CusWork = new GenericDAL<CusWork>();
         public static GenericDAL<CustomerBridgeGrade> CustomerBridgeGrade = new GenericDAL<CustomerBridgeGrade>();
         public static GenericDAL<Scheduale> Scheduale = new GenericDAL<Scheduale>();
+        public static GenericDAL<EmpList> EmpList = new GenericDAL<EmpList>();
     }
 }

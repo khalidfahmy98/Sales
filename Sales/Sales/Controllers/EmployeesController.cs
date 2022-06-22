@@ -32,6 +32,20 @@ namespace Sales.Controllers
             return View(customers);
         }
         [IsLogged]
+        public JsonResult CreateList(EmpList model)
+        {
+            var checkListed = EmpListBLL.List().Where(e => e.CustomerId == model.CustomerId && e.EmployeeId == model.EmployeeId).FirstOrDefault();
+            if ( checkListed == null  && model.CustomerId != null && model.EmployeeId != null )
+            {   
+                EmpListBLL.Add(model);
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { error = "error", msg = " Customer Already Linked With This Employee .. ! " }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [IsLogged]
         public ActionResult Select(int Id = 0)
         {
             if (Id != 0)
