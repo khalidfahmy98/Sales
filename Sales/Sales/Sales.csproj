@@ -145,6 +145,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmpListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +193,7 @@
     <Content Include="Scripts\Employees\Add.js" />
     <Content Include="Scripts\Employees\List.js" />
     <Content Include="Scripts\Employees\Operations.js" />
+    <Content Include="Scripts\Employees\Review.js" />
     <Content Include="Scripts\Grades\Add.js" />
     <Content Include="Scripts\Grades\Operations.js" />
     <Content Include="Scripts\Home\Account.js" />
@@ -324,10 +326,11 @@
     <Content Include="Views\Employees\List.cshtml" />
     <Content Include="Views\Employees\ListDataview.cshtml" />
     <Content Include="Views\Employees\Select.cshtml" />
+    <Content Include="Views\Employees\Review.cshtml" />
+    <Content Include="Views\Employees\ReviewDataview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

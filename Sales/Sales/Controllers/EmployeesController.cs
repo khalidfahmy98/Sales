@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BLL;
 using Entity;
 using Sales.Common;
+using Sales.Models;
 
 namespace Sales.Controllers
 {
@@ -23,6 +24,36 @@ namespace Sales.Controllers
         {
             ViewBag.Title = "Employee Customer List";
             return View();
+        }
+        [IsLogged]
+        public ActionResult Review()
+        {
+            ViewBag.Title = "Review Employee List";
+            return View();
+        }
+        [IsLogged]
+        public ActionResult ReviewDataview(String Id)
+        {
+            // getting data from bridge requires inner join 
+            int Employee = Convert.ToInt32(Id);
+            List<Customers> customers = CustomersBLL.List().ToList();
+            List<ManEmp> manEmp = ManEmpBLL.List().ToList();
+            List<EmpList> emplist = EmpListBLL.List().Where(e => e.EmployeeId == Employee).ToList();
+            using (SalesEntities db = new SalesEntities())
+            {
+                var employeeRecord = from e in emplist
+                                     join d in customers on e.CustomerId equals d.Id into table1
+                                     from d in table1.ToList()
+                                     join i in manEmp on e.EmployeeId equals i.Id into table2
+                                     from i in table2.ToList()
+                                     select new EmpListModel
+                                     {
+                                         emplist = e,
+                                         customers = d,
+                                         manEmp = i
+                                     };
+                return View(employeeRecord);
+            }
         }
         [IsLogged]
         public ActionResult ListDataview(String Id)
@@ -83,6 +114,19 @@ namespace Sales.Controllers
             if (Id > 1)
             {
                 ManEmpBLL.Delete(Id);
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json("error", JsonRequestBehavior.AllowGet);
+            }
+        }
+        [IsLogged]
+        public JsonResult DelCus(int Id)
+        {
+            if (Id > 1)
+            {
+                EmpListBLL.Delete(Id);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
             else

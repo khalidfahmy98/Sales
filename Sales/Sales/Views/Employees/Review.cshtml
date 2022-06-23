@@ -1,0 +1,25 @@
+﻿<div class="panel">
+    <div class="panel-heading">
+        Choose Employee To Generate List 
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Employee</label>
+                @Html.Action("Select", "Employees")
+            </div>
+        </div>
+        <button class="btn btn-sm btn-primary" onclick="ReloadView()">Review Employee List</button>
+        <div class="alert hide" id="errorHandler"></div>
+    </div>
+</div>
+
+<div class="panel">
+    <div class="panel-heading">
+        Employee Customers List
+    </div>
+    <div class="panel-body">
+        <div id="View"></div>
+    </div>
+</div>
+<script src="~/Scripts/Employees/Review.js"></script>
