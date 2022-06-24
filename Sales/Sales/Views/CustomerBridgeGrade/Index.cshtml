@@ -4,10 +4,14 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <input type="hidden" id="id"  value="@Convert.ToInt32(Session["UserID"])"/>
+            <input type="hidden" id="id" value="@Convert.ToInt32(Session["UserID"])" />
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Employee</label>
+                @Html.Action("Select", "Employees")
+            </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
                 <label>Customer Name</label>
-                @Html.Action("Select","Customers")
+                @Html.Action("Select", "Customers")
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
                 <label>Grade</label>
