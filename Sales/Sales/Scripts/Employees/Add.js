@@ -6,9 +6,9 @@
         phone = $("#phone").val(),
         nationalid = $("#nationalid").val(),
         address = $("#address").val(),
-        status = 1,
-        rule = 0,
-        model = { Name: fullname, Username: username, Password: password, Email: email, NationalId: nationalid, Address: address, Phone: phone, Rule: rule , Status : status };
+        type = $("#type").val(),
+        status = 0,
+        model = { Name: fullname, Username: username, Password: password, Email: email, NationalId: nationalid, Address: address, Phone: phone, Rule: type , Status : status };
     if (fullname !== "" && username !== "" && password !== "") {
         if (username.length > 6) {
             if (password.length > 6) {

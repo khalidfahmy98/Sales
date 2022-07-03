@@ -90,7 +90,7 @@ namespace Sales.Controllers
         [IsManager]
         public ActionResult Operations()
         {
-            List<ManEmp> employees = ManEmpBLL.List().Where(e => e.Rule == 0).ToList();
+            List<ManEmp> employees = ManEmpBLL.List().Where(e => e.Status == 1 && e.Id != 1).ToList();
             ViewBag.Title = " Employee Operations";
             return View(employees);
         }

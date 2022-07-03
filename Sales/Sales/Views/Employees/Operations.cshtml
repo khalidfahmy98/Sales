@@ -27,6 +27,20 @@
                     <td>@item.Email</td>
                     <td>@item.Address</td>
                     <td>@item.Phone</td>
+                    <td>
+                        @if (Convert.ToInt32(item.Rule) == 0)
+                        {
+                            <span> Manager</span>
+                        }
+                        else if (Convert.ToInt32(item.Rule) == 1)
+                        {
+                            <span> Employee</span>
+                        }
+                        else
+                        {
+                            <span> Team Leader </span>
+                        }
+                    </td>
                     <td> <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button></td>
                 </tr>
                 }
