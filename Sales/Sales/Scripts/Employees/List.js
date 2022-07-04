@@ -6,8 +6,9 @@
         $("#errorHandler").addClass("hide");
         $('input[name="customers"]:checked').each(function () {
             if (count == $('input[name="customers"]:checked').length) {
+
             } else {
-                model = { EmployeeId: emp, CustomerId: this.value , Status = 0  };
+                model = { EmployeeId: emp, CustomerId: this.value, Status : 0 };
                 $.ajax({
                     url: "/Employees/CreateList",
                     type: 'POST',
@@ -35,6 +36,11 @@
         $("#errorHandler").removeClass("hide").addClass("alert-danger").text("Cant Create Employee List Without Customer Choosed .. ! ");
     }
 }
+
+
+
+
+
 function ReloadView(id) {
     var id = $("#area").val(),
         special = $("#special").val(),
