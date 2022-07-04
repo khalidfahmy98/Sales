@@ -334,6 +334,8 @@
     <Content Include="Views\Requests\DataView.cshtml" />
     <Content Include="Views\Employees\SelectLeaders.cshtml" />
     <Content Include="Views\Employees\LeadEmps.cshtml" />
+    <Content Include="Views\Requests\ListRequests.cshtml" />
+    <Content Include="Views\Requests\ListRequestsView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

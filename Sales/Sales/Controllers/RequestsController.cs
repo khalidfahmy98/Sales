@@ -34,6 +34,21 @@ namespace Sales.Controllers
             ManEmpBLL.Edit(model);
             return Json("success", JsonRequestBehavior.AllowGet);
         }
+        [IsLogged]
+        [IsManager]
+        public ActionResult ListRequests()
+        {
+            ViewBag.Title = "Employee List Requests";
+            return View();
+        }
+        [IsLogged]
+        [IsManager]
+        public ActionResult ListRequestsView()
+        {
+            return View();
+        }
+
+
 
     }
 }
