@@ -67,6 +67,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmployeeId" Type="int" />
           <Property Name="CustomerId" Type="int" />
+          <Property Name="Status" Type="int" />
         </EntityType>
         <EntityType Name="Grades">
           <Key>
@@ -486,6 +487,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmployeeId" Type="Int32" />
           <Property Name="CustomerId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
         </EntityType>
         <EntityType Name="Grades">
           <Key>
@@ -780,6 +782,7 @@
           <EntitySetMapping Name="EmpList">
             <EntityTypeMapping TypeName="SalesModel.EmpList">
               <MappingFragment StoreEntitySet="EmpList">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

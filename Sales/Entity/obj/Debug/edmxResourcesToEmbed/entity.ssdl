@@ -62,6 +62,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="EmployeeId" Type="int" />
     <Property Name="CustomerId" Type="int" />
+    <Property Name="Status" Type="int" />
   </EntityType>
   <EntityType Name="Grades">
     <Key>

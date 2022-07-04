@@ -220,6 +220,7 @@
     <Content Include="Scripts\Products\Operations.js" />
     <Content Include="Scripts\qrcode.min.js" />
     <Content Include="Scripts\Requests\Accounts.js" />
+    <Content Include="Scripts\Requests\list.js" />
     <Content Include="Scripts\Scheduale\Add.js" />
     <Content Include="Scripts\Scheduale\Operations.js" />
     <Content Include="Scripts\select2\i18n\az.js" />

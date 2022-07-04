@@ -64,6 +64,7 @@
     <EntitySetMapping Name="EmpList">
       <EntityTypeMapping TypeName="SalesModel.EmpList">
         <MappingFragment StoreEntitySet="EmpList">
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
           <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
           <ScalarProperty Name="Id" ColumnName="Id" />

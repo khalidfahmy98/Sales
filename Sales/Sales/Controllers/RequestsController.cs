@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Sales.Common;
 using BLL;
 using Entity;
+using Sales.Models;
 
 namespace Sales.Controllers
 {
@@ -45,7 +46,34 @@ namespace Sales.Controllers
         [IsManager]
         public ActionResult ListRequestsView()
         {
-            return View();
+            int Leader = Convert.ToInt32(Session["UserID"]);
+            List<Customers> customers = CustomersBLL.List().ToList();
+            List<ManEmp> manEmp = ManEmpBLL.List().Where(e => e.Lead == Leader).ToList();
+            List<EmpList> emplist = EmpListBLL.List().Where(e => e.Status == 0).ToList();
+            using (SalesEntities db = new SalesEntities())
+            {
+                var employeeRecord = from e in emplist
+                                     join d in customers on e.CustomerId equals d.Id into table1
+                                     from d in table1.ToList()
+                                     join i in manEmp on e.EmployeeId equals i.Id into table2
+                                     from i in table2.ToList()
+                                     select new EmpListModel
+                                     {
+                                         emplist = e,
+                                         customers = d,
+                                         manEmp = i
+                                     };
+                return View(employeeRecord);
+            }
+        }
+        [IsLogged]
+        [IsManager]
+        public JsonResult ApproveList(int Id)
+        {
+            EmpList model = EmpListBLL.Get(Id);
+            model.Status = 1;
+            EmpListBLL.Edit(model);
+            return Json("success", JsonRequestBehavior.AllowGet);
         }
 
 

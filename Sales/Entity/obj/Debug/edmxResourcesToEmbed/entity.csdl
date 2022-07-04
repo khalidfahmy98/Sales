@@ -138,6 +138,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="EmployeeId" Type="Int32" />
     <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
   </EntityType>
   <EntityType Name="Grades">
     <Key>

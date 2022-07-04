@@ -17,5 +17,6 @@ namespace Entity
         public int Id { get; set; }
         public Nullable<int> EmployeeId { get; set; }
         public Nullable<int> CustomerId { get; set; }
+        public Nullable<int> Status { get; set; }
     }
 }

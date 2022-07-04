@@ -7,7 +7,7 @@
         $('input[name="customers"]:checked').each(function () {
             if (count == $('input[name="customers"]:checked').length) {
             } else {
-                model = { EmployeeId: emp, CustomerId: this.value };
+                model = { EmployeeId: emp, CustomerId: this.value , Status = 0  };
                 $.ajax({
                     url: "/Employees/CreateList",
                     type: 'POST',
