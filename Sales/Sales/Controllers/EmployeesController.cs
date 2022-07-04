@@ -85,7 +85,7 @@ namespace Sales.Controllers
             {
                 ViewBag.Id = Id;
             }
-            List<ManEmp> ManEmps = ManEmpBLL.List().Where( e=> e.Rule == 1 ).ToList();
+            List<ManEmp> ManEmps = ManEmpBLL.List().Where( e=> e.Rule == 1 && e.Status == 1 ).ToList();
             return View(ManEmps);
         }
         [IsLogged]

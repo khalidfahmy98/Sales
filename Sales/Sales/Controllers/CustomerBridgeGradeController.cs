@@ -47,6 +47,25 @@ namespace Sales.Controllers
             }
         }
         [IsLogged]
+        public JsonResult CreateListed(CustomerBridgeGrade model) { 
+            CustomerBridgeGrade ValidateGradeit = CustomerBridgeGradeBLL.List().Where(e => e.CustomerId == model.CustomerId).FirstOrDefault();
+            if(ValidateGradeit != null)
+            {
+                ValidateGradeit.GradeId = model.GradeId;
+                CustomerBridgeGradeBLL.Edit(ValidateGradeit);
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                if (CustomerBridgeGradeBLL.Add(model) != 0)
+                {
+                    return Json("success", JsonRequestBehavior.AllowGet);
+                }else{ 
+                return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
+        [IsLogged]
         public JsonResult Del(int Id)
         {
             CustomerBridgeGradeBLL.Delete(Id);

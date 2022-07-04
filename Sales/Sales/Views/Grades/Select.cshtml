@@ -4,7 +4,7 @@
 }
 @model IEnumerable<Entity.Grades>
 
-<select class="form-control input-sm" id="grade">
+<select class="form-control input-sm grade"  id="grade">
     @foreach (var item in Model)
     {
         <option value="@item.Id" @(ViewBag.Id == item.Id ? "selected" : "")>@item.Grade</option>

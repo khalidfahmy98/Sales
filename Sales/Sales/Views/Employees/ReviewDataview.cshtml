@@ -10,6 +10,7 @@
             <th>Address</th>
             <th>Type</th>
             <th>Special</th>
+            <th>Grade</th>
             <th>OPR</th>
         </tr>
     </thead>
@@ -22,6 +23,11 @@
             <td>@item.customers.Address</td>
             <td>@item.customers.Types.Type</td>
             <td>@item.customers.Specials.Name</td>
+            <td>
+                <input type="text" class="customerId hide" value="@item.customers.Id" />
+                <input type="text" class="hide empId" id="emp" value="@item.manEmp.Id" />
+                @Html.Action("Select", "Grades", new { Id = item.customers.Id })
+            </td>
             <td><button class="btn btn-xs btn-danger" onclick="Del(@item.emplist.Id , @item.emplist.EmployeeId)"><i class="fa fa-times"></i></button></td>
         </tr>
         }

@@ -26,9 +26,11 @@ namespace Sales.Controllers
         [IsLogged]
         public ActionResult Select(int Id = 0)
         {
-            if (Id != 0)
+            CustomerBridgeGrade customerGrade = CustomerBridgeGradeBLL.List().Where(e => e.CustomerId == Id).FirstOrDefault();
+            int grade = customerGrade.Grades.Id;
+            if (grade != 0)
             {
-                ViewBag.Id = Id;
+                ViewBag.Id = grade;
             }
             List<Grades> grades = GradesBLL.List().ToList();
             return View(grades);

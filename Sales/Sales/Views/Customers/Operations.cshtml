@@ -4,7 +4,7 @@
         Customers Operations
     </div>
     <div class="panel-body">
-        <table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
+        <table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%;font-size:12px;">
             <thead>
                 <tr>
                     <th>#</th>
@@ -16,7 +16,6 @@
                     <th>Address</th>
                     <th>Type</th>
                     <th>Special</th>
-                    <th> By</th>
                     <th>OPR</th>
                 </tr>
             <tbody>
@@ -32,10 +31,9 @@
                     <td>@item.Address</td>
                     <td>@item.Types.Type</td>
                     <td>@item.Specials.Name</td>
-                    <td>@item.ManEmp.Name</td>
                     <td>
-                        <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button>
-                        <a href="~/Customers/WorkTimes/@item.Id" class="btn btn-xs btn-warning"> Work Times</a>
+                        <button style="font-size:8px;padding:5px" class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button>
+                        <a style="font-size:8px;padding:5px" href="~/Customers/WorkTimes/@item.Id" class="btn btn-xs btn-warning"> Work Times</a>
                     </td>
                 </tr>
                 }

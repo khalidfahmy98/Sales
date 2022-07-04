@@ -22,7 +22,7 @@ namespace Sales.Controllers
         public ActionResult Operations()
         {
             ViewBag.Title = " Customers Operations";
-            if (Convert.ToInt32(Session["Rule"]) == 1)
+            if (Convert.ToInt32(Session["Rule"]) == 0 || Convert.ToInt32(Session["Rule"]) == 2)
             {
                 List<Customers> customer = CustomersBLL.List().ToList();
                 return View(customer);

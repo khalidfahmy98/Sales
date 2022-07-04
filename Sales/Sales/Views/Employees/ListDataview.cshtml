@@ -11,18 +11,20 @@
             <th>Address</th>
             <th>Type</th>
             <th>Special</th>
+            <th>Work Times</th>
         </tr>
     </thead>
     <tbody id="tbodyListner">
         @foreach (var item in Model)
         {
         <tr>
-            <td><input type="checkbox"  value="@item.Id" name="customers" class="customers"/></td>
+            <td><input type="checkbox" value="@item.Id" name="customers" class="customers" /></td>
             <td>@item.Name</td>
             <td>@item.Phone</td>
             <td>@item.Address</td>
             <td>@item.Types.Type</td>
             <td>@item.Specials.Name</td>
+            <td><a class="btn btn-xs btn-primary" href="~/Customers/WorkTimes/@item.Id" target="_blank">View</a></td>
         </tr>
         }
     </tbody>
