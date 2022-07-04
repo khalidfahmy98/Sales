@@ -84,6 +84,7 @@
         <MappingFragment StoreEntitySet="ManEmp">
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Rule" ColumnName="Rule" />
+          <ScalarProperty Name="Lead" ColumnName="Lead" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Address" ColumnName="Address" />

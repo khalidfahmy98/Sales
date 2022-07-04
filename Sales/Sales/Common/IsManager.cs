@@ -11,7 +11,7 @@ namespace Sales.Common
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if ( Convert.ToInt32(filterContext.HttpContext.Session["Rule"]) ==  0)
+            if ( Convert.ToInt32(filterContext.HttpContext.Session["Rule"]) ==  1 || Convert.ToInt32(filterContext.HttpContext.Session["Rule"]) == 2)
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { action = "RuleError", controller = "Home" }));
             }

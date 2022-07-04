@@ -19,6 +19,7 @@ namespace Entity
         {
             this.CustomerBridgeGrade = new HashSet<CustomerBridgeGrade>();
             this.Customers = new HashSet<Customers>();
+            this.ManEmp1 = new HashSet<ManEmp>();
             this.Scheduale = new HashSet<Scheduale>();
         }
     
@@ -30,6 +31,7 @@ namespace Entity
         public string Address { get; set; }
         public Nullable<int> Phone { get; set; }
         public string Password { get; set; }
+        public Nullable<int> Lead { get; set; }
         public Nullable<int> Rule { get; set; }
         public Nullable<int> Status { get; set; }
     
@@ -37,6 +39,9 @@ namespace Entity
         public virtual ICollection<CustomerBridgeGrade> CustomerBridgeGrade { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customers> Customers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ManEmp> ManEmp1 { get; set; }
+        public virtual ManEmp ManEmp2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Scheduale> Scheduale { get; set; }
     }

@@ -83,6 +83,7 @@
     <Property Name="Address" Type="varchar(max)" />
     <Property Name="Phone" Type="int" />
     <Property Name="Password" Type="varchar(max)" />
+    <Property Name="Lead" Type="int" />
     <Property Name="Rule" Type="int" />
     <Property Name="Status" Type="int" />
   </EntityType>
@@ -227,6 +228,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ManEmp_ManEmp">
+    <End Role="ManEmp" Type="Self.ManEmp" Multiplicity="0..1" />
+    <End Role="ManEmp1" Type="Self.ManEmp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManEmp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ManEmp1">
+        <PropertyRef Name="Lead" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Scheduale_Customers">
     <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
     <End Role="Scheduale" Type="Self.Scheduale" Multiplicity="*" />
@@ -308,6 +321,10 @@
     <AssociationSet Name="FK_CusWork_Customers" Association="Self.FK_CusWork_Customers">
       <End Role="Customers" EntitySet="Customers" />
       <End Role="CusWork" EntitySet="CusWork" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ManEmp_ManEmp" Association="Self.FK_ManEmp_ManEmp">
+      <End Role="ManEmp" EntitySet="ManEmp" />
+      <End Role="ManEmp1" EntitySet="ManEmp" />
     </AssociationSet>
     <AssociationSet Name="FK_Scheduale_Customers" Association="Self.FK_Scheduale_Customers">
       <End Role="Customers" EntitySet="Customers" />

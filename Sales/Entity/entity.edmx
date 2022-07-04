@@ -88,6 +88,7 @@
           <Property Name="Address" Type="varchar(max)" />
           <Property Name="Phone" Type="int" />
           <Property Name="Password" Type="varchar(max)" />
+          <Property Name="Lead" Type="int" />
           <Property Name="Rule" Type="int" />
           <Property Name="Status" Type="int" />
         </EntityType>
@@ -232,6 +233,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ManEmp_ManEmp">
+          <End Role="ManEmp" Type="Self.ManEmp" Multiplicity="0..1" />
+          <End Role="ManEmp1" Type="Self.ManEmp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ManEmp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ManEmp1">
+              <PropertyRef Name="Lead" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Scheduale_Customers">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="Scheduale" Type="Self.Scheduale" Multiplicity="*" />
@@ -314,6 +327,10 @@
             <End Role="Customers" EntitySet="Customers" />
             <End Role="CusWork" EntitySet="CusWork" />
           </AssociationSet>
+          <AssociationSet Name="FK_ManEmp_ManEmp" Association="Self.FK_ManEmp_ManEmp">
+            <End Role="ManEmp" EntitySet="ManEmp" />
+            <End Role="ManEmp1" EntitySet="ManEmp" />
+          </AssociationSet>
           <AssociationSet Name="FK_Scheduale_Customers" Association="Self.FK_Scheduale_Customers">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Scheduale" EntitySet="Scheduale" />
@@ -384,6 +401,10 @@
           <AssociationSet Name="FK_Scheduale_Customers" Association="SalesModel.FK_Scheduale_Customers">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Scheduale" EntitySet="Scheduale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ManEmp_ManEmp" Association="SalesModel.FK_ManEmp_ManEmp">
+            <End Role="ManEmp" EntitySet="ManEmp" />
+            <End Role="ManEmp1" EntitySet="ManEmp" />
           </AssociationSet>
           <AssociationSet Name="FK_Scheduale_ManEmp" Association="SalesModel.FK_Scheduale_ManEmp">
             <End Role="ManEmp" EntitySet="ManEmp" />
@@ -487,10 +508,13 @@
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="Int32" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Lead" Type="Int32" />
           <Property Name="Rule" Type="Int32" />
           <Property Name="Status" Type="Int32" />
           <NavigationProperty Name="CustomerBridgeGrade" Relationship="SalesModel.FK_CustomerBridgeGrade_ManEmp" FromRole="ManEmp" ToRole="CustomerBridgeGrade" />
           <NavigationProperty Name="Customers" Relationship="SalesModel.FK_Customers_ManEmp" FromRole="ManEmp" ToRole="Customers" />
+          <NavigationProperty Name="ManEmp1" Relationship="SalesModel.FK_ManEmp_ManEmp" FromRole="ManEmp" ToRole="ManEmp1" />
+          <NavigationProperty Name="ManEmp2" Relationship="SalesModel.FK_ManEmp_ManEmp" FromRole="ManEmp1" ToRole="ManEmp" />
           <NavigationProperty Name="Scheduale" Relationship="SalesModel.FK_Scheduale_ManEmp" FromRole="ManEmp" ToRole="Scheduale" />
         </EntityType>
         <EntityType Name="Products">
@@ -663,6 +687,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ManEmp_ManEmp">
+          <End Type="SalesModel.ManEmp" Role="ManEmp" Multiplicity="0..1" />
+          <End Type="SalesModel.ManEmp" Role="ManEmp1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ManEmp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ManEmp1">
+              <PropertyRef Name="Lead" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Scheduale_ManEmp">
           <End Type="SalesModel.ManEmp" Role="ManEmp" Multiplicity="0..1" />
           <End Type="SalesModel.Scheduale" Role="Scheduale" Multiplicity="*" />
@@ -764,6 +800,7 @@
               <MappingFragment StoreEntitySet="ManEmp">
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Rule" ColumnName="Rule" />
+                <ScalarProperty Name="Lead" ColumnName="Lead" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Address" ColumnName="Address" />

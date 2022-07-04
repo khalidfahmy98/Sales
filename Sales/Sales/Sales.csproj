@@ -139,6 +139,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\RequestsController.cs" />
     <Compile Include="Controllers\SchedualeController.cs" />
     <Compile Include="Controllers\SpecialsController.cs" />
     <Compile Include="Controllers\TypesController.cs" />
@@ -218,6 +219,7 @@
     <Content Include="Scripts\Products\Add.js" />
     <Content Include="Scripts\Products\Operations.js" />
     <Content Include="Scripts\qrcode.min.js" />
+    <Content Include="Scripts\Requests\Accounts.js" />
     <Content Include="Scripts\Scheduale\Add.js" />
     <Content Include="Scripts\Scheduale\Operations.js" />
     <Content Include="Scripts\select2\i18n\az.js" />
@@ -328,6 +330,8 @@
     <Content Include="Views\Employees\Select.cshtml" />
     <Content Include="Views\Employees\Review.cshtml" />
     <Content Include="Views\Employees\ReviewDataview.cshtml" />
+    <Content Include="Views\Requests\Index.cshtml" />
+    <Content Include="Views\Requests\DataView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

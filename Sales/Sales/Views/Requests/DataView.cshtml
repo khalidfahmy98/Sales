@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<Entity.ManEmp>
+<table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>National Id </th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Leader</th>
+            <th>OPR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.NationalId</td>
+            <td>@item.Address</td>
+            <td>@item.Phone</td>
+            <td>@item.ManEmp2.Name</td>
+            <td> <button class="btn btn-xs btn-success" onclick="Approve('@item.Id')"><i class="fa fa-check"></i></button></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable();
+    });
+</script>
