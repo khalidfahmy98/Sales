@@ -332,6 +332,8 @@
     <Content Include="Views\Employees\ReviewDataview.cshtml" />
     <Content Include="Views\Requests\Index.cshtml" />
     <Content Include="Views\Requests\DataView.cshtml" />
+    <Content Include="Views\Employees\SelectLeaders.cshtml" />
+    <Content Include="Views\Employees\LeadEmps.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

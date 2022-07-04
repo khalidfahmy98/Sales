@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Entity.ManEmp>
 <div class="panel">
     <div class="panel-heading">
-        Employee Operations 
+        My Registered Employees
     </div>
     <div class="panel-body">
         <table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
@@ -14,11 +14,11 @@
                     <th>Email</th>
                     <th>Address</th>
                     <th>Phone</th>
-                    <th>Leader</th>
+                    <th>Status</th>
                     <th>OPR</th>
                 </tr>
             <tbody>
-                @foreach ( var item in Model )
+                @foreach (var item in Model)
                 {
                 <tr>
                     <td>@item.Id</td>
@@ -29,18 +29,13 @@
                     <td>@item.Address</td>
                     <td>@item.Phone</td>
                     <td>
-                        @if (Convert.ToInt32(item.Rule) == 0)
+                        @if (Convert.ToInt32(item.Status) == 1)
                         {
-                            <span> Manager</span>
-                        }
-                        else if (Convert.ToInt32(item.Rule) == 1)
-                        {
-                            @Html.Action("SelectLeaders", "Employees" , new { Id = item.Lead});
-                            <input type="text" class="employeeId hide"  disabled value="@item.Id"/>
+                            <span style="color:green;">Approved</span>
                         }
                         else
                         {
-                            <span> Team Leader </span>
+                            <span >Pending</span>
                         }
                     </td>
                     <td> <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button></td>

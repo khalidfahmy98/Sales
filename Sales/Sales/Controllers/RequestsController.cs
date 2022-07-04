@@ -25,6 +25,15 @@ namespace Sales.Controllers
             List<ManEmp> Requests = ManEmpBLL.List().Where(e => e.Status == 0 && e.Rule != 0).ToList();
             return View(Requests);
         }
+        [IsLogged]
+        [IsManager]
+        public JsonResult Approve(int Id)
+        {
+            ManEmp model = ManEmpBLL.Get(Id);
+            model.Status = 1;
+            ManEmpBLL.Edit(model);
+            return Json("success", JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

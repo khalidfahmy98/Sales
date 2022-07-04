@@ -87,6 +87,16 @@ namespace Sales.Controllers
             return View(ManEmps);
         }
         [IsLogged]
+        public ActionResult SelectLeaders(int Id = 0)
+        {
+            if (Id != 0)
+            {
+                ViewBag.Id = Id;
+            }
+            List<ManEmp> ManEmps = ManEmpBLL.List().Where(e => e.Rule ==  2 ||  e.Rule == 0).ToList();
+            return View(ManEmps);
+        }
+        [IsLogged]
         [IsManager]
         public ActionResult Operations()
         {
@@ -96,8 +106,18 @@ namespace Sales.Controllers
         }
         [IsLogged]
         [IsManager]
+        public ActionResult LeadEmps()
+        {
+            int Leader = Convert.ToInt32(Session["UserID"]);
+            List<ManEmp> employees = ManEmpBLL.List().Where(e => e.Lead == Leader ).ToList();
+            ViewBag.Title = "My Employees";
+            return View(employees);
+        }
+        [IsLogged]
+        [IsManager]
         public JsonResult Create(ManEmp model)
         {
+            model.Lead = Convert.ToInt32(Session["UserID"]);
             if (ManEmpBLL.Add(model) != 0)
             {
                 return Json("success", JsonRequestBehavior.AllowGet);
@@ -133,6 +153,14 @@ namespace Sales.Controllers
             {
                 return Json("error", JsonRequestBehavior.AllowGet);
             }
+        }
+        [IsLogged]
+        public JsonResult Leading(int Emp , int Leader)
+        {
+            ManEmp model = ManEmpBLL.Get(Emp);
+            model.Lead = Leader;
+            ManEmpBLL.Edit(model);
+            return Json("success", JsonRequestBehavior.AllowGet);
         }
 
 
