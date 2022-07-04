@@ -14,12 +14,26 @@
     }
     else
     {
-        <select class="form-control input-sm" id="employee">
-            @foreach (var item in Model)
+<select class="form-control input-sm" id="employee">
+    @if (Convert.ToInt32(Session["Rule"]) == 0)
+    {
+        foreach (var item in Model)
+        {
+            <option value="@item.Id" @(ViewBag.Id == item.Id ? "selected" : "")>@item.Name</option>
+        }
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+           if (item.Lead == Convert.ToInt32(Session["UserID"]))
             {
                 <option value="@item.Id" @(ViewBag.Id == item.Id ? "selected" : "")>@item.Name</option>
             }
-        </select>
+        }
+
+    }
+</select>
     }
 }
 
