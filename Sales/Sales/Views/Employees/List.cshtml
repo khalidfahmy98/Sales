@@ -10,7 +10,15 @@
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
                 <label>Customers Area</label>
-                @Html.Action("Select","Areas")
+                @Html.Action("Select", "Areas")
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Customers Speciality</label>
+                @Html.Action("Select", "Specials")
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Customers Type</label>
+                @Html.Action("Select", "Types")
             </div>
         </div>
         <button class="btn btn-sm btn-primary" onclick="ReloadView()">Find Customers Now ! </button>

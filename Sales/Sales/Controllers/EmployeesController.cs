@@ -56,10 +56,12 @@ namespace Sales.Controllers
             }
         }
         [IsLogged]
-        public ActionResult ListDataview(String Id)
+        public ActionResult ListDataview(String Id , String Spec , String typ)
         {
             int Area = Convert.ToInt32(Id);
-            List<Customers> customers = CustomersBLL.List().Where(e => e.AreaId == Area).ToList();
+            int special = Convert.ToInt32(Spec);
+            int type = Convert.ToInt32(typ);
+            List<Customers> customers = CustomersBLL.List().Where(e => e.AreaId == Area && e.SpecialId == special ).ToList();
             return View(customers);
         }
         [IsLogged]

@@ -36,11 +36,13 @@
     }
 }
 function ReloadView(id) {
-    var id = $("#area").val();
+    var id = $("#area").val(),
+        special = $("#special").val(),
+        type = $("#type").val();
     $.ajax({
-        url: "/Employees/ListDataview/"+id,
+        url: "/Employees/ListDataview?Id=" + id + "&Spec=" + special+ "&typ="+ type,
         type: 'POST',
-        data: JSON.stringify({ Id: id }),
+        data: JSON.stringify({ Id: id, Spec: special, typ: type }),
         async: false,
         contentType: 'charset=utf-8',
         cache: false,
