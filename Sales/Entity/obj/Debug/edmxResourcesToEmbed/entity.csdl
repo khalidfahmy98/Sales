@@ -250,6 +250,8 @@
     <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="RemoveId" Type="Int32" />
     <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Leader" Type="Int32" />
     <NavigationProperty Name="ManEmp" Relationship="SalesModel.FK_Vacations_ManEmp" FromRole="Vacations" ToRole="ManEmp" />
     <NavigationProperty Name="Types" Relationship="SalesModel.FK_Vacations_Types" FromRole="Vacations" ToRole="Types" />
     <NavigationProperty Name="VacationTypes" Relationship="SalesModel.FK_Vacations_VacationTypes" FromRole="Vacations" ToRole="VacationTypes" />

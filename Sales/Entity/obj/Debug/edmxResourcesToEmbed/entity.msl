@@ -152,6 +152,8 @@
     <EntitySetMapping Name="Vacations">
       <EntityTypeMapping TypeName="SalesModel.Vacations">
         <MappingFragment StoreEntitySet="Vacations">
+          <ScalarProperty Name="Leader" ColumnName="Leader" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
           <ScalarProperty Name="RemoveId" ColumnName="RemoveId" />
           <ScalarProperty Name="Reason" ColumnName="Reason" />

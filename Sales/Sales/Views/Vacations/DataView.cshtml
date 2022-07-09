@@ -20,19 +20,19 @@
         <tr>
             <td>@item.Id</td>
             <td>@item.VacationTypes.Name</td>
-            <td>@item.FromDate</td>
-            <td>@item.ToDate</td>
+            <td>@Convert.ToDateTime(item.FromDate).ToShortDateString()</td>
+            <td>@Convert.ToDateTime(item.ToDate).ToShortDateString()</td>
             <td>@item.Deputy</td>
             <td>@item.Reason</td>
             <td>@item.Types.Type</td>
             <td>
-                @if ( Convert.ToInt32(item.Status) == 0 )
+                @if (Convert.ToInt32(item.Status) == 0)
                 {
                     <span> Pending </span>
                 }
                 else
                 {
-                    <span style="color:green" > Approved</span>
+                    <span style="color:green"> Approved</span>
                 }
             </td>
         </tr>

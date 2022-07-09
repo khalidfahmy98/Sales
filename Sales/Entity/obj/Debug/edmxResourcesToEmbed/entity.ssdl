@@ -147,6 +147,8 @@
     <Property Name="Reason" Type="varchar(max)" />
     <Property Name="RemoveId" Type="int" />
     <Property Name="EmployeeId" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Leader" Type="int" />
   </EntityType>
   <EntityType Name="VacationTypes">
     <Key>
