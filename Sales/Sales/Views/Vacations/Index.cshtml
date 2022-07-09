@@ -1,0 +1,47 @@
+﻿<div class="panel">
+    <div class="panel-heading">
+        Request New Vacation
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Vacation Type </label>
+                @Html.Action("Select", "VacationsType")
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>From Date</label>
+                <input type="date" class="form-control input-sm" id="from" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>To Date</label>
+                <input type="date" class="form-control input-sm" id="to" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Deputy</label>
+                <input type="text" class="form-control input-sm" id="deputy" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Reason</label>
+                <input type="text" class="form-control input-sm" id="reason" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Remove Visit</label>
+                @Html.Action("Select","Types")
+            </div>
+
+        </div>
+        <button class="btn btn-sm btn-primary" onclick="Add()">Request Vacation</button>
+        <div class="alert hide" id="errorHandler"></div>
+    </div>
+</div>
+
+<div class="panel">
+    <div class="panel-heading">
+        Submitted Vacations 
+    </div>
+    <div class="panel-body">
+        <div id="View"></div>
+    </div>
+</div>
+<script src="~/Scripts/Vacations/Add.js"></script>
+<script src="~/Scripts/Vacations/Operations.js"></script>

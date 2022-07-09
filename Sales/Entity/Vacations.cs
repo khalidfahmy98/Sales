@@ -22,6 +22,8 @@ namespace Entity
         public string Reason { get; set; }
         public Nullable<int> RemoveId { get; set; }
         public Nullable<int> EmployeeId { get; set; }
+        public Nullable<int> Status { get; set; }
+        public Nullable<int> Leader { get; set; }
     
         public virtual ManEmp ManEmp { get; set; }
         public virtual Types Types { get; set; }

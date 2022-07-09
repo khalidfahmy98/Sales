@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<Entity.Vacations>
+<table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Type</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Deputy</th>
+            <th>Reason</th>
+            <th>Removed Visit</th>
+            <th>Status</th>
+        </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.VacationTypes.Name</td>
+            <td>@item.FromDate</td>
+            <td>@item.ToDate</td>
+            <td>@item.Deputy</td>
+            <td>@item.Reason</td>
+            <td>@item.Types.Type</td>
+            <td>
+                @if ( Convert.ToInt32(item.Status) == 0 )
+                {
+                    <span> Pending </span>
+                }
+                else
+                {
+                    <span style="color:green" > Approved</span>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable();
+    });
+</script>

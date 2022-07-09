@@ -152,6 +152,8 @@
           <Property Name="Reason" Type="varchar(max)" />
           <Property Name="RemoveId" Type="int" />
           <Property Name="EmployeeId" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Leader" Type="int" />
         </EntityType>
         <EntityType Name="VacationTypes">
           <Key>
@@ -671,6 +673,8 @@
           <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="RemoveId" Type="Int32" />
           <Property Name="EmployeeId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Leader" Type="Int32" />
           <NavigationProperty Name="ManEmp" Relationship="SalesModel.FK_Vacations_ManEmp" FromRole="Vacations" ToRole="ManEmp" />
           <NavigationProperty Name="Types" Relationship="SalesModel.FK_Vacations_Types" FromRole="Vacations" ToRole="Types" />
           <NavigationProperty Name="VacationTypes" Relationship="SalesModel.FK_Vacations_VacationTypes" FromRole="Vacations" ToRole="VacationTypes" />
@@ -1020,6 +1024,8 @@
           <EntitySetMapping Name="Vacations">
             <EntityTypeMapping TypeName="SalesModel.Vacations">
               <MappingFragment StoreEntitySet="Vacations">
+                <ScalarProperty Name="Leader" ColumnName="Leader" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="RemoveId" ColumnName="RemoveId" />
                 <ScalarProperty Name="Reason" ColumnName="Reason" />
