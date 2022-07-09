@@ -57,6 +57,7 @@ namespace Sales.Controllers
             }
             else
             {
+                model.Leader = ManEmpBLL.Get(Convert.ToInt32(model.ManEmpId)).Lead;
                 if (CustomerBridgeGradeBLL.Add(model) != 0)
                 {
                     return Json("success", JsonRequestBehavior.AllowGet);

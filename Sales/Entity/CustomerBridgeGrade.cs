@@ -19,6 +19,7 @@ namespace Entity
         public Nullable<int> GradeId { get; set; }
         public Nullable<int> ManEmpId { get; set; }
         public Nullable<int> Status { get; set; }
+        public Nullable<int> Leader { get; set; }
     
         public virtual Customers Customers { get; set; }
         public virtual Grades Grades { get; set; }
