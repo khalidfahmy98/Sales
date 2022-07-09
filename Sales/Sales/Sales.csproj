@@ -143,6 +143,7 @@
     <Compile Include="Controllers\SchedualeController.cs" />
     <Compile Include="Controllers\SpecialsController.cs" />
     <Compile Include="Controllers\TypesController.cs" />
+    <Compile Include="Controllers\VacationTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -279,6 +280,8 @@
     <Content Include="Scripts\Specials\Operations.js" />
     <Content Include="Scripts\Types\Add.js" />
     <Content Include="Scripts\Types\Operations.js" />
+    <Content Include="Scripts\VacationTypes\Add.js" />
+    <Content Include="Scripts\VacationTypes\Operations.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -341,6 +344,9 @@
     <Content Include="Views\Requests\ListRequestsView.cshtml" />
     <Content Include="Views\Requests\GradeRequests.cshtml" />
     <Content Include="Views\Requests\GradeDataview.cshtml" />
+    <Content Include="Views\VacationTypes\Index.cshtml" />
+    <Content Include="Views\VacationTypes\DataView.cshtml" />
+    <Content Include="Views\VacationTypes\Select.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
