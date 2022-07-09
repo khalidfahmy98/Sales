@@ -75,7 +75,28 @@ namespace Sales.Controllers
             EmpListBLL.Edit(model);
             return Json("success", JsonRequestBehavior.AllowGet);
         }
-
+        [IsLogged]
+        [IsManager]
+        public ActionResult GradeRequests()
+        {
+            ViewBag.Title = "Grade Requests";
+            return View();
+        }
+        [IsLogged]
+        [IsManager]
+        public ActionResult GradeDataview()
+        {
+            return View();
+        }
+        [IsLogged]
+        [IsManager]
+        public JsonResult ApproveGrade(int Id)
+        {
+            CustomerBridgeGrade model = CustomerBridgeGradeBLL.Get(Id);
+            model.Status = 1;
+            CustomerBridgeGradeBLL.Edit(model);
+            return Json("success", JsonRequestBehavior.AllowGet);
+        }
 
 
     }

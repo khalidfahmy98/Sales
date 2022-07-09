@@ -220,6 +220,7 @@
     <Content Include="Scripts\Products\Operations.js" />
     <Content Include="Scripts\qrcode.min.js" />
     <Content Include="Scripts\Requests\Accounts.js" />
+    <Content Include="Scripts\Requests\Grade.js" />
     <Content Include="Scripts\Requests\list.js" />
     <Content Include="Scripts\Scheduale\Add.js" />
     <Content Include="Scripts\Scheduale\Operations.js" />
@@ -337,6 +338,8 @@
     <Content Include="Views\Employees\LeadEmps.cshtml" />
     <Content Include="Views\Requests\ListRequests.cshtml" />
     <Content Include="Views\Requests\ListRequestsView.cshtml" />
+    <Content Include="Views\Requests\GradeRequests.cshtml" />
+    <Content Include="Views\Requests\GradeDataview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
