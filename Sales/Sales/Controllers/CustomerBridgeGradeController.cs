@@ -52,6 +52,7 @@ namespace Sales.Controllers
             if(ValidateGradeit != null)
             {
                 ValidateGradeit.GradeId = model.GradeId;
+                ValidateGradeit.Status = 0;
                 CustomerBridgeGradeBLL.Edit(ValidateGradeit);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
