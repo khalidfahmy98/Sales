@@ -86,7 +86,30 @@ namespace Sales.Controllers
         [IsManager]
         public ActionResult GradeDataview()
         {
-            return View();
+            int Leader = Convert.ToInt32(Session["UserID"]);
+            List<Customers> customers = CustomersBLL.List().ToList();
+            List<ManEmp> manEmp = ManEmpBLL.List().Where(e => e.Lead == Leader).ToList();
+            List<Grades> grades = GradesBLL.List().ToList();
+            List<CustomerBridgeGrade> customerBridgeGrade = CustomerBridgeGradeBLL.List().Where(e => e.Status == 0).ToList();
+            using (SalesEntities db = new SalesEntities())
+            {
+                var GradeRecords = from e in customerBridgeGrade
+                                   join d in customers on e.CustomerId equals d.Id into table1
+                                   from d in table1.ToList()
+                                   join i in manEmp on e.ManEmpId equals i.Id into table2
+                                   from i in table2.ToList()
+                                   join c in grades on e.GradeId equals c.Id into table3
+                                   from c in table3.ToList()
+                                   select new CustomerGradeBridgeModel
+                                   {
+                                       customerBridgeGrade = e,
+                                       customers = d,
+                                       manEmp = i,
+                                       grades = c
+                                   };
+                return View(GradeRecords);
+            }
+
         }
         [IsLogged]
         [IsManager]
