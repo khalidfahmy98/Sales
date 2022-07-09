@@ -27,8 +27,11 @@
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
                 <label>Employee Type</label>
                 <select class="form-control input-sm" id="type">
-                    <option value="1">Employee</option>
-                    <option value="2">Team  Leader </option>
+                    <option value="1">MR ( Medical Representive ) </option>
+                    @if (Convert.ToInt32(Session["Rule"]) == 0)
+                    {
+                        <option value="2">DM ( Distrect Manager )</option>
+                    }
                 </select>
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">

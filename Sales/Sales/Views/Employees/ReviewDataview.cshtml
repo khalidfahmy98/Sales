@@ -11,6 +11,7 @@
             <th>Type</th>
             <th>Special</th>
             <th>Grade</th>
+            <th>Status</th>
             <th>OPR</th>
         </tr>
     </thead>
@@ -27,6 +28,16 @@
                 <input type="text" class="customerId hide" value="@item.customers.Id" />
                 <input type="text" class="hide empId" id="emp" value="@item.manEmp.Id" />
                 @Html.Action("Select", "Grades", new { Id = item.customers.Id })
+            </td>
+            <td>
+                @if (item.emplist.Status == 1)
+                {
+                    <span style="color:green"> Approved</span>
+                }
+                else
+                {
+                    <span> Pending</span>
+                }
             </td>
             <td><button class="btn btn-xs btn-danger" onclick="Del(@item.emplist.Id , @item.emplist.EmployeeId)"><i class="fa fa-times"></i></button></td>
         </tr>

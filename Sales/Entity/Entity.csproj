@@ -102,9 +102,6 @@
     <Compile Include="Specials.cs">
       <DependentUpon>entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>entity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Types.cs">
       <DependentUpon>entity.tt</DependentUpon>
     </Compile>
@@ -121,6 +118,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="entity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>entity.edmx</DependentUpon>
@@ -131,9 +131,6 @@
       <DependentUpon>entity.edmx</DependentUpon>
       <LastGenOutput>entity.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

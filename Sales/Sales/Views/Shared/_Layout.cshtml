@@ -47,15 +47,15 @@
                                     <div class="widget-subheading">
                                         @if (Convert.ToInt32(Session["Rule"]) == 0)
                                         {
-                                            <span>Manager</span>
+                                            <span>Admin</span>
                                         }
                                         else if (Convert.ToInt32(Session["Rule"]) == 1 )
                                         {
-                                            <span>Employee</span>
+                                            <span>MR</span>
                                         }
                                         else
                                         {
-                                            <span>Team Leader</span>
+                                            <span>DM</span>
                                         }
                                     </div>
                                 </div>
