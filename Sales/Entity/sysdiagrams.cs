@@ -12,16 +12,12 @@ namespace Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class CustomerBridgeGrade
+    public partial class sysdiagrams
     {
-        public int Id { get; set; }
-        public Nullable<int> CustomerId { get; set; }
-        public Nullable<int> GradeId { get; set; }
-        public Nullable<int> ManEmpId { get; set; }
-        public Nullable<int> Status { get; set; }
-    
-        public virtual Customers Customers { get; set; }
-        public virtual Grades Grades { get; set; }
-        public virtual ManEmp ManEmp { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

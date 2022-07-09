@@ -13,10 +13,10 @@ namespace Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class db_a89910_salesEntities : DbContext
+    public partial class SalesEntities : DbContext
     {
-        public db_a89910_salesEntities()
-            : base("name=db_a89910_salesEntities")
+        public SalesEntities()
+            : base("name=SalesEntities")
         {
         }
     
@@ -36,6 +36,7 @@ namespace Entity
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Scheduale> Scheduale { get; set; }
         public virtual DbSet<Specials> Specials { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Types> Types { get; set; }
     }
 }

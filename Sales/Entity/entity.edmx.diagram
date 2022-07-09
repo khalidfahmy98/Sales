@@ -4,31 +4,32 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ec83d1ee44f94090bd3164ecab993abc" Name="Diagram1">
-        <EntityTypeShape EntityType="db_a89910_salesModel.Areas" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a89910_salesModel.Colors" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a89910_salesModel.CustomerBridgeGrade" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a89910_salesModel.Customers" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a89910_salesModel.CusWork" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a89910_salesModel.EmpList" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a89910_salesModel.Grades" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a89910_salesModel.ManEmp" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a89910_salesModel.Products" Width="1.5" PointX="9.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a89910_salesModel.Scheduale" Width="1.5" PointX="10.5" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a89910_salesModel.Specials" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_a89910_salesModel.Types" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
-        <AssociationConnector Association="db_a89910_salesModel.FK_Customers_Areas" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a89910_salesModel.FK_Types_Colors" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a89910_salesModel.FK_CustomerBridgeGrade_Customers" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a89910_salesModel.FK_CustomerBridgeGrade_Grades" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a89910_salesModel.FK_CustomerBridgeGrade_ManEmp" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a89910_salesModel.FK_Customers_ManEmp" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a89910_salesModel.FK_Customers_Specials" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a89910_salesModel.FK_Customers_Types" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a89910_salesModel.FK_CusWork_Customers" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a89910_salesModel.FK_Scheduale_Customers" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a89910_salesModel.FK_ManEmp_ManEmp" ManuallyRouted="false" />
-        <AssociationConnector Association="db_a89910_salesModel.FK_Scheduale_ManEmp" ManuallyRouted="false" />
+      <Diagram DiagramId="dbe8f9f6aa4b4112b0ac23fdb32ed8fe" Name="Diagram1">
+        <EntityTypeShape EntityType="SalesModel.Areas" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesModel.Colors" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesModel.CustomerBridgeGrade" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesModel.Customers" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesModel.CusWork" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesModel.EmpList" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesModel.Grades" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesModel.ManEmp" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesModel.Products" Width="1.5" PointX="9.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesModel.Scheduale" Width="1.5" PointX="10.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesModel.Specials" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesModel.Types" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="SalesModel.FK_Customers_Areas" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesModel.FK_Types_Colors" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesModel.FK_CustomerBridgeGrade_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesModel.FK_CustomerBridgeGrade_Grades" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesModel.FK_CustomerBridgeGrade_ManEmp" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesModel.FK_Customers_ManEmp" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesModel.FK_Customers_Specials" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesModel.FK_Customers_Types" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesModel.FK_CusWork_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesModel.FK_Scheduale_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesModel.FK_ManEmp_ManEmp" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesModel.FK_Scheduale_ManEmp" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
