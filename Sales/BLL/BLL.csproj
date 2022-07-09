@@ -64,6 +64,8 @@
     <Compile Include="SchedualeBLL.cs" />
     <Compile Include="SpecialsBLL.cs" />
     <Compile Include="TypesBLL.cs" />
+    <Compile Include="VacationsBLL.cs" />
+    <Compile Include="VacationTypesBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
