@@ -20,5 +20,7 @@ namespace DAL
         public static GenericDAL<CustomerBridgeGrade> CustomerBridgeGrade = new GenericDAL<CustomerBridgeGrade>();
         public static GenericDAL<Scheduale> Scheduale = new GenericDAL<Scheduale>();
         public static GenericDAL<EmpList> EmpList = new GenericDAL<EmpList>();
+        public static GenericDAL<VacationTypes> VacationTypes = new GenericDAL<VacationTypes>();
+        public static GenericDAL<Vacations> Vacations = new GenericDAL<Vacations>();
     }
 }
