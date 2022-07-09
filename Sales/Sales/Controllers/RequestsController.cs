@@ -120,6 +120,30 @@ namespace Sales.Controllers
             CustomerBridgeGradeBLL.Edit(model);
             return Json("success", JsonRequestBehavior.AllowGet);
         }
+        [IsLogged]
+        [IsManager]
+        public ActionResult VacationRequests()
+        {
+            ViewBag.Title = "Vacation Requests";
+            return View();
+        }
+        [IsLogged]
+        [IsManager]
+        public ActionResult VacationDateView()
+        {
+            int Leader = Convert.ToInt32(Session["UserID"]);
+            List<Vacations> vacations = VacationsBLL.List().Where(e => e.Leader == Leader && e.Status == 0).ToList();
+            return View(vacations);
+        }
+        [IsLogged]
+        [IsManager]
+        public JsonResult ApproveVacation(int Id)
+        {
+            Vacations model = VacationsBLL.Get(Id);
+            model.Status = 1;
+            VacationsBLL.Edit(model);
+            return Json("success", JsonRequestBehavior.AllowGet);
+        }
 
 
     }

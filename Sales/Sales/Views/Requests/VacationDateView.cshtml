@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<Entity.Vacations>
+<table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Employee</th>
+            <th>Type</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Deputy</th>
+            <th>Reason</th>
+            <th>Remove</th>
+            <th>OPR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.ManEmp.Name</td>
+            <td>@item.VacationTypes.Name</td>
+            <td>@Convert.ToDateTime(item.FromDate).ToShortDateString()</td>
+            <td>@Convert.ToDateTime(item.ToDate).ToShortDateString()</td>
+            <td>@item.Deputy</td>
+            <td>@item.Reason</td>
+            <td>@item.Types.Type</td>
+            <td><button class="btn btn-xs btn-success" onclick="ApproveVacation(@item.Id)"><i class="fa fa-check"></i></button></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable();
+    });
+</script>

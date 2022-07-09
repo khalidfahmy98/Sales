@@ -225,6 +225,7 @@
     <Content Include="Scripts\Requests\Accounts.js" />
     <Content Include="Scripts\Requests\Grade.js" />
     <Content Include="Scripts\Requests\list.js" />
+    <Content Include="Scripts\Requests\Vacation.js" />
     <Content Include="Scripts\Scheduale\Add.js" />
     <Content Include="Scripts\Scheduale\Operations.js" />
     <Content Include="Scripts\select2\i18n\az.js" />
@@ -352,6 +353,8 @@
     <Content Include="Views\VacationTypes\Select.cshtml" />
     <Content Include="Views\Vacations\Index.cshtml" />
     <Content Include="Views\Vacations\DataView.cshtml" />
+    <Content Include="Views\Requests\VacationRequests.cshtml" />
+    <Content Include="Views\Requests\VacationDateView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
