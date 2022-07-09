@@ -135,6 +135,26 @@
     <Property Name="NoVisits" Type="int" />
     <Property Name="ColorId" Type="int" />
   </EntityType>
+  <EntityType Name="Vacations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VacationTypeId" Type="int" />
+    <Property Name="FromDate" Type="date" />
+    <Property Name="ToDate" Type="date" />
+    <Property Name="Deputy" Type="varchar(max)" />
+    <Property Name="Reason" Type="varchar(max)" />
+    <Property Name="RemoveId" Type="int" />
+    <Property Name="EmployeeId" Type="int" />
+  </EntityType>
+  <EntityType Name="VacationTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+  </EntityType>
   <Association Name="FK_CustomerBridgeGrade_Customers">
     <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
     <End Role="CustomerBridgeGrade" Type="Self.CustomerBridgeGrade" Multiplicity="*" />
@@ -279,6 +299,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Vacations_ManEmp">
+    <End Role="ManEmp" Type="Self.ManEmp" Multiplicity="0..1" />
+    <End Role="Vacations" Type="Self.Vacations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManEmp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacations">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacations_Types">
+    <End Role="Types" Type="Self.Types" Multiplicity="0..1" />
+    <End Role="Vacations" Type="Self.Vacations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Types">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacations">
+        <PropertyRef Name="RemoveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacations_VacationTypes">
+    <End Role="VacationTypes" Type="Self.VacationTypes" Multiplicity="0..1" />
+    <End Role="Vacations" Type="Self.Vacations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VacationTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacations">
+        <PropertyRef Name="VacationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="SalesModelStoreContainer">
     <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
@@ -293,6 +349,8 @@
     <EntitySet Name="Specials" EntityType="Self.Specials" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Types" EntityType="Self.Types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacations" EntityType="Self.Vacations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VacationTypes" EntityType="Self.VacationTypes" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_CustomerBridgeGrade_Customers" Association="Self.FK_CustomerBridgeGrade_Customers">
       <End Role="Customers" EntitySet="Customers" />
       <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
@@ -340,6 +398,18 @@
     <AssociationSet Name="FK_Types_Colors" Association="Self.FK_Types_Colors">
       <End Role="Colors" EntitySet="Colors" />
       <End Role="Types" EntitySet="Types" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacations_ManEmp" Association="Self.FK_Vacations_ManEmp">
+      <End Role="ManEmp" EntitySet="ManEmp" />
+      <End Role="Vacations" EntitySet="Vacations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacations_Types" Association="Self.FK_Vacations_Types">
+      <End Role="Types" EntitySet="Types" />
+      <End Role="Vacations" EntitySet="Vacations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacations_VacationTypes" Association="Self.FK_Vacations_VacationTypes">
+      <End Role="VacationTypes" EntitySet="VacationTypes" />
+      <End Role="Vacations" EntitySet="Vacations" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

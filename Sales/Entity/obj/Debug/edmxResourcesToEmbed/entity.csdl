@@ -14,6 +14,8 @@
     <EntitySet Name="Specials" EntityType="SalesModel.Specials" />
     <EntitySet Name="sysdiagrams" EntityType="SalesModel.sysdiagrams" />
     <EntitySet Name="Types" EntityType="SalesModel.Types" />
+    <EntitySet Name="Vacations" EntityType="SalesModel.Vacations" />
+    <EntitySet Name="VacationTypes" EntityType="SalesModel.VacationTypes" />
     <AssociationSet Name="FK_Customers_Areas" Association="SalesModel.FK_Customers_Areas">
       <End Role="Areas" EntitySet="Areas" />
       <End Role="Customers" EntitySet="Customers" />
@@ -61,6 +63,18 @@
     <AssociationSet Name="FK_Scheduale_ManEmp" Association="SalesModel.FK_Scheduale_ManEmp">
       <End Role="ManEmp" EntitySet="ManEmp" />
       <End Role="Scheduale" EntitySet="Scheduale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacations_ManEmp" Association="SalesModel.FK_Vacations_ManEmp">
+      <End Role="ManEmp" EntitySet="ManEmp" />
+      <End Role="Vacations" EntitySet="Vacations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacations_Types" Association="SalesModel.FK_Vacations_Types">
+      <End Role="Types" EntitySet="Types" />
+      <End Role="Vacations" EntitySet="Vacations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacations_VacationTypes" Association="SalesModel.FK_Vacations_VacationTypes">
+      <End Role="VacationTypes" EntitySet="VacationTypes" />
+      <End Role="Vacations" EntitySet="Vacations" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Areas">
@@ -171,6 +185,7 @@
     <NavigationProperty Name="ManEmp1" Relationship="SalesModel.FK_ManEmp_ManEmp" FromRole="ManEmp" ToRole="ManEmp1" />
     <NavigationProperty Name="ManEmp2" Relationship="SalesModel.FK_ManEmp_ManEmp" FromRole="ManEmp1" ToRole="ManEmp" />
     <NavigationProperty Name="Scheduale" Relationship="SalesModel.FK_Scheduale_ManEmp" FromRole="ManEmp" ToRole="Scheduale" />
+    <NavigationProperty Name="Vacations" Relationship="SalesModel.FK_Vacations_ManEmp" FromRole="ManEmp" ToRole="Vacations" />
   </EntityType>
   <EntityType Name="Products">
     <Key>
@@ -221,6 +236,31 @@
     <Property Name="ColorId" Type="Int32" />
     <NavigationProperty Name="Colors" Relationship="SalesModel.FK_Types_Colors" FromRole="Types" ToRole="Colors" />
     <NavigationProperty Name="Customers" Relationship="SalesModel.FK_Customers_Types" FromRole="Types" ToRole="Customers" />
+    <NavigationProperty Name="Vacations" Relationship="SalesModel.FK_Vacations_Types" FromRole="Types" ToRole="Vacations" />
+  </EntityType>
+  <EntityType Name="Vacations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VacationTypeId" Type="Int32" />
+    <Property Name="FromDate" Type="DateTime" Precision="0" />
+    <Property Name="ToDate" Type="DateTime" Precision="0" />
+    <Property Name="Deputy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemoveId" Type="Int32" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <NavigationProperty Name="ManEmp" Relationship="SalesModel.FK_Vacations_ManEmp" FromRole="Vacations" ToRole="ManEmp" />
+    <NavigationProperty Name="Types" Relationship="SalesModel.FK_Vacations_Types" FromRole="Vacations" ToRole="Types" />
+    <NavigationProperty Name="VacationTypes" Relationship="SalesModel.FK_Vacations_VacationTypes" FromRole="Vacations" ToRole="VacationTypes" />
+  </EntityType>
+  <EntityType Name="VacationTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Vacations" Relationship="SalesModel.FK_Vacations_VacationTypes" FromRole="VacationTypes" ToRole="Vacations" />
   </EntityType>
   <Association Name="FK_Customers_Areas">
     <End Type="SalesModel.Areas" Role="Areas" Multiplicity="0..1" />
@@ -363,6 +403,42 @@
       </Principal>
       <Dependent Role="Scheduale">
         <PropertyRef Name="ManEmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacations_ManEmp">
+    <End Type="SalesModel.ManEmp" Role="ManEmp" Multiplicity="0..1" />
+    <End Type="SalesModel.Vacations" Role="Vacations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManEmp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacations">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacations_Types">
+    <End Type="SalesModel.Types" Role="Types" Multiplicity="0..1" />
+    <End Type="SalesModel.Vacations" Role="Vacations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Types">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacations">
+        <PropertyRef Name="RemoveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacations_VacationTypes">
+    <End Type="SalesModel.VacationTypes" Role="VacationTypes" Multiplicity="0..1" />
+    <End Type="SalesModel.Vacations" Role="Vacations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VacationTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vacations">
+        <PropertyRef Name="VacationTypeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
