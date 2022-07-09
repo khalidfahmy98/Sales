@@ -109,13 +109,21 @@
                                         <li><a href="~/Managers/Operations"><i class="metismenu-icon"> </i>  Operations </a></li>
                                     </ul>
                                 </li>
-                                <li><a href="~/Requests/"><i class="metismenu-icon pe-7s-refresh"> </i>Account Requests </a></li>
                             }
                             @if (Convert.ToInt32(Session["Rule"]) == 2 || Convert.ToInt32(Session["Rule"]) == 0)
                             {
-                                <li><a href="~/Requests/ListRequests"><i class="metismenu-icon pe-7s-refresh"> </i>List Requests </a></li>
-                                <li><a href="~/Requests/GradeRequests"><i class="metismenu-icon pe-7s-refresh"> </i>Grade Requests </a></li>
-                                <li><a href="~/Requests/#"><i class="metismenu-icon pe-7s-refresh"> </i>Vacation Requests </a></li>
+                                <li>
+                                    <a href="#"><i class="metismenu-icon pe-7s-refresh"></i>Requests<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
+                                    <ul>
+                                        @if (Convert.ToInt32(Session["Rule"]) == 0)
+                                        {
+                                            <li><a href="~/Requests/"><i class="metismenu-icon"> </i>Account Requests</a></li>
+                                        }
+                                        <li><a href="~/Requests/ListRequests"><i class="metismenu-icon"> </i>List Requests</a></li>
+                                        <li><a href="~/Requests/GradeRequests"><i class="metismenu-icon"> </i>  Grade Requests </a></li>
+                                        <li><a href="~/Requests/#"><i class="metismenu-icon"> </i>  Vacation Requests </a></li>
+                                    </ul>
+                                </li>
                             }
                             <li class="app-sidebar__heading">Main System</li>
                             <li>
