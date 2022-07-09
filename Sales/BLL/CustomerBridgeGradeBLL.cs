@@ -14,7 +14,10 @@ namespace BLL
 
         public static CustomerBridgeGrade Get(int Id) => DataService.CustomerBridgeGrade.Get(Id);
 
-        public static int Add(CustomerBridgeGrade Model) => DataService.CustomerBridgeGrade.Create(Model).Id;
+        public static int Add(CustomerBridgeGrade Model)
+        {
+            return DataService.CustomerBridgeGrade.Create(Model).Id;
+        }
 
         public static int Count() => List().Count();
 

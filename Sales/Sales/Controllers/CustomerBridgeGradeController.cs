@@ -48,7 +48,7 @@ namespace Sales.Controllers
         }
         [IsLogged]
         public JsonResult CreateListed(CustomerBridgeGrade model) { 
-            CustomerBridgeGrade ValidateGradeit = CustomerBridgeGradeBLL.List().Where(e => e.CustomerId == model.CustomerId).FirstOrDefault();
+            CustomerBridgeGrade ValidateGradeit = CustomerBridgeGradeBLL.List().Where(e => e.CustomerId == model.CustomerId && e.ManEmpId == model.ManEmpId).FirstOrDefault();
             if(ValidateGradeit != null)
             {
                 ValidateGradeit.GradeId = model.GradeId;
