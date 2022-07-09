@@ -140,6 +140,26 @@
           <Property Name="NoVisits" Type="int" />
           <Property Name="ColorId" Type="int" />
         </EntityType>
+        <EntityType Name="Vacations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VacationTypeId" Type="int" />
+          <Property Name="FromDate" Type="date" />
+          <Property Name="ToDate" Type="date" />
+          <Property Name="Deputy" Type="varchar(max)" />
+          <Property Name="Reason" Type="varchar(max)" />
+          <Property Name="RemoveId" Type="int" />
+          <Property Name="EmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="VacationTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" />
+        </EntityType>
         <Association Name="FK_CustomerBridgeGrade_Customers">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="CustomerBridgeGrade" Type="Self.CustomerBridgeGrade" Multiplicity="*" />
@@ -284,6 +304,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Vacations_ManEmp">
+          <End Role="ManEmp" Type="Self.ManEmp" Multiplicity="0..1" />
+          <End Role="Vacations" Type="Self.Vacations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ManEmp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vacations">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacations_Types">
+          <End Role="Types" Type="Self.Types" Multiplicity="0..1" />
+          <End Role="Vacations" Type="Self.Vacations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Types">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vacations">
+              <PropertyRef Name="RemoveId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacations_VacationTypes">
+          <End Role="VacationTypes" Type="Self.VacationTypes" Multiplicity="0..1" />
+          <End Role="Vacations" Type="Self.Vacations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VacationTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vacations">
+              <PropertyRef Name="VacationTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SalesModelStoreContainer">
           <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
@@ -298,6 +354,8 @@
           <EntitySet Name="Specials" EntityType="Self.Specials" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Types" EntityType="Self.Types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vacations" EntityType="Self.Vacations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VacationTypes" EntityType="Self.VacationTypes" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CustomerBridgeGrade_Customers" Association="Self.FK_CustomerBridgeGrade_Customers">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
@@ -346,6 +404,18 @@
             <End Role="Colors" EntitySet="Colors" />
             <End Role="Types" EntitySet="Types" />
           </AssociationSet>
+          <AssociationSet Name="FK_Vacations_ManEmp" Association="Self.FK_Vacations_ManEmp">
+            <End Role="ManEmp" EntitySet="ManEmp" />
+            <End Role="Vacations" EntitySet="Vacations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacations_Types" Association="Self.FK_Vacations_Types">
+            <End Role="Types" EntitySet="Types" />
+            <End Role="Vacations" EntitySet="Vacations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacations_VacationTypes" Association="Self.FK_Vacations_VacationTypes">
+            <End Role="VacationTypes" EntitySet="VacationTypes" />
+            <End Role="Vacations" EntitySet="Vacations" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -365,6 +435,8 @@
           <EntitySet Name="Specials" EntityType="SalesModel.Specials" />
           <EntitySet Name="sysdiagrams" EntityType="SalesModel.sysdiagrams" />
           <EntitySet Name="Types" EntityType="SalesModel.Types" />
+          <EntitySet Name="Vacations" EntityType="SalesModel.Vacations" />
+          <EntitySet Name="VacationTypes" EntityType="SalesModel.VacationTypes" />
           <AssociationSet Name="FK_Customers_Areas" Association="SalesModel.FK_Customers_Areas">
             <End Role="Areas" EntitySet="Areas" />
             <End Role="Customers" EntitySet="Customers" />
@@ -412,6 +484,18 @@
           <AssociationSet Name="FK_Scheduale_ManEmp" Association="SalesModel.FK_Scheduale_ManEmp">
             <End Role="ManEmp" EntitySet="ManEmp" />
             <End Role="Scheduale" EntitySet="Scheduale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacations_ManEmp" Association="SalesModel.FK_Vacations_ManEmp">
+            <End Role="ManEmp" EntitySet="ManEmp" />
+            <End Role="Vacations" EntitySet="Vacations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacations_Types" Association="SalesModel.FK_Vacations_Types">
+            <End Role="Types" EntitySet="Types" />
+            <End Role="Vacations" EntitySet="Vacations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vacations_VacationTypes" Association="SalesModel.FK_Vacations_VacationTypes">
+            <End Role="VacationTypes" EntitySet="VacationTypes" />
+            <End Role="Vacations" EntitySet="Vacations" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Areas">
@@ -522,6 +606,7 @@
           <NavigationProperty Name="ManEmp1" Relationship="SalesModel.FK_ManEmp_ManEmp" FromRole="ManEmp" ToRole="ManEmp1" />
           <NavigationProperty Name="ManEmp2" Relationship="SalesModel.FK_ManEmp_ManEmp" FromRole="ManEmp1" ToRole="ManEmp" />
           <NavigationProperty Name="Scheduale" Relationship="SalesModel.FK_Scheduale_ManEmp" FromRole="ManEmp" ToRole="Scheduale" />
+          <NavigationProperty Name="Vacations" Relationship="SalesModel.FK_Vacations_ManEmp" FromRole="ManEmp" ToRole="Vacations" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
@@ -572,6 +657,31 @@
           <Property Name="ColorId" Type="Int32" />
           <NavigationProperty Name="Colors" Relationship="SalesModel.FK_Types_Colors" FromRole="Types" ToRole="Colors" />
           <NavigationProperty Name="Customers" Relationship="SalesModel.FK_Customers_Types" FromRole="Types" ToRole="Customers" />
+          <NavigationProperty Name="Vacations" Relationship="SalesModel.FK_Vacations_Types" FromRole="Types" ToRole="Vacations" />
+        </EntityType>
+        <EntityType Name="Vacations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VacationTypeId" Type="Int32" />
+          <Property Name="FromDate" Type="DateTime" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Precision="0" />
+          <Property Name="Deputy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RemoveId" Type="Int32" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <NavigationProperty Name="ManEmp" Relationship="SalesModel.FK_Vacations_ManEmp" FromRole="Vacations" ToRole="ManEmp" />
+          <NavigationProperty Name="Types" Relationship="SalesModel.FK_Vacations_Types" FromRole="Vacations" ToRole="Types" />
+          <NavigationProperty Name="VacationTypes" Relationship="SalesModel.FK_Vacations_VacationTypes" FromRole="Vacations" ToRole="VacationTypes" />
+        </EntityType>
+        <EntityType Name="VacationTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Vacations" Relationship="SalesModel.FK_Vacations_VacationTypes" FromRole="VacationTypes" ToRole="Vacations" />
         </EntityType>
         <Association Name="FK_Customers_Areas">
           <End Type="SalesModel.Areas" Role="Areas" Multiplicity="0..1" />
@@ -717,7 +827,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <Association Name="FK_Vacations_ManEmp">
+          <End Type="SalesModel.ManEmp" Role="ManEmp" Multiplicity="0..1" />
+          <End Type="SalesModel.Vacations" Role="Vacations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ManEmp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vacations">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacations_Types">
+          <End Type="SalesModel.Types" Role="Types" Multiplicity="0..1" />
+          <End Type="SalesModel.Vacations" Role="Vacations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Types">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vacations">
+              <PropertyRef Name="RemoveId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vacations_VacationTypes">
+          <End Type="SalesModel.VacationTypes" Role="VacationTypes" Multiplicity="0..1" />
+          <End Type="SalesModel.Vacations" Role="Vacations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VacationTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vacations">
+              <PropertyRef Name="VacationTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -867,6 +1013,28 @@
                 <ScalarProperty Name="ColorId" ColumnName="ColorId" />
                 <ScalarProperty Name="NoVisits" ColumnName="NoVisits" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vacations">
+            <EntityTypeMapping TypeName="SalesModel.Vacations">
+              <MappingFragment StoreEntitySet="Vacations">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="RemoveId" ColumnName="RemoveId" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Deputy" ColumnName="Deputy" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="VacationTypeId" ColumnName="VacationTypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VacationTypes">
+            <EntityTypeMapping TypeName="SalesModel.VacationTypes">
+              <MappingFragment StoreEntitySet="VacationTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

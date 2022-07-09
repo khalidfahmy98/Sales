@@ -135,7 +135,6 @@
                             @*<li><a href="~/CustomerBridgeGrade/"><i class="metismenu-icon pe-7s-graph"> </i>Assign Grades </a></li>*@
                             @if (Convert.ToInt32(Session["Rule"]) == 2 || Convert.ToInt32(Session["Rule"]) == 0)
                             {
-
                                 <li>
                                     <a href="#"><i class="metismenu-icon pe-7s-world"></i>Employees Management<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i></a>
                                     <ul>
@@ -168,6 +167,7 @@
                             }
                             @if (Convert.ToInt32(Session["Rule"]) == 1)
                             {
+                                <li><a href="#"><i class="metismenu-icon pe-7s-albums"> </i> Vacations & Activites  </a></li>
                                 <li><a href="~/Scheduale/MyScheduales"><i class="metismenu-icon pe-7s-ticket"> </i>  My Plans </a></li>
                             }
                         </ul>

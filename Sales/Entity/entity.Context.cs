@@ -38,5 +38,7 @@ namespace Entity
         public virtual DbSet<Specials> Specials { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Types> Types { get; set; }
+        public virtual DbSet<Vacations> Vacations { get; set; }
+        public virtual DbSet<VacationTypes> VacationTypes { get; set; }
     }
 }

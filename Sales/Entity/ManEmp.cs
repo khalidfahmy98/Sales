@@ -21,6 +21,7 @@ namespace Entity
             this.Customers = new HashSet<Customers>();
             this.ManEmp1 = new HashSet<ManEmp>();
             this.Scheduale = new HashSet<Scheduale>();
+            this.Vacations = new HashSet<Vacations>();
         }
     
         public int Id { get; set; }
@@ -44,5 +45,7 @@ namespace Entity
         public virtual ManEmp ManEmp2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Scheduale> Scheduale { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Vacations> Vacations { get; set; }
     }
 }
