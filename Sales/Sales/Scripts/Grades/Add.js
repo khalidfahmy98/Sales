@@ -1,7 +1,7 @@
 ﻿function Add() {
     var name = $("#name").val(),
         comment = $("#comment").val(),
-        model = { Grade: name, Comment: comment};
+        model = { Grade: name, Quote: comment};
     if (name !== "" && comment !== "") {
         $.ajax({
             url: "/Grades/Create",
