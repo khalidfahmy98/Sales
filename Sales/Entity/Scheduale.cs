@@ -19,6 +19,7 @@ namespace Entity
         public Nullable<int> CustomerId { get; set; }
         public Nullable<int> Month { get; set; }
         public Nullable<System.DateTime> VisitDate { get; set; }
+        public Nullable<int> Status { get; set; }
     
         public virtual Customers Customers { get; set; }
         public virtual ManEmp ManEmp { get; set; }
