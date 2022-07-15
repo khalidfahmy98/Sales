@@ -144,6 +144,30 @@ namespace Sales.Controllers
             VacationsBLL.Edit(model);
             return Json("success", JsonRequestBehavior.AllowGet);
         }
+        [IsLogged]
+        [IsManager]
+        public ActionResult PlanRequest()
+        {
+            ViewBag.Title = "Plan Requests";
+            return View();
+        }
+        [IsLogged]
+        [IsManager]
+        public ActionResult PlanDataview()
+        {
+            int Leader = Convert.ToInt32(Session["UserID"]);
+            List<Scheduale> plans = SchedualeBLL.List().Where(e => e.Leader == Leader && e.Status == 0).ToList();
+            return View(plans);
+        }
+        [IsLogged]
+        [IsManager]
+        public JsonResult ApprovePlan(int Id)
+        {
+            Scheduale model = SchedualeBLL.Get(Id);
+            model.Status = 1;
+            SchedualeBLL.Edit(model);
+            return Json("success", JsonRequestBehavior.AllowGet);
+        }
 
 
     }

@@ -225,7 +225,9 @@
     <Content Include="Scripts\Requests\Accounts.js" />
     <Content Include="Scripts\Requests\Grade.js" />
     <Content Include="Scripts\Requests\list.js" />
+    <Content Include="Scripts\Requests\PlanRequests.js" />
     <Content Include="Scripts\Requests\Vacation.js" />
+    <Content Include="Scripts\Requests\VacationRequests.js" />
     <Content Include="Scripts\Scheduale\Add.js" />
     <Content Include="Scripts\Scheduale\Operations.js" />
     <Content Include="Scripts\Scheduale\Planview.js" />
@@ -357,6 +359,8 @@
     <Content Include="Views\Requests\VacationRequests.cshtml" />
     <Content Include="Views\Requests\VacationDateView.cshtml" />
     <Content Include="Views\Scheduale\PlanView.cshtml" />
+    <Content Include="Views\Requests\PlanRequest.cshtml" />
+    <Content Include="Views\Requests\PlanDataview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
