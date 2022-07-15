@@ -21,7 +21,7 @@ namespace Sales.Controllers
         [IsLogged]
         public ActionResult PlanView(int Emp , int Month)
         {
-            List<Scheduale> scheduales = SchedualeBLL.List().Where( e=> e.ManEmpId == Emp && e.Month == Month).ToList();
+            List<Scheduale> scheduales = SchedualeBLL.List().Where( e=> e.ManEmpId == Emp && e.Month == Month ).ToList();
             return View(scheduales);
         }
 

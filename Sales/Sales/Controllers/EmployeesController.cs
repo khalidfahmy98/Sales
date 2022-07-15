@@ -85,7 +85,16 @@ namespace Sales.Controllers
             {
                 ViewBag.Id = Id;
             }
-            List<ManEmp> ManEmps = ManEmpBLL.List().Where( e=> e.Rule > 0 && e.Status == 1 ).ToList();
+            int Lead = Convert.ToInt32(Session["UserID"]);
+            List<ManEmp> ManEmps = null;
+            if ( Convert.ToInt32(Session["Rule"]) == 0)
+            {
+                 ManEmps = ManEmpBLL.List().Where(e => e.Rule > 0 && e.Status == 1).ToList();
+            }
+            else
+            {
+                ManEmps = ManEmpBLL.List().Where(e => e.Lead == Lead && e.Status == 1).ToList();
+            }
             return View(ManEmps);
         }
         [IsLogged]
