@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<Entity.Scheduale>
+<table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Customer</th>
+            <th>Type</th>
+            <th>Speciality</th>
+            <th>Visit Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Customers.Name</td>
+            <td>@item.Customers.Types.Type</td>
+            <td>@item.Customers.Specials.Name</td>
+            <td>@item.VisitDate</td>
+            <td>
+                @if (Convert.ToInt32(item.Status) == 0)
+                {
+                    <span>Pending</span>
+                }
+                else
+                {
+                    <span style="color:green;">Approved</span>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable();
+    });
+</script>

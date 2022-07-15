@@ -1,30 +1,41 @@
-﻿@model IEnumerable<Entity.Scheduale>
-<div class="panel">
+﻿<div class="panel">
     <div class="panel-heading">
-        Employee Schedualed Visits
+        Choose Employee to Review Plan
     </div>
     <div class="panel-body">
-        <table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Month</th>
-                    <th>Employee</th>
-                    <th>Customer</th>
-                    <th>Visit Date</th>
-                </tr>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Month</td>
-                    <td>@item.ManEmp.Name</td>
-                    <td>@item.Customers.Name</td>
-                </tr>
-                }
-            </tbody>
-        </table>
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Employee</label>
+                @Html.Action("Select","Employees")
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Month</label>
+                <select class="form-control input-sm" id="month">
+                    <option value="1" selected>Jan</option>
+                    <option value="2">Feb</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">Jun</option>
+                    <option value="7">Jul</option>
+                    <option value="8">Aug</option>
+                    <option value="9">Sep</option>
+                    <option value="10">Oct</option>
+                    <option value="11">Nov</option>
+                    <option value="12">Dec</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-sm btn-primary" onclick="ReloadView()"> Review Plan </button>
         <div class="alert hide" id="errorHandler"></div>
     </div>
 </div>
+<div class="panel">
+    <div class="panel-heading">
+        Employee Month Plan
+    </div>
+    <div class="panel-body">
+        <div id="View"></div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Scripts/Scheduale/Planview.js"></script>

@@ -13,13 +13,18 @@ namespace Sales.Controllers
     {
         // GET: Scheduale
         [IsLogged]
-        [IsManager]
         public ActionResult Index()
         {
-            ViewBag.Title = "Employees Sales Scheduales";
-            List<Scheduale> scheduales = SchedualeBLL.List().ToList();
+            ViewBag.Title = "Employee Plans";
+            return View();
+        }
+        [IsLogged]
+        public ActionResult PlanView(int Emp , int Month)
+        {
+            List<Scheduale> scheduales = SchedualeBLL.List().Where( e=> e.ManEmpId == Emp && e.Month == Month).ToList();
             return View(scheduales);
         }
+
         [IsLogged]
         public ActionResult MyScheduales()
         {   
