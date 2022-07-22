@@ -28,7 +28,7 @@ namespace Sales.Controllers
         [IsLogged]
         public ActionResult MyScheduales()
         {   
-            ViewBag.Title = "My Sales Scheduales";
+            ViewBag.Title = "Plans Management";
             return View();
         }
         [IsLogged]

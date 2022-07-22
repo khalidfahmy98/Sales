@@ -111,6 +111,8 @@
     <EntitySetMapping Name="Scheduale">
       <EntityTypeMapping TypeName="SalesModel.Scheduale">
         <MappingFragment StoreEntitySet="Scheduale">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Leader" ColumnName="Leader" />
           <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
           <ScalarProperty Name="Month" ColumnName="Month" />
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />

@@ -107,6 +107,8 @@
     <Property Name="CustomerId" Type="int" />
     <Property Name="Month" Type="int" />
     <Property Name="VisitDate" Type="date" />
+    <Property Name="Leader" Type="int" />
+    <Property Name="Status" Type="int" />
   </EntityType>
   <EntityType Name="Specials">
     <Key>
