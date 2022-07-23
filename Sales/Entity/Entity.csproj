@@ -114,6 +114,9 @@
     <Compile Include="VacationTypes.cs">
       <DependentUpon>entity.tt</DependentUpon>
     </Compile>
+    <Compile Include="VisitReports.cs">
+      <DependentUpon>entity.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

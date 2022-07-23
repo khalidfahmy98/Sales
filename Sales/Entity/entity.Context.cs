@@ -40,5 +40,6 @@ namespace Entity
         public virtual DbSet<Types> Types { get; set; }
         public virtual DbSet<Vacations> Vacations { get; set; }
         public virtual DbSet<VacationTypes> VacationTypes { get; set; }
+        public virtual DbSet<VisitReports> VisitReports { get; set; }
     }
 }

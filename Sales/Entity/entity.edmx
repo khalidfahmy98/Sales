@@ -164,6 +164,14 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="VisitReports">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlanId" Type="int" />
+          <Property Name="Report" Type="varchar(max)" />
+        </EntityType>
         <Association Name="FK_CustomerBridgeGrade_Customers">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="CustomerBridgeGrade" Type="Self.CustomerBridgeGrade" Multiplicity="*" />
@@ -360,6 +368,7 @@
           <EntitySet Name="Types" EntityType="Self.Types" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vacations" EntityType="Self.Vacations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VacationTypes" EntityType="Self.VacationTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VisitReports" EntityType="Self.VisitReports" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CustomerBridgeGrade_Customers" Association="Self.FK_CustomerBridgeGrade_Customers">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
@@ -441,6 +450,7 @@
           <EntitySet Name="Types" EntityType="SalesModel.Types" />
           <EntitySet Name="Vacations" EntityType="SalesModel.Vacations" />
           <EntitySet Name="VacationTypes" EntityType="SalesModel.VacationTypes" />
+          <EntitySet Name="VisitReports" EntityType="SalesModel.VisitReports" />
           <AssociationSet Name="FK_Customers_Areas" Association="SalesModel.FK_Customers_Areas">
             <End Role="Areas" EntitySet="Areas" />
             <End Role="Customers" EntitySet="Customers" />
@@ -690,6 +700,14 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Vacations" Relationship="SalesModel.FK_Vacations_VacationTypes" FromRole="VacationTypes" ToRole="Vacations" />
+        </EntityType>
+        <EntityType Name="VisitReports">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlanId" Type="Int32" />
+          <Property Name="Report" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Customers_Areas">
           <End Type="SalesModel.Areas" Role="Areas" Multiplicity="0..1" />
@@ -1047,6 +1065,15 @@
             <EntityTypeMapping TypeName="SalesModel.VacationTypes">
               <MappingFragment StoreEntitySet="VacationTypes">
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisitReports">
+            <EntityTypeMapping TypeName="SalesModel.VisitReports">
+              <MappingFragment StoreEntitySet="VisitReports">
+                <ScalarProperty Name="Report" ColumnName="Report" />
+                <ScalarProperty Name="PlanId" ColumnName="PlanId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
