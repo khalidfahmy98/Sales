@@ -66,6 +66,7 @@
     <Compile Include="TypesBLL.cs" />
     <Compile Include="VacationsBLL.cs" />
     <Compile Include="VacationTypesBLL.cs" />
+    <Compile Include="VisitReportsBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
