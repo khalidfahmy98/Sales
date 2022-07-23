@@ -50,7 +50,7 @@ namespace Sales.Controllers
             List<Customers> customers = CustomersBLL.List().ToList();
             List<ManEmp> manEmp = ManEmpBLL.List().Where(e => e.Lead == Leader).ToList();
             List<EmpList> emplist = EmpListBLL.List().Where(e => e.Status == 0).ToList();
-            using (SalesEntities db = new SalesEntities())
+            using (db_a89910_salesEntities db = new db_a89910_salesEntities())
             {
                 var employeeRecord = from e in emplist
                                      join d in customers on e.CustomerId equals d.Id into table1
@@ -91,7 +91,7 @@ namespace Sales.Controllers
             List<ManEmp> manEmp = ManEmpBLL.List().Where(e => e.Lead == Leader).ToList();
             List<Grades> grades = GradesBLL.List().ToList();
             List<CustomerBridgeGrade> customerBridgeGrade = CustomerBridgeGradeBLL.List().Where(e => e.Status == 0).ToList();
-            using (SalesEntities db = new SalesEntities())
+            using (db_a89910_salesEntities db = new db_a89910_salesEntities())
             {
                 var GradeRecords = from e in customerBridgeGrade
                                    join d in customers on e.CustomerId equals d.Id into table1
