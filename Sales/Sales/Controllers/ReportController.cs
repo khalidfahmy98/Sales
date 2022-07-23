@@ -20,8 +20,11 @@ namespace Sales.Controllers
         public ActionResult Visit(int Id)
         {
             ViewBag.Title = "Visit Report";
-            Scheduale plans = SchedualeBLL.List().Where(e => e.Id == Id).FirstOrDefault();
-            return View(plans);
+            Scheduale plans = SchedualeBLL.Get(Id);
+            ViewBag.Customer = plans.Customers.Name;
+            ViewBag.Date = Convert.ToDateTime(plans.VisitDate).ToShortDateString();
+            ViewBag.PlanId = Id;
+            return View();
         }
         [IsLogged]
         public JsonResult Create(VisitReports model)

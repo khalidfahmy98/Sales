@@ -159,6 +159,14 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar(max)" />
   </EntityType>
+  <EntityType Name="VisitReports">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlanId" Type="int" />
+    <Property Name="Report" Type="varchar(max)" />
+  </EntityType>
   <Association Name="FK_CustomerBridgeGrade_Customers">
     <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
     <End Role="CustomerBridgeGrade" Type="Self.CustomerBridgeGrade" Multiplicity="*" />
@@ -339,6 +347,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_VisitReports_Scheduale">
+    <End Role="Scheduale" Type="Self.Scheduale" Multiplicity="0..1" />
+    <End Role="VisitReports" Type="Self.VisitReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scheduale">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VisitReports">
+        <PropertyRef Name="PlanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="SalesModelStoreContainer">
     <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
@@ -355,6 +375,7 @@
     <EntitySet Name="Types" EntityType="Self.Types" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Vacations" EntityType="Self.Vacations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VacationTypes" EntityType="Self.VacationTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VisitReports" EntityType="Self.VisitReports" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_CustomerBridgeGrade_Customers" Association="Self.FK_CustomerBridgeGrade_Customers">
       <End Role="Customers" EntitySet="Customers" />
       <End Role="CustomerBridgeGrade" EntitySet="CustomerBridgeGrade" />
@@ -414,6 +435,10 @@
     <AssociationSet Name="FK_Vacations_VacationTypes" Association="Self.FK_Vacations_VacationTypes">
       <End Role="VacationTypes" EntitySet="VacationTypes" />
       <End Role="Vacations" EntitySet="Vacations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitReports_Scheduale" Association="Self.FK_VisitReports_Scheduale">
+      <End Role="Scheduale" EntitySet="Scheduale" />
+      <End Role="VisitReports" EntitySet="VisitReports" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

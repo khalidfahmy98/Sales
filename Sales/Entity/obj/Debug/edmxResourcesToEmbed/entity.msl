@@ -175,5 +175,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="VisitReports">
+      <EntityTypeMapping TypeName="SalesModel.VisitReports">
+        <MappingFragment StoreEntitySet="VisitReports">
+          <ScalarProperty Name="Report" ColumnName="Report" />
+          <ScalarProperty Name="PlanId" ColumnName="PlanId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

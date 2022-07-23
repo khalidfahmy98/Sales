@@ -18,7 +18,6 @@
                     <th>Customer</th>
                     <th>Visit Date</th>
                     <th>Report</th>
-                    <th>OPR</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +30,7 @@
                         <td>@item.Scheduale.ManEmp.Name</td>
                     }
                     <td>@item.Scheduale.Customers.Name</td>
-                    <td>@item.Scheduale.VisitDate</td>
+                    <td>@Convert.ToDateTime(item.Scheduale.VisitDate).ToShortDateString()</td>
                     <td>@item.Report</td>
                 </tr>
                 }

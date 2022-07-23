@@ -16,6 +16,7 @@
     <EntitySet Name="Types" EntityType="SalesModel.Types" />
     <EntitySet Name="Vacations" EntityType="SalesModel.Vacations" />
     <EntitySet Name="VacationTypes" EntityType="SalesModel.VacationTypes" />
+    <EntitySet Name="VisitReports" EntityType="SalesModel.VisitReports" />
     <AssociationSet Name="FK_Customers_Areas" Association="SalesModel.FK_Customers_Areas">
       <End Role="Areas" EntitySet="Areas" />
       <End Role="Customers" EntitySet="Customers" />
@@ -67,6 +68,10 @@
     <AssociationSet Name="FK_Vacations_ManEmp" Association="SalesModel.FK_Vacations_ManEmp">
       <End Role="ManEmp" EntitySet="ManEmp" />
       <End Role="Vacations" EntitySet="Vacations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisitReports_Scheduale" Association="SalesModel.FK_VisitReports_Scheduale">
+      <End Role="Scheduale" EntitySet="Scheduale" />
+      <End Role="VisitReports" EntitySet="VisitReports" />
     </AssociationSet>
     <AssociationSet Name="FK_Vacations_Types" Association="SalesModel.FK_Vacations_Types">
       <End Role="Types" EntitySet="Types" />
@@ -208,6 +213,7 @@
     <Property Name="Status" Type="Int32" />
     <NavigationProperty Name="Customers" Relationship="SalesModel.FK_Scheduale_Customers" FromRole="Scheduale" ToRole="Customers" />
     <NavigationProperty Name="ManEmp" Relationship="SalesModel.FK_Scheduale_ManEmp" FromRole="Scheduale" ToRole="ManEmp" />
+    <NavigationProperty Name="VisitReports" Relationship="SalesModel.FK_VisitReports_Scheduale" FromRole="Scheduale" ToRole="VisitReports" />
   </EntityType>
   <EntityType Name="Specials">
     <Key>
@@ -265,6 +271,15 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Vacations" Relationship="SalesModel.FK_Vacations_VacationTypes" FromRole="VacationTypes" ToRole="Vacations" />
+  </EntityType>
+  <EntityType Name="VisitReports">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlanId" Type="Int32" />
+    <Property Name="Report" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Scheduale" Relationship="SalesModel.FK_VisitReports_Scheduale" FromRole="VisitReports" ToRole="Scheduale" />
   </EntityType>
   <Association Name="FK_Customers_Areas">
     <End Type="SalesModel.Areas" Role="Areas" Multiplicity="0..1" />
@@ -419,6 +434,18 @@
       </Principal>
       <Dependent Role="Vacations">
         <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisitReports_Scheduale">
+    <End Type="SalesModel.Scheduale" Role="Scheduale" Multiplicity="0..1" />
+    <End Type="SalesModel.VisitReports" Role="VisitReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scheduale">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VisitReports">
+        <PropertyRef Name="PlanId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
