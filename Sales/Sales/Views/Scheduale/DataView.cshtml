@@ -1,26 +1,36 @@
 ﻿@{
     Layout = null;
 }
-@model IEnumerable<Entity.Scheduale>
+@model IEnumerable<Sales.Models.EmpListModel>
 <table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
-            <th>#</th>
+            <th>Assign</th>
             <th>Customer</th>
-            <th>Month</th>
+            <th>Type</th>
+            <th>Grade</th>
+            <th>Quote</th>
+            <th>Speciality</th>
             <th>Visit Date</th>
-            <th>OPR</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
         <tr>
-            <td>@item.Id</td>
-            <td>@item.Customers.Name</td>
-            <td>@item.Month</td>
-            <td>@item.VisitDate</td>
-            <td> <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button></td>
+            <td><input type="checkbox" value="@item.customers.Id" name="customers" class="customers" /></td>
+            <td>@item.customers.Name</td>
+            <td>@item.customers.Types.Type</td>
+            <td>@item.customers.CustomerBridgeGrade.Where(e => e.CustomerId == item.customers.Id).FirstOrDefault().Grades.Grade</td>
+            <td>@item.customers.CustomerBridgeGrade.Where(e => e.CustomerId == item.customers.Id).FirstOrDefault().Grades.Quote</td>
+            <td>@item.customers.Specials.Name</td>
+            <td>
+                @{  int quote = Convert.ToInt32(item.customers.CustomerBridgeGrade.Where(e => e.CustomerId == item.customers.Id).FirstOrDefault().Grades.Quote ); }
+                @for( int i = 1; i <= quote; i++)
+                {
+                    <input type="date" class="form-control input-sm visitdate" data-emp="@item.customers.Id" /> 
+                }
+            </td>
         </tr>
         }
     </tbody>

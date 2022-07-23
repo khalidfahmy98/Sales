@@ -54,7 +54,7 @@ namespace Sales.Controllers
             int UserId = Convert.ToInt32(Session["UserID"]);
             List<Customers> customers = CustomersBLL.List().ToList();
             List<ManEmp> manEmp = ManEmpBLL.List().ToList();
-            List<EmpList> emplist = EmpListBLL.List().Where(e => e.EmployeeId == UserId).ToList();
+            List<EmpList> emplist = EmpListBLL.List().Where(e => e.EmployeeId == UserId && e.Status == 1).ToList();
             using (SalesEntities db = new SalesEntities())
             {
                 var employeeRecord = from e in emplist

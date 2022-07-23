@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Entity;
 using BLL;
 using Sales.Common;
+using Sales.Models;
 
 namespace Sales.Controllers
 {
@@ -35,12 +36,38 @@ namespace Sales.Controllers
         public ActionResult DataView()
         {
             int UserId = Convert.ToInt32(Session["UserId"]);
-            List<Scheduale> scheduale = SchedualeBLL.List().Where(e => e.ManEmpId == UserId).ToList();
-            return View(scheduale);
+            int Rule = Convert.ToInt32(Session["Rule"]);
+            int Leader = 1 ;
+            if ( Rule == 1 || Rule == 2)
+            {
+                Leader = Convert.ToInt32(ManEmpBLL.Get(UserId).Lead);
+            }
+            ViewBag.leader = Leader;
+            List<Customers> customers = CustomersBLL.List().ToList();
+            List<ManEmp> manEmp = ManEmpBLL.List().ToList();
+            List<EmpList> emplist = EmpListBLL.List().Where(e => e.EmployeeId == UserId).ToList();
+            using (SalesEntities db = new SalesEntities())
+            {
+                var employeeRecord = from e in emplist
+                                     join d in customers on e.CustomerId equals d.Id into table1
+                                     from d in table1.ToList()
+                                     join i in manEmp on e.EmployeeId equals i.Id into table2
+                                     from i in table2.ToList()
+                                     select new EmpListModel
+                                     {
+                                         emplist = e,
+                                         customers = d,
+                                         manEmp = i
+                                     };
+                return View(employeeRecord);
+            }
         }
         [IsLogged]
         public JsonResult Create(Scheduale model)
         {
+            int UserId = Convert.ToInt32(Session["UserID"]);
+            int Leader = Convert.ToInt32(ManEmpBLL.Get(UserId).Lead);
+            model.Leader = Leader; 
             if (SchedualeBLL.Add(model) != 0)
             {
                 return Json("success", JsonRequestBehavior.AllowGet);
