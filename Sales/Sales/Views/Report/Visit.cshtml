@@ -1,1 +1,18 @@
-﻿
+﻿ 
+<div class="panel">
+    <div class="panel-heading">
+        [] Call [] Text Report
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <input type="text" id="plan" value="" class="hide" />
+            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                <label>Call Report</label>
+                <textarea class="form-control input-sm" id="report" style="resize:none;height:400px;"></textarea>
+            </div>
+        </div>
+        <button class="btn btn-sm btn-primary" onclick="Add()"> Create Report </button>
+        <div class="alert hide" id="errorHandler"></div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Scripts/Reports/Operations.js"></script>

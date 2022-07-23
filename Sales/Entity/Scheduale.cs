@@ -14,6 +14,12 @@ namespace Entity
     
     public partial class Scheduale
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Scheduale()
+        {
+            this.VisitReports = new HashSet<VisitReports>();
+        }
+    
         public int Id { get; set; }
         public Nullable<int> ManEmpId { get; set; }
         public Nullable<int> CustomerId { get; set; }
@@ -24,5 +30,7 @@ namespace Entity
     
         public virtual Customers Customers { get; set; }
         public virtual ManEmp ManEmp { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VisitReports> VisitReports { get; set; }
     }
 }

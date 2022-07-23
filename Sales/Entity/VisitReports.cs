@@ -17,5 +17,7 @@ namespace Entity
         public int Id { get; set; }
         public Nullable<int> PlanId { get; set; }
         public string Report { get; set; }
+    
+        public virtual Scheduale Scheduale { get; set; }
     }
 }
