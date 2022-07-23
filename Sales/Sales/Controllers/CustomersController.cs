@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Entity;
 using BLL;
 using Sales.Common;
+using Sales.Models;
 
 namespace Sales.Controllers
 {
@@ -40,9 +41,35 @@ namespace Sales.Controllers
             {
                 ViewBag.Id = Id;
             }
+            List<Customers> customers = CustomersBLL.List().ToList();
+            return View(customers);
+        }
+        [IsLogged]
+        public ActionResult SelectFList(int Id = 0)
+        {
+            if (Id != 0)
+            {
+                ViewBag.Id = Id;
+            }
             int UserId = Convert.ToInt32(Session["UserID"]);
-            List<Customers> customer = CustomersBLL.List().Where(e => e.ManEmpId == UserId).ToList();
-            return View(customer);
+            List<Customers> customers = CustomersBLL.List().ToList();
+            List<ManEmp> manEmp = ManEmpBLL.List().ToList();
+            List<EmpList> emplist = EmpListBLL.List().Where(e => e.EmployeeId == UserId).ToList();
+            using (SalesEntities db = new SalesEntities())
+            {
+                var employeeRecord = from e in emplist
+                                     join d in customers on e.CustomerId equals d.Id into table1
+                                     from d in table1.ToList()
+                                     join i in manEmp on e.EmployeeId equals i.Id into table2
+                                     from i in table2.ToList()
+                                     select new EmpListModel
+                                     {
+                                         emplist = e,
+                                         customers = d,
+                                         manEmp = i
+                                     };
+                return View(employeeRecord);
+            }
         }
         [IsLogged]
         public ActionResult WorkTimes(int id)

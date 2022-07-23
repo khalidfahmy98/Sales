@@ -1,0 +1,13 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<Sales.Models.EmpListModel>
+
+<select class="form-control input-sm" id="customer">
+    @foreach (var item in Model)
+    {
+    <option value="@item.customers.Id" @(ViewBag.Id == @item.customers.Id ? "selected" : "")>@item.customers.Name</option>
+    }
+</select>
+
+

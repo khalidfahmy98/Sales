@@ -361,6 +361,7 @@
     <Content Include="Views\Scheduale\PlanView.cshtml" />
     <Content Include="Views\Requests\PlanRequest.cshtml" />
     <Content Include="Views\Requests\PlanDataview.cshtml" />
+    <Content Include="Views\Customers\SelectFList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
