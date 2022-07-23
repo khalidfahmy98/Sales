@@ -21,7 +21,7 @@
             <td>@item.Customers.Name</td>
             <td>@item.Customers.Types.Type</td>
             <td>@item.Customers.Specials.Name</td>
-            <td>@item.VisitDate</td>
+            <td>@Convert.ToDateTime(item.VisitDate).ToShortDateString()</td>
             <td>
                 @if (Convert.ToInt32(item.Status) == 0)
                 {
@@ -30,6 +30,10 @@
                 else
                 {
                     <span style="color:green;">Approved</span>
+                    if (Convert.ToInt32(item.ManEmp.Rule) == 1 || Convert.ToInt32(item.ManEmp.Rule) == 2)
+                    {
+                        <a href="~/Reports/Visit/@item.Id" class="btn btn-xs btn-primary">Report</a>
+                    }
                 }
             </td>
         </tr>
