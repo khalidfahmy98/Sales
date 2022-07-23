@@ -1,11 +1,11 @@
-﻿ 
+﻿@model Entity.VisitReports
 <div class="panel">
     <div class="panel-heading">
-        [] Call [] Text Report
+        @Model.Scheduale.Customers.Name Call  @Convert.ToDateTime(Model.Scheduale.VisitDate).ToShortDateString() Text Report
     </div>
     <div class="panel-body">
         <div class="row">
-            <input type="text" id="plan" value="" class="hide" />
+            <input type="text" id="plan" value="@Model.PlanId" class="hide" />
             <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                 <label>Call Report</label>
                 <textarea class="form-control input-sm" id="report" style="resize:none;height:400px;"></textarea>

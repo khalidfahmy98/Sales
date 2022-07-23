@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Entity.VisitReports>
+<div class="panel">
+    <div class="panel-heading">
+        Call Reports
+    </div>
+    @{ 
+        int Rule = Convert.ToInt32(Session["Rule"]);
+    }
+    <div class="panel-body">
+        <table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    @if (Rule == 0)
+                    {
+                        <th>Employee</th>
+                    }
+                    <th>Customer</th>
+                    <th>Visit Date</th>
+                    <th>Report</th>
+                    <th>OPR</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.PlanId</td>
+                    @if (Rule == 0)
+                    {
+                        <td>@item.Scheduale.ManEmp.Name</td>
+                    }
+                    <td>@item.Scheduale.Customers.Name</td>
+                    <td>@item.Scheduale.VisitDate</td>
+                    <td>@item.Report</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable();
+    });
+</script>
