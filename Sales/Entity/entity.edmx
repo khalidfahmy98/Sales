@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="db_a89910_salesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SalesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Areas">
           <Key>
             <PropertyRef Name="Id" />
@@ -122,6 +122,16 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar(max)" />
           <Property Name="Comment" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Types">
           <Key>
@@ -354,7 +364,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="db_a89910_salesModelStoreContainer">
+        <EntityContainer Name="SalesModelStoreContainer">
           <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerBridgeGrade" EntityType="Self.CustomerBridgeGrade" Schema="dbo" store:Type="Tables" />
@@ -366,6 +376,7 @@
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Scheduale" EntityType="Self.Scheduale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Specials" EntityType="Self.Specials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Types" EntityType="Self.Types" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vacations" EntityType="Self.Vacations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VacationTypes" EntityType="Self.VacationTypes" Schema="dbo" store:Type="Tables" />
@@ -439,7 +450,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="db_a89910_salesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SalesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Areas">
           <Key>
             <PropertyRef Name="Id" />
@@ -581,6 +592,16 @@
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Customers" Relationship="Self.FK_Customers_Specials" FromRole="Specials" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Types">
           <Key>
@@ -821,7 +842,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="db_a89910_salesEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SalesEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Areas" EntityType="Self.Areas" />
           <EntitySet Name="Colors" EntityType="Self.Colors" />
           <EntitySet Name="CustomerBridgeGrade" EntityType="Self.CustomerBridgeGrade" />
@@ -833,6 +854,7 @@
           <EntitySet Name="Products" EntityType="Self.Products" />
           <EntitySet Name="Scheduale" EntityType="Self.Scheduale" />
           <EntitySet Name="Specials" EntityType="Self.Specials" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Types" EntityType="Self.Types" />
           <EntitySet Name="Vacations" EntityType="Self.Vacations" />
           <EntitySet Name="VacationTypes" EntityType="Self.VacationTypes" />
@@ -907,9 +929,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="db_a89910_salesModelStoreContainer" CdmEntityContainer="db_a89910_salesEntities">
+        <EntityContainerMapping StorageEntityContainer="SalesModelStoreContainer" CdmEntityContainer="SalesEntities">
           <EntitySetMapping Name="Areas">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.Areas">
+            <EntityTypeMapping TypeName="SalesModel.Areas">
               <MappingFragment StoreEntitySet="Areas">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Area" ColumnName="Area" />
@@ -918,7 +940,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Colors">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.Colors">
+            <EntityTypeMapping TypeName="SalesModel.Colors">
               <MappingFragment StoreEntitySet="Colors">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Color" ColumnName="Color" />
@@ -927,7 +949,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerBridgeGrade">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.CustomerBridgeGrade">
+            <EntityTypeMapping TypeName="SalesModel.CustomerBridgeGrade">
               <MappingFragment StoreEntitySet="CustomerBridgeGrade">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
@@ -939,7 +961,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.Customers">
+            <EntityTypeMapping TypeName="SalesModel.Customers">
               <MappingFragment StoreEntitySet="Customers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -960,7 +982,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CusWork">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.CusWork">
+            <EntityTypeMapping TypeName="SalesModel.CusWork">
               <MappingFragment StoreEntitySet="CusWork">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Day" ColumnName="Day" />
@@ -971,7 +993,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmpList">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.EmpList">
+            <EntityTypeMapping TypeName="SalesModel.EmpList">
               <MappingFragment StoreEntitySet="EmpList">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
@@ -981,7 +1003,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Grades">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.Grades">
+            <EntityTypeMapping TypeName="SalesModel.Grades">
               <MappingFragment StoreEntitySet="Grades">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Grade" ColumnName="Grade" />
@@ -990,7 +1012,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ManEmp">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.ManEmp">
+            <EntityTypeMapping TypeName="SalesModel.ManEmp">
               <MappingFragment StoreEntitySet="ManEmp">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1007,7 +1029,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.Products">
+            <EntityTypeMapping TypeName="SalesModel.Products">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1016,7 +1038,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Scheduale">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.Scheduale">
+            <EntityTypeMapping TypeName="SalesModel.Scheduale">
               <MappingFragment StoreEntitySet="Scheduale">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ManEmpId" ColumnName="ManEmpId" />
@@ -1029,7 +1051,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Specials">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.Specials">
+            <EntityTypeMapping TypeName="SalesModel.Specials">
               <MappingFragment StoreEntitySet="Specials">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1037,8 +1059,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SalesModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Types">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.Types">
+            <EntityTypeMapping TypeName="SalesModel.Types">
               <MappingFragment StoreEntitySet="Types">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -1048,7 +1081,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vacations">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.Vacations">
+            <EntityTypeMapping TypeName="SalesModel.Vacations">
               <MappingFragment StoreEntitySet="Vacations">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="VacationTypeId" ColumnName="VacationTypeId" />
@@ -1064,7 +1097,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VacationTypes">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.VacationTypes">
+            <EntityTypeMapping TypeName="SalesModel.VacationTypes">
               <MappingFragment StoreEntitySet="VacationTypes">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1072,7 +1105,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VisitReports">
-            <EntityTypeMapping TypeName="db_a89910_salesModel.VisitReports">
+            <EntityTypeMapping TypeName="SalesModel.VisitReports">
               <MappingFragment StoreEntitySet="VisitReports">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PlanId" ColumnName="PlanId" />
