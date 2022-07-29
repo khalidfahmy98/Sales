@@ -24,6 +24,7 @@ namespace Sales.Controllers
             ViewBag.Title = "Type colors Operations";
             return View(Colors);
         }
+
         [IsLogged]
         public ActionResult DataView()
         {
@@ -40,6 +41,19 @@ namespace Sales.Controllers
             List<Colors> Colors = ColorsBLL.List().ToList();
             return View(Colors);
         }
+        [IsLogged]
+        public JsonResult Edit(Colors model)
+        {
+            if (ColorsBLL.Edit(model))
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
         [IsLogged]
         public JsonResult Create(Colors model)
         {
