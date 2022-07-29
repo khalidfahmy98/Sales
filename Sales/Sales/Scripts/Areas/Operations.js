@@ -15,7 +15,7 @@ function Update() {
         id = $("#id").val(),
         comment = $("#comment").val(),
         model = { Id: id, Area: name, Comment: comment };
-    if (name != "" && hexa != "" && id != "") {
+    if (name != "" && comment != "" && id != "") {
         $.ajax({
             url: "/Areas/Edit",
             type: 'POST',

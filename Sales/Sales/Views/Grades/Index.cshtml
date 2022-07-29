@@ -8,13 +8,16 @@
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
                 <label>Grade Name</label>
                 <input type="text" class="form-control input-sm" id="name" />
+                <input type="text" class="form-control input-sm hide" id="id" />
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
                 <label>Quote</label>
                 <input type="text" class="form-control input-sm" id="comment" />
             </div>
         </div>
-        <button class="btn btn-sm btn-primary" onclick="Add()"> Create New Customer Grade </button>
+        <button class="btn btn-sm btn-primary" onclick="Add()" id="savebtn"> Create New Customer Grade </button>
+        <button class="btn btn-sm btn-warning hide" onclick="Update()" id="editbtn">Update</button>
+
         <div class="alert hide" id="errorHandler"></div>
     </div>
 </div>

@@ -35,6 +35,18 @@ namespace Sales.Controllers
             List<Grades> grades = GradesBLL.List().ToList();
             return View(grades);
         }
+        [IsLogged]
+        public JsonResult Edit(Grades model)
+        {
+            if (GradesBLL.Edit(model) )
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         [IsLogged]
         public JsonResult Create(Grades model)

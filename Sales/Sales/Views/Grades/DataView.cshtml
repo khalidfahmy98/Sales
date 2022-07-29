@@ -18,7 +18,10 @@
             <td>@item.Id</td>
             <td>@item.Grade</td>
             <td>@item.Quote</td>
-            <td> <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button></td>
+            <td>
+                <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button>
+                <button class="btn btn-xs btn-warning" onclick="Edit('@item.Id' , '@item.Grade' , '@item.Quote' )"><i class="fa fa-edit"></i></button>
+            </td>
         </tr>
         }
     </tbody>
