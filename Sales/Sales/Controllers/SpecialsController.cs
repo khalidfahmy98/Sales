@@ -33,6 +33,18 @@ namespace Sales.Controllers
             List<Specials> types = SpecialsBLL.List().ToList();
             return View(types);
         }
+        [IsLogged]
+        public JsonResult Edit(Specials model)
+        {
+            if (SpecialsBLL.Edit(model))
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         [IsLogged]
         public JsonResult Create(Specials model)
