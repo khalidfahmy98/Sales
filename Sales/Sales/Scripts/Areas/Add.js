@@ -2,7 +2,7 @@
     var name = $("#name").val(),
         comment = $("#comment").val(),
         model = { Area: name, Comment: comment};
-    if (name !== "" && comment !== "") {
+    if (name !== "" ) {
         $.ajax({
             url: "/Areas/Create",
             type: 'POST',

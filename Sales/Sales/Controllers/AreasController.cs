@@ -33,6 +33,18 @@ namespace Sales.Controllers
             List<Areas> types = AreasBLL.List().ToList();
             return View(types);
         }
+        [IsLogged]
+        public JsonResult Edit(Areas model)
+        {
+            if (AreasBLL.Edit(model) )
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         [IsLogged]
         public JsonResult Create(Areas model)
