@@ -6,11 +6,11 @@
         <div class="row">
             <input type="hidden" class="hide" id="id" value="@ViewBag.ManEmp" />
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
-                <label>Full Name</label>
+                <label>Full Name <span  style="color:red;font-size:8px;">*</span></label>
                 <input type="text" class="form-control input-sm" id="fullname" />
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
-                <label>Phone </label>
+                <label>Phone <span style="color:red;font-size:8px;">*</span></label>
                 <input type="text" class="form-control input-sm" id="phone" />
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
@@ -22,7 +22,7 @@
                 <input type="text" class="form-control input-sm" id="mobiles" />
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
-                <label>Nearest Pharmacy </label>
+                <label>Nearest Pharmacy <span style="color:red;font-size:8px;">*</span></label>
                 <input type="text" class="form-control input-sm" id="pharmap" />
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
@@ -30,7 +30,7 @@
                 <input type="text" class="form-control input-sm" id="pharmas" />
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
-                <label>Address</label>
+                <label>Address <span style="color:red;font-size:8px;">*</span></label>
                 <input type="text" class="form-control input-sm" id="address" />
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
@@ -42,15 +42,15 @@
                 <input type="text" class="form-control input-sm" id="lat" />
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
-                <label>Area</label>
+                <label>Area <span style="color:red;font-size:8px;">*</span></label>
                 @Html.Action("Select", "Areas")
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
-                <label>Type</label>
+                <label>Type <span style="color:red;font-size:8px;">*</span></label>
                 @Html.Action("Select", "Types")
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">
-                <label>Special</label>
+                <label>Speciality <span style="color:red;font-size:8px;">*</span></label>
                 @Html.Action("Select", "Specials")
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 form-group">

@@ -19,7 +19,7 @@
             , NearestPharmacyS: pharmas, TypeId: type, SpecialId: special, Comment: comment
             , AreaId: area, ManEmpId: id  , Lang : lang , Lat : lat 
         };
-    if (fullname !== "" && phone !== "" && mobilep !== "" && mobiles !== "" && pharmap !== "" && pharmas !== "" && address !== "" && lang !== "" && lat !== "") {
+    if (fullname !== "" && phone !== ""  && pharmap !== ""  && address !== "" ) {
         $.ajax({
             url: "/Customers/Create",
             type: 'POST',
