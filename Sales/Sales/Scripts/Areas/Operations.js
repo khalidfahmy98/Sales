@@ -1,12 +1,12 @@
 ﻿$(document).ready(function () {
     ReloadView();
 });
-function Edit(Id, Name, Hexa) {
+function Edit(Id, Name, comment) {
     $("#savebtn").addClass("hide");
     $("#editbtn").removeClass("hide");
     $("#id").val(Id);
     $("#name").val(Name);
-    $("#comment").val(Hexa);
+    $("#comment").val(comment);
 }
 function Update() {
     $("#savebtn").removeClass("hide");
