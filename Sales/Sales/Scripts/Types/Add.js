@@ -2,7 +2,8 @@
     var name = $("#name").val(),
         novisits = $("#novisits").val(),
         color = $("#color").val(),
-        model = { Type: name, NoVisits: novisits, ColorId: color };
+        condition = $("#condition").val(),
+        model = { Type: name, NoVisits: novisits, ColorId: color, Condition: condition};
     if (name !== "" && novisits !== "") {
         $.ajax({
             url: "/Types/Create",

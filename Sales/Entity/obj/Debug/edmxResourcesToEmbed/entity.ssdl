@@ -46,6 +46,7 @@
     <Property Name="Comment" Type="varchar(max)" />
     <Property Name="AreaId" Type="int" />
     <Property Name="ManEmpId" Type="int" />
+    <Property Name="Status" Type="int" />
   </EntityType>
   <EntityType Name="CusWork">
     <Key>
@@ -135,6 +136,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Type" Type="varchar(max)" />
     <Property Name="NoVisits" Type="int" />
+    <Property Name="Condition" Type="int" />
     <Property Name="ColorId" Type="int" />
   </EntityType>
   <EntityType Name="Vacations">

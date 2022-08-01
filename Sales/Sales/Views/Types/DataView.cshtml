@@ -7,6 +7,7 @@
         <tr>
             <th>#</th>
             <th>Type Name </th>
+            <th>Work Type</th>
             <th>No. Of Visits</th>
             <th>Color Hexa</th>
             <th>Color Preview</th>
@@ -19,6 +20,16 @@
         <tr>
             <td>@item.Id</td>
             <td>@item.Type</td>
+            <td>
+                @if (Convert.ToInt32(item.Condition) == 0)
+                {
+                    <span>Half Day</span>
+                }
+                else
+                {
+                    <span>Full Day</span>
+                }
+            </td>
             <td>@item.NoVisits</td>
             <td>@item.Colors.Hexa</td>
             <td><span style="display:block;width:40px;height:25px;padding:10px;background-color:@item.Colors.Hexa"></span></td>
