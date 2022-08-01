@@ -24,6 +24,7 @@ namespace Entity
         public int Id { get; set; }
         public string Type { get; set; }
         public Nullable<int> NoVisits { get; set; }
+        public Nullable<int> Condition { get; set; }
         public Nullable<int> ColorId { get; set; }
     
         public virtual Colors Colors { get; set; }
