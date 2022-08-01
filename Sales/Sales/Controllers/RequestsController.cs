@@ -168,7 +168,31 @@ namespace Sales.Controllers
             SchedualeBLL.Edit(model);
             return Json("success", JsonRequestBehavior.AllowGet);
         }
-
+        [IsLogged]
+        [IsManager]
+        public ActionResult CustomersRequests()
+        {
+            ViewBag.Title = "Customers Requests";
+            return View();
+        }
+        [IsLogged]
+        [IsManager]
+        public ActionResult CustomersView()
+        {
+            int User = Convert.ToInt32(Session["UserID"]);
+            int Lead = Convert.ToInt32(ManEmpBLL.Get(User).Lead);
+            List<Customers> custms = CustomersBLL.List().Where(e => e.Status == 0 && e.ManEmp.Lead == Lead ).ToList();
+            return View(custms);
+        }
+        [IsLogged]
+        [IsManager]
+        public JsonResult ApproveCustomer(int Id)
+        {
+            Customers model = CustomersBLL.Get(Id);
+            model.Status = 1;
+            CustomersBLL.Edit(model);
+            return Json("success", JsonRequestBehavior.AllowGet);
+        }
 
     }
 }
