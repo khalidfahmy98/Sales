@@ -33,6 +33,18 @@ namespace Sales.Controllers
             List<Types> types = TypesBLL.List().ToList();
             return View(types);
         }
+        [IsLogged]
+        public JsonResult Edit(Types model)
+        {
+            if (TypesBLL.Edit(model))
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         [IsLogged]
         public JsonResult Create(Types model)

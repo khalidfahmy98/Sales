@@ -33,7 +33,11 @@
             <td>@item.NoVisits</td>
             <td>@item.Colors.Hexa</td>
             <td><span style="display:block;width:40px;height:25px;padding:10px;background-color:@item.Colors.Hexa"></span></td>
-            <td> <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button></td>
+            <td>
+                <button class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button>
+                <button class="btn btn-xs btn-warning" onclick="Edit('@item.Id', '@item.Type', '@item.Condition', '@item.NoVisits', '@item.ColorId')"><i class="fa fa-edit"></i></button>
+
+            </td>
         </tr>
         }
     </tbody>
