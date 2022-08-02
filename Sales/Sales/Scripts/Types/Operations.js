@@ -16,8 +16,8 @@ function Update() {
     var name = $("#name").val(),
         id = $("#id").val(),
         condition = $("#condition").val(),
-        novisits = i$("#novisits").val(novisits),
-        color = $("#color").val(color),
+        novisits = $("#novisits").val(),
+        color = $("#color").val(),
         model = { Id: id , Type: name, NoVisits: novisits, ColorId: color, Condition: condition };
     if (name != "" && id != "" && novisits != "" ) {
         $.ajax({
