@@ -34,6 +34,10 @@
                     <td>
                         <button style="font-size:8px;padding:5px" class="btn btn-xs btn-danger" onclick="Del('@item.Id' , this )"><i class="fa fa-times"></i></button>
                         <a style="font-size:8px;padding:5px" href="~/Customers/WorkTimes/@item.Id" class="btn btn-xs btn-warning"> Work Times</a>
+                        @if (Convert.ToInt32(Session["Rule"]) != 1)
+                        {
+                            <a style="font-size:8px;padding:5px" href="~/Customers/Edit/@item.Id" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                        }
                     </td>
                 </tr>
                 }

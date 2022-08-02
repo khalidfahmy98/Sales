@@ -1,0 +1,67 @@
+﻿@model Entity.Customers
+<div class="panel">
+    <div class="panel-heading">
+        Edit ( @Model.Name ) Customer Information 
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <input type="hidden" class="hide" id="id" value="@Model.Id" />
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Full Name <span style="color:red;font-size:8px;">*</span></label>
+                <input type="text" class="form-control input-sm" value="@Model.Name" id="fullname" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Phone <span style="color:red;font-size:8px;">*</span></label>
+                <input type="text" class="form-control input-sm" value="@Model.Phone" id="phone" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Primary Mobile  </label>
+                <input type="text" class="form-control input-sm" value="@Model.MobileP" id="mobilep" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Secondry Mobile </label>
+                <input type="text" class="form-control input-sm" value="@Model.MobileS" id="mobiles" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Nearest Pharmacy <span style="color:red;font-size:8px;">*</span></label>
+                <input type="text" class="form-control input-sm" value="@Model.NearestPharmacyP" id="pharmap" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Second Nearest Pharmacy</label>
+                <input type="text" class="form-control input-sm" value="@Model.NearestPharmacyS" id="pharmas" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Address <span style="color:red;font-size:8px;">*</span></label>
+                <input type="text" class="form-control input-sm" value="@Model.Address" id="address" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Langtitude</label>
+                <input type="text" class="form-control input-sm" value="@Model.Lang" id="lang" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Latitude</label>
+                <input type="text" class="form-control input-sm" value="@Model.Lat" id="lat" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Area <span style="color:red;font-size:8px;">*</span></label>
+                @Html.Action("Select", "Areas" , new {  Id = Model.AreaId})
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Type <span style="color:red;font-size:8px;">*</span></label>
+                @Html.Action("Select", "Types" , new { Id = Model.TypeId })
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Speciality <span style="color:red;font-size:8px;">*</span></label>
+                @Html.Action("Select", "Specials" new { Id = Model.SpecialId})
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Comment</label>
+                <input type="text" class="form-control input-sm" value="@Model.Comment" id="comment" />
+            </div>
+        </div>
+        <button class="btn btn-sm btn-primary" onclick="Update()">Update Information</button>
+        <a href="~/Customers/Operations" class="btn btn-sm btn-secondary" >Back To Operations</a>
+        <div class="alert hide" id="errorHandler"></div>
+    </div>
+</div>
+<script src="~/Scripts/Customers/Operations.js"></script>

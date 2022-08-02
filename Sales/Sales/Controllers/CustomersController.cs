@@ -103,6 +103,26 @@ namespace Sales.Controllers
                 return Json("error", JsonRequestBehavior.AllowGet);
             }
         }
+        [IsLogged]
+        [IsManager]
+        public ActionResult Edit(int Id)
+        {
+            ViewBag.Title = "Edit Customer Information";
+            Customers customer = CustomersBLL.Get(Id);
+            return View(customer);
+        }
+        [IsLogged]
+        public JsonResult Update(Customers model )
+        {
+            if (CustomersBLL.Edit(model))
+            {
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { error = "error", msg = "Incorrect Information .. ! " }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
 
     }
