@@ -15,8 +15,14 @@ namespace BLL
 
         public static int Add(Vacations Model) => DataService.Vacations.Create(Model).Id;
 
-        public static int Count() => List().Count();
-
+        public static int Count( int Id )
+        {
+            return List().Where( e=> e.EmployeeId == Id).Count();
+        }
+        public static int CountApproved(int Id)
+        {
+            return List().Where(e => e.EmployeeId == Id && e.Status == 1 ).Count();
+        }
         public static bool Edit(Vacations Model) => DataService.Vacations.Update(Model);
 
         public static bool Delete(int Id) => DataService.Vacations.Delete(Id);

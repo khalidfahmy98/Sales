@@ -12,10 +12,13 @@
             <th>Deputy</th>
             <th>Reason</th>
             <th>Remove</th>
+            <th>Requests </th>
+            <th>Approved </th>
             <th>OPR</th>
         </tr>
     </thead>
     <tbody>
+        
         @foreach (var item in Model)
         {
         <tr>
@@ -26,6 +29,8 @@
             <td>@item.Deputy</td>
             <td>@item.Reason</td>
             <td>@item.Types.Type</td>
+            <td>@BLL.VacationsBLL.Count(Convert.ToInt32(item.EmployeeId))</td>
+            <td>@BLL.VacationsBLL.CountApproved(Convert.ToInt32(item.EmployeeId))</td>
             <td><button class="btn btn-xs btn-success" onclick="ApproveVacation(@item.Id)"><i class="fa fa-check"></i></button></td>
         </tr>
         }
