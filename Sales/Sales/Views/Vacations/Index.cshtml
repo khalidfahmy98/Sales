@@ -37,7 +37,17 @@
 
 <div class="panel">
     <div class="panel-heading">
-        Submitted Vacations 
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                Submitted Vacations
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="pull-right">
+                    <label class="btn btn-primary"> Requests : <span style="font-weight:bold">@BLL.VacationsBLL.Count(Convert.ToInt32(Session["UserID"]))</span></label>
+                    <label class="btn btn-success"> Approved : <span style="font-weight:bold">@BLL.VacationsBLL.CountApproved(Convert.ToInt32(Session["UserID"]))</span></label>
+                </div>
+            </div>
+        </div> 
     </div>
     <div class="panel-body">
         <div id="View"></div>
