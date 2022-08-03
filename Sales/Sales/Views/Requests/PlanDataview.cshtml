@@ -5,26 +5,23 @@
 <table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
-            <th>Employee</th>
             <th>Customer</th>
             <th>Type</th>
             <th>Speciality</th>
-            <th>Month</th>
             <th>Visit Date</th>
-            <th>OPR</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
         <tr>
-            <td>@item.ManEmp.Name</td>
-            <td>@item.Customers.Name</td>
+            <td>
+                <input type="text" class="hide plans" value="@item.Id"/>
+                @item.Customers.Name
+            </td>
             <td>@item.Customers.Types.Type</td>
             <td>@item.Customers.Specials.Name</td>
-            <td>@item.Month</td>
             <td>@Convert.ToDateTime(item.VisitDate).ToShortDateString()</td>
-            <td><button class="btn btn-xs btn-success" onclick="ApprovePlan(@item.Id)"><i class="fa fa-check"></i></button></td>
         </tr>
         }
     </tbody>

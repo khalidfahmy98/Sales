@@ -153,17 +153,20 @@ namespace Sales.Controllers
         }
         [IsLogged]
         [IsManager]
-        public ActionResult PlanDataview()
+        public ActionResult PlanDataview(String Id , String Month)
         {
             int Leader = Convert.ToInt32(Session["UserID"]);
-            List<Scheduale> plans = SchedualeBLL.List().Where(e => e.Leader == Leader && e.Status == 0).ToList();
+            int Emp = Convert.ToInt32(Id);
+            int MontP = Convert.ToInt32(Month);
+            List<Scheduale> plans = SchedualeBLL.List().Where(e => e.Leader == Leader && e.Status == 0 && e.ManEmpId == Emp && e.Month == MontP).ToList();
             return View(plans);
         }
         [IsLogged]
         [IsManager]
-        public JsonResult ApprovePlan(int Id)
+        public JsonResult ApprovePlan(String Id)
         {
-            Scheduale model = SchedualeBLL.Get(Id);
+            int PlanR = Convert.ToInt32(Id);
+            Scheduale model = SchedualeBLL.Get(PlanR);
             model.Status = 1;
             SchedualeBLL.Edit(model);
             return Json("success", JsonRequestBehavior.AllowGet);
