@@ -32,13 +32,14 @@ namespace Sales.Controllers
             return View();
         }
         [IsLogged]
-        public ActionResult ReviewDataview(String Id)
+        public ActionResult ReviewDataview(String Id  , String typ)
         {
             // getting data from bridge requires inner join 
             int Employee = Convert.ToInt32(Id);
-            List<Customers> customers = CustomersBLL.List().ToList();
+            int CustomerType = Convert.ToInt32(typ);
+            List<Customers> customers = CustomersBLL.List().Where( e => e.TypeId == CustomerType).ToList();
             List<ManEmp> manEmp = ManEmpBLL.List().ToList();
-            List<EmpList> emplist = EmpListBLL.List().Where(e => e.EmployeeId == Employee).ToList();
+            List<EmpList> emplist = EmpListBLL.List().Where(e => e.EmployeeId == Employee  ).ToList();
             using (SalesEntities db = new SalesEntities())
             {
                 var employeeRecord = from e in emplist

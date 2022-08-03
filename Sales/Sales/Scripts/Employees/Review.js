@@ -1,9 +1,10 @@
 ﻿function ReloadView() {
-    var id = $("#employee").val();
+    var id = $("#employee").val(),
+        type = $("#type").val();
     $.ajax({
-        url: "/Employees/ReviewDataview/" + id,
+        url: "/Employees/ReviewDataview?Id=" + id + "&typ=" + type,
         type: 'POST',
-        data: JSON.stringify({ Id: id }),
+        data: JSON.stringify({ Id: id, typ: type }),
         async: false,
         contentType: 'charset=utf-8',
         cache: false,
@@ -16,6 +17,7 @@
         }
     });
 }
+
 function Del(id, emp) {
     $.ajax({
         url: "/Employees/DelCus",
@@ -51,8 +53,6 @@ function Del(id, emp) {
         }
     });
 }
-
-
 $("#View").on("change", ".grade", function () {
     var grade = $(this).val(),
         customer = $(this).siblings(".customerId").val(),
