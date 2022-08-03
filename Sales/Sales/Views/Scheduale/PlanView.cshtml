@@ -29,10 +29,19 @@
                 }
                 else
                 {
-                    <span style="color:green;">Approved</span>
-                    if (Convert.ToInt32(item.ManEmp.Rule) == 1 || Convert.ToInt32(item.ManEmp.Rule) == 2)
+                    if (Convert.ToInt32(Session["Rule"]) == 1)
                     {
-                        <a href="~/Report/Visit/@item.Id" class="btn btn-xs btn-primary">Report</a>
+                        if (Convert.ToInt32(item.ManEmp.Rule) == 1 || Convert.ToInt32(item.ManEmp.Rule) == 2)
+                        {
+                            if ( DateTime.Today.ToShortDateString() == Convert.ToDateTime(item.VisitDate).ToShortDateString() )
+                            {
+                                <a href="~/Report/Visit/@item.Id" class="btn btn-xs btn-primary">Report</a>
+                            }
+                            else
+                            {
+                                <span style="color:green">Approved ( Disabled Report )</span>
+                            }
+                        }
                     }
                 }
             </td>
