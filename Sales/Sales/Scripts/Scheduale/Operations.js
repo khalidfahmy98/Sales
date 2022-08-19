@@ -1,5 +1,8 @@
 ﻿$(document).ready(function () {
     ReloadView();
+    $("#type").change(function () {
+        
+    });
 });
 function Del(id, ele) {
     $.ajax({

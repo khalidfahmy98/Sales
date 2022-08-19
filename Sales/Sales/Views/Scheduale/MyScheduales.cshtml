@@ -22,13 +22,30 @@
                     <option value="12">Dec</option>
                 </select>
             </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Plan Type </label>
+                @Html.Action("Select","Types")
+            </div>
+
         </div>
         <div class="alert hide" id="errorHandler"></div>
     </div>
 </div>
 <div class="panel">
     <div class="panel-heading">
-        My Customers List 
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                My Customers List
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="pull-right">
+                    <label class="btn btn-secondary">Avg.Calls : <span style="font-weight:bold" id="avg"> 0 </span></label>
+                    <label class="btn btn-primary">Working Days :   <span style="font-weight:bold" id="days"> 0 </span></label>
+                    <label class="btn btn-warning">Calls Per Month : <span style="font-weight:bold" id="callmonth"> 0 </span></label>
+                    <label class="btn btn-success">Created Calls : <span style="font-weight:bold" id="calls"> 0 </span></label>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="panel-body">
         <div id="View"></div>
