@@ -24,6 +24,12 @@ namespace Sales.Controllers
             return View(types);
         }
         [IsLogged]
+        public JsonResult GetVisits(int Id )
+        {
+            int visits = Convert.ToInt32(TypesBLL.Get(Id).NoVisits);
+            return Json(new { success = "success", Visits = visits }, JsonRequestBehavior.AllowGet);
+        }
+        [IsLogged]
         public ActionResult Select(int Id = 0)
         {
             if (Id != 0)
