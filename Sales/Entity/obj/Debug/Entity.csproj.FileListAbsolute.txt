@@ -5,7 +5,6 @@ C:\Users\khali\Desktop\Sales\Sales\Entity\bin\Debug\EntityFramework.dll
 C:\Users\khali\Desktop\Sales\Sales\Entity\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\khali\Desktop\Sales\Sales\Entity\bin\Debug\EntityFramework.xml
 C:\Users\khali\Desktop\Sales\Sales\Entity\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\khali\Desktop\Sales\Sales\Entity\obj\Debug\Entity.csprojAssemblyReference.cache
 C:\Users\khali\Desktop\Sales\Sales\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
 C:\Users\khali\Desktop\Sales\Sales\Entity\obj\Debug\Entity.csproj.CopyComplete
 C:\Users\khali\Desktop\Sales\Sales\Entity\obj\Debug\Entity.dll
