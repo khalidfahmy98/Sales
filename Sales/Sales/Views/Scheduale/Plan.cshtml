@@ -22,6 +22,11 @@
                     <option value="12">Dec</option>
                 </select>
             </div>
+            <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                <label>Type</label>
+                @Html.Action("Select","Types")
+            </div>
+
         </div>
         <button class="btn btn-sm btn-primary" onclick="ReloadView()"> Review Plan </button>
         <div class="alert hide" id="errorHandler"></div>

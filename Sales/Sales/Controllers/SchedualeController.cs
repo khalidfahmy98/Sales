@@ -20,9 +20,9 @@ namespace Sales.Controllers
             return View();
         }
         [IsLogged]
-        public ActionResult PlanView(int Emp , int Month)
+        public ActionResult PlanView(int Emp , int Month , int Type )
         {
-            List<Scheduale> scheduales = SchedualeBLL.List().Where( e=> e.ManEmpId == Emp && e.Month == Month ).ToList();
+            List<Scheduale> scheduales = SchedualeBLL.List().Where( e=> e.ManEmpId == Emp && e.Month == Month && e.Customers.TypeId == Type).ToList();
             return View(scheduales);
         }
         [IsLogged]

@@ -1,10 +1,11 @@
 ﻿function ReloadView() {
     var emp = $("#employee").val(),
-        month = $("#month").val(); 
+        month = $("#month").val(), 
+        type = $("#type").val();
     $.ajax({
-        url: "/Scheduale/PlanView?emp=" + emp + "&month=" + month ,
+        url: "/Scheduale/PlanView?emp=" + emp + "&month=" + month + "&type=" + type ,
         type: 'POST',
-        data: JSON.stringify({ Emp: emp, Month: month}),
+        data: JSON.stringify({ Emp: emp, Month: month , Type : type}),
         async: false,
         contentType: 'charset=utf-8',
         cache: false,

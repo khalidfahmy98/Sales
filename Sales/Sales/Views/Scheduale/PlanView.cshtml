@@ -5,7 +5,7 @@
 <table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
-            <th>#</th>
+            <th>Start Point</th>
             <th>Customer</th>
             <th>Type</th>
             <th>Speciality</th>
@@ -17,7 +17,7 @@
         @foreach (var item in Model)
         {
         <tr>
-            <td>@item.Id</td>
+            <td><input type="checkbox" class="startpoint" name="startpoint" /></td>
             <td>@item.Customers.Name</td>
             <td>@item.Customers.Types.Type</td>
             <td>@item.Customers.Specials.Name</td>
