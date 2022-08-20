@@ -110,6 +110,7 @@
     <Property Name="VisitDate" Type="date" />
     <Property Name="Leader" Type="int" />
     <Property Name="Status" Type="int" />
+    <Property Name="Start" Type="int" />
   </EntityType>
   <EntityType Name="Specials">
     <Key>

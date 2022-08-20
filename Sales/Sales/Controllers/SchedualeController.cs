@@ -88,6 +88,14 @@ namespace Sales.Controllers
             SchedualeBLL.Delete(Id);
             return Json("success", JsonRequestBehavior.AllowGet);
         }
+        [IsLogged]
+        public JsonResult UpdateStart(int Id)
+        {
+            Scheduale model = SchedualeBLL.Get(Id);
+            model.Start = 1;
+            SchedualeBLL.Edit(model);
+            return Json("success", JsonRequestBehavior.AllowGet);
+        }
 
 
     }

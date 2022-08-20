@@ -17,7 +17,16 @@
         @foreach (var item in Model)
         {
         <tr>
-            <td><input type="checkbox" class="startpoint" name="startpoint" /></td>
+            <td>
+                @if (Convert.ToInt32(item.Start) == 1)
+                {
+                    <input type="checkbox" class="startpoint" checked name="startpoint" value="@item.Id" />
+                }
+                else
+                {
+                    <input type="checkbox" class="startpoint"  name="startpoint" value="@item.Id" />
+                }
+            </td>
             <td>@item.Customers.Name</td>
             <td>@item.Customers.Types.Type</td>
             <td>@item.Customers.Specials.Name</td>

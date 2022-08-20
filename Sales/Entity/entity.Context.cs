@@ -13,10 +13,10 @@ namespace Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SalesEntities : DbContext
+    public partial class db_a8bcda_elgharibEntities : DbContext
     {
-        public SalesEntities()
-            : base("name=SalesEntities")
+        public db_a8bcda_elgharibEntities()
+            : base("name=db_a8bcda_elgharibEntities")
         {
         }
     
@@ -36,7 +36,6 @@ namespace Entity
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Scheduale> Scheduale { get; set; }
         public virtual DbSet<Specials> Specials { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Types> Types { get; set; }
         public virtual DbSet<Vacations> Vacations { get; set; }
         public virtual DbSet<VacationTypes> VacationTypes { get; set; }
