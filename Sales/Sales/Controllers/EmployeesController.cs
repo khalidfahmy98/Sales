@@ -40,7 +40,7 @@ namespace Sales.Controllers
             List<Customers> customers = CustomersBLL.List().Where( e => e.TypeId == CustomerType).ToList();
             List<ManEmp> manEmp = ManEmpBLL.List().ToList();
             List<EmpList> emplist = EmpListBLL.List().Where(e => e.EmployeeId == Employee  ).ToList();
-            using (SalesEntities db = new SalesEntities())
+            using (db_a8bcda_elgharibEntities db = new db_a8bcda_elgharibEntities())
             {
                 var employeeRecord = from e in emplist
                                      join d in customers on e.CustomerId equals d.Id into table1
