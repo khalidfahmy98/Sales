@@ -27,6 +27,7 @@ namespace Entity
         public Nullable<System.DateTime> VisitDate { get; set; }
         public Nullable<int> Leader { get; set; }
         public Nullable<int> Status { get; set; }
+        public Nullable<int> Start { get; set; }
     
         public virtual Customers Customers { get; set; }
         public virtual ManEmp ManEmp { get; set; }

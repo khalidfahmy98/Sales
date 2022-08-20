@@ -115,6 +115,7 @@
           <Property Name="VisitDate" Type="date" />
           <Property Name="Leader" Type="int" />
           <Property Name="Status" Type="int" />
+          <Property Name="Start" Type="int" />
         </EntityType>
         <EntityType Name="Specials">
           <Key>
@@ -664,6 +665,7 @@
           <Property Name="VisitDate" Type="DateTime" Precision="0" />
           <Property Name="Leader" Type="Int32" />
           <Property Name="Status" Type="Int32" />
+          <Property Name="Start" Type="Int32" />
           <NavigationProperty Name="Customers" Relationship="SalesModel.FK_Scheduale_Customers" FromRole="Scheduale" ToRole="Customers" />
           <NavigationProperty Name="ManEmp" Relationship="SalesModel.FK_Scheduale_ManEmp" FromRole="Scheduale" ToRole="ManEmp" />
           <NavigationProperty Name="VisitReports" Relationship="SalesModel.FK_VisitReports_Scheduale" FromRole="Scheduale" ToRole="VisitReports" />
@@ -927,7 +929,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1044,6 +1046,7 @@
           <EntitySetMapping Name="Scheduale">
             <EntityTypeMapping TypeName="SalesModel.Scheduale">
               <MappingFragment StoreEntitySet="Scheduale">
+                <ScalarProperty Name="Start" ColumnName="Start" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Leader" ColumnName="Leader" />
                 <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
