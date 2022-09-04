@@ -83,6 +83,13 @@ namespace Sales.Controllers
         {
             if (CustomersBLL.Add(model) != 0)
             {
+                CustomerBridgeGrade assignGrade = new CustomerBridgeGrade();
+                assignGrade.GradeId = 1;
+                assignGrade.ManEmpId = model.ManEmpId;
+                assignGrade.Status = 1;
+                assignGrade.CustomerId = model.Id;
+                assignGrade.Leader = ManEmpBLL.Get(Convert.ToInt32(model.ManEmpId)).Lead;
+                CustomerBridgeGradeBLL.Add(assignGrade);
                 return Json("success", JsonRequestBehavior.AllowGet);
             }
             else
