@@ -102,6 +102,9 @@
     <Compile Include="Specials.cs">
       <DependentUpon>entity.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Types.cs">
       <DependentUpon>entity.tt</DependentUpon>
     </Compile>
