@@ -9,3 +9,4 @@ C:\Users\khali\Desktop\Sales\Sales\Entity\obj\Debug\Entity.csproj.CoreCompileInp
 C:\Users\khali\Desktop\Sales\Sales\Entity\obj\Debug\Entity.csproj.CopyComplete
 C:\Users\khali\Desktop\Sales\Sales\Entity\obj\Debug\Entity.dll
 C:\Users\khali\Desktop\Sales\Sales\Entity\obj\Debug\Entity.pdb
+C:\Users\khali\Desktop\Sales\Sales\Entity\obj\Debug\Entity.csprojAssemblyReference.cache

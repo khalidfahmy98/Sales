@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="db_a8bcda_elgharibModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="SalesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Areas">
     <Key>
       <PropertyRef Name="Id" />
@@ -143,6 +143,16 @@
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Customers" Relationship="Self.FK_Customers_Specials" FromRole="Specials" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Types">
     <Key>
@@ -384,7 +394,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="db_a8bcda_elgharibEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="SalesEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Areas" EntityType="Self.Areas" />
     <EntitySet Name="Colors" EntityType="Self.Colors" />
     <EntitySet Name="CustomerBridgeGrade" EntityType="Self.CustomerBridgeGrade" />
@@ -396,6 +406,7 @@
     <EntitySet Name="Products" EntityType="Self.Products" />
     <EntitySet Name="Scheduale" EntityType="Self.Scheduale" />
     <EntitySet Name="Specials" EntityType="Self.Specials" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Types" EntityType="Self.Types" />
     <EntitySet Name="Vacations" EntityType="Self.Vacations" />
     <EntitySet Name="VacationTypes" EntityType="Self.VacationTypes" />
