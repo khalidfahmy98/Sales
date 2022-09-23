@@ -18,17 +18,32 @@
         @foreach (var item in Model)
         {
         <tr>
-            <td><input type="checkbox" value="@item.customers.Id" name="customers" class="customers" /></td>
+            @{ 
+                int UserId = Convert.ToInt32(Session["UserID"]);
+                int CountCalls = BLL.SchedualeBLL.List().Where(e => e.ManEmpId == UserId && e.CustomerId == item.customers.Id).Count();
+
+                
+             }
+            @{ int quote = Convert.ToInt32(item.customers.CustomerBridgeGrade.Where(e => e.CustomerId == item.customers.Id).FirstOrDefault().Grades.Quote); }
+            <td>
+                @if (CountCalls < quote)
+                {
+                    <input type="checkbox" value="@item.customers.Id" name="customers" class="customers" />
+                }
+            </td>
             <td>@item.customers.Name</td>
             <td>@item.customers.Types.Type</td>
             <td>@item.customers.CustomerBridgeGrade.Where(e => e.CustomerId == item.customers.Id).FirstOrDefault().Grades.Grade</td>
             <td>@item.customers.CustomerBridgeGrade.Where(e => e.CustomerId == item.customers.Id).FirstOrDefault().Grades.Quote</td>
             <td>@item.customers.Specials.Name</td>
             <td>
-                @{  int quote = Convert.ToInt32(item.customers.CustomerBridgeGrade.Where(e => e.CustomerId == item.customers.Id).FirstOrDefault().Grades.Quote ); }
-                @for( int i = 1; i <= quote; i++)
+
+                @if (CountCalls < quote)
                 {
-                    <input type="date" class="form-control input-sm visitdate" data-emp="@item.customers.Id" /> 
+                    for (int i = 1; i <= quote; i++)
+                    {
+                        <input type="date" class="form-control input-sm visitdate" data-emp="@item.customers.Id" />
+                    }
                 }
             </td>
         </tr>
