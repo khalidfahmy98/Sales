@@ -27,6 +27,7 @@
                 else
                 {
                     //Show the start point data here 
+                    @BLL.StartingPointsBLL.List().Where(e => e.SchedualeId == item.Id).FirstOrDefault().Time;
                 }
             </td>
             <td>@item.Customers.Name</td>

@@ -131,8 +131,9 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SchedualeId" Type="int" />
-          <Property Name="Day" Type="varchar(max)" />
+          <Property Name="Day" Type="int" />
           <Property Name="Time" Type="varchar(max)" />
+          <Property Name="Month" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -696,8 +697,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SchedualeId" Type="Int32" />
-          <Property Name="Day" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Day" Type="Int32" />
           <Property Name="Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Month" Type="Int32" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -949,7 +951,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1089,6 +1091,7 @@
           <EntitySetMapping Name="StartingPoints">
             <EntityTypeMapping TypeName="SalesModel.StartingPoints">
               <MappingFragment StoreEntitySet="StartingPoints">
+                <ScalarProperty Name="Month" ColumnName="Month" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Day" ColumnName="Day" />
                 <ScalarProperty Name="SchedualeId" ColumnName="SchedualeId" />

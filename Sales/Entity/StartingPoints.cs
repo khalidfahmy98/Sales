@@ -16,7 +16,8 @@ namespace Entity
     {
         public int Id { get; set; }
         public Nullable<int> SchedualeId { get; set; }
-        public string Day { get; set; }
+        public Nullable<int> Day { get; set; }
         public string Time { get; set; }
+        public Nullable<int> Month { get; set; }
     }
 }

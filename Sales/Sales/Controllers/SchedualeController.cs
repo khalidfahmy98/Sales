@@ -90,12 +90,20 @@ namespace Sales.Controllers
             return Json("success", JsonRequestBehavior.AllowGet);
         }
         [IsLogged]
-        public JsonResult UpdateStart(int Id)
+        public JsonResult UpdateStart(StartingPoints model)
         {
-            Scheduale model = SchedualeBLL.Get(Id);
-            model.Start = 1;
-            SchedualeBLL.Edit(model);
-            return Json("success", JsonRequestBehavior.AllowGet);
+            int schedId = Convert.ToInt32(model.SchedualeId);
+            Scheduale sched = SchedualeBLL.Get(schedId);
+            sched.Start = 1;
+            SchedualeBLL.Edit(sched);
+            if ( StartingPointsBLL.List().Where(e =>  e.Month == model.Month && e.Day == model.Day).FirstOrDefault() == null)
+            {
+                if(StartingPointsBLL.Add(model) != 0)
+                {
+                    return Json("success", JsonRequestBehavior.AllowGet);
+                }
+            }
+            return Json("error", JsonRequestBehavior.AllowGet);
         }
 
 

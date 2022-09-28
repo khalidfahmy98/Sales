@@ -4,15 +4,16 @@
 
 $(document).on('click', '.startpoint', function () {
     var id = $(this).val(),
-        time = $(this).siblings(".starttime"),
+        time = $(this).siblings(".starttime").val(),
         date = $(this).siblings(".day").val().split("/"),
         day = date[0],
-        model = { SchedualeId: id, Time: time, Day: day}
+        month = date[1];
+        model = { SchedualeId: id, Time: time, Day: day , Month : month}
     //$('.startpoint').not(this).prop('checked', false);
     $.ajax({
         url: "/Scheduale/UpdateStart",
         type: 'POST',
-        data: JSON.stringify({ Model: model  }),
+        data: JSON.stringify({ model: model  }),
         async: false,
         contentType: 'application/json; charset=utf-8',
         cache: false,
@@ -20,6 +21,8 @@ $(document).on('click', '.startpoint', function () {
         success: function (data, textStatus, jqXHR) {
             if (data == "success") {
                 $("#errorHandler").removeClass("hide").addClass("alert-success").removeClass("alert-danger").text("Selected Starting Point");
+            } else {
+                $("#errorHandler").removeClass("hide").addClass("alert-danger").removeClass("alert-success").text("Cant add more than one start point for the same day ");
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
