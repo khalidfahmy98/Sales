@@ -5,16 +5,16 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Area" Type="varchar(max)" />
-    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="Area" Type="nvarchar(max)" />
+    <Property Name="Comment" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Colors">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Color" Type="varchar(max)" />
-    <Property Name="Hexa" Type="varchar(max)" />
+    <Property Name="Color" Type="nvarchar(max)" />
+    <Property Name="Hexa" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="CustomerBridgeGrade">
     <Key>
@@ -32,18 +32,18 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar(max)" />
-    <Property Name="Phone" Type="varchar(max)" />
-    <Property Name="MobileP" Type="varchar(max)" />
-    <Property Name="MobileS" Type="varchar(max)" />
-    <Property Name="Address" Type="varchar(max)" />
-    <Property Name="Lang" Type="varchar(max)" />
-    <Property Name="Lat" Type="varchar(max)" />
-    <Property Name="NearestPharmacyP" Type="varchar(max)" />
-    <Property Name="NearestPharmacyS" Type="varchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="MobileP" Type="nvarchar(max)" />
+    <Property Name="MobileS" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Lang" Type="nvarchar(max)" />
+    <Property Name="Lat" Type="nvarchar(max)" />
+    <Property Name="NearestPharmacyP" Type="nvarchar(max)" />
+    <Property Name="NearestPharmacyS" Type="nvarchar(max)" />
     <Property Name="TypeId" Type="int" />
     <Property Name="SpecialId" Type="int" />
-    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="Comment" Type="nvarchar(max)" />
     <Property Name="AreaId" Type="int" />
     <Property Name="ManEmpId" Type="int" />
     <Property Name="Status" Type="int" />
@@ -54,8 +54,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Day" Type="int" />
-    <Property Name="Time" Type="varchar(max)" />
-    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="Time" Type="nvarchar(max)" />
+    <Property Name="Comment" Type="nvarchar(max)" />
     <Property Name="CustomerId" Type="int" />
   </EntityType>
   <EntityType Name="EmpList">
@@ -72,7 +72,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Grade" Type="varchar(max)" />
+    <Property Name="Grade" Type="nvarchar(max)" />
     <Property Name="Quote" Type="int" />
   </EntityType>
   <EntityType Name="ManEmp">
@@ -80,13 +80,13 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar(max)" />
-    <Property Name="Username" Type="varchar(max)" />
-    <Property Name="Email" Type="varchar(max)" />
-    <Property Name="NationalId" Type="varchar(max)" />
-    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Username" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="NationalId" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
     <Property Name="Phone" Type="int" />
-    <Property Name="Password" Type="varchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
     <Property Name="Lead" Type="int" />
     <Property Name="Rule" Type="int" />
     <Property Name="Status" Type="int" />
@@ -96,8 +96,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar(max)" />
-    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Comment" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Scheduale">
     <Key>
@@ -117,8 +117,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar(max)" />
-    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Comment" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="StartingPoints">
     <Key>
@@ -127,7 +127,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SchedualeId" Type="int" />
     <Property Name="Day" Type="int" />
-    <Property Name="Time" Type="varchar(max)" />
+    <Property Name="Time" Type="nvarchar(max)" />
     <Property Name="Month" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -145,7 +145,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Type" Type="varchar(max)" />
+    <Property Name="Type" Type="nvarchar(max)" />
     <Property Name="NoVisits" Type="int" />
     <Property Name="Condition" Type="int" />
     <Property Name="ColorId" Type="int" />
@@ -158,8 +158,8 @@
     <Property Name="VacationTypeId" Type="int" />
     <Property Name="FromDate" Type="date" />
     <Property Name="ToDate" Type="date" />
-    <Property Name="Deputy" Type="varchar(max)" />
-    <Property Name="Reason" Type="varchar(max)" />
+    <Property Name="Deputy" Type="nvarchar(max)" />
+    <Property Name="Reason" Type="nvarchar(max)" />
     <Property Name="RemoveId" Type="int" />
     <Property Name="EmployeeId" Type="int" />
     <Property Name="Status" Type="int" />
@@ -170,7 +170,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="VisitReports">
     <Key>
@@ -178,7 +178,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PlanId" Type="int" />
-    <Property Name="Report" Type="varchar(max)" />
+    <Property Name="Report" Type="nvarchar(max)" />
   </EntityType>
   <Association Name="FK_CustomerBridgeGrade_Customers">
     <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
