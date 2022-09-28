@@ -10,16 +10,16 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Area" Type="varchar(max)" />
-          <Property Name="Comment" Type="varchar(max)" />
+          <Property Name="Area" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Colors">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Color" Type="varchar(max)" />
-          <Property Name="Hexa" Type="varchar(max)" />
+          <Property Name="Color" Type="nvarchar(max)" />
+          <Property Name="Hexa" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="CustomerBridgeGrade">
           <Key>
@@ -37,18 +37,18 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar(max)" />
-          <Property Name="Phone" Type="varchar(max)" />
-          <Property Name="MobileP" Type="varchar(max)" />
-          <Property Name="MobileS" Type="varchar(max)" />
-          <Property Name="Address" Type="varchar(max)" />
-          <Property Name="Lang" Type="varchar(max)" />
-          <Property Name="Lat" Type="varchar(max)" />
-          <Property Name="NearestPharmacyP" Type="varchar(max)" />
-          <Property Name="NearestPharmacyS" Type="varchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="MobileP" Type="nvarchar(max)" />
+          <Property Name="MobileS" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Lang" Type="nvarchar(max)" />
+          <Property Name="Lat" Type="nvarchar(max)" />
+          <Property Name="NearestPharmacyP" Type="nvarchar(max)" />
+          <Property Name="NearestPharmacyS" Type="nvarchar(max)" />
           <Property Name="TypeId" Type="int" />
           <Property Name="SpecialId" Type="int" />
-          <Property Name="Comment" Type="varchar(max)" />
+          <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="AreaId" Type="int" />
           <Property Name="ManEmpId" Type="int" />
           <Property Name="Status" Type="int" />
@@ -59,8 +59,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Day" Type="int" />
-          <Property Name="Time" Type="varchar(max)" />
-          <Property Name="Comment" Type="varchar(max)" />
+          <Property Name="Time" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="CustomerId" Type="int" />
         </EntityType>
         <EntityType Name="EmpList">
@@ -77,7 +77,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Grade" Type="varchar(max)" />
+          <Property Name="Grade" Type="nvarchar(max)" />
           <Property Name="Quote" Type="int" />
         </EntityType>
         <EntityType Name="ManEmp">
@@ -85,13 +85,13 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar(max)" />
-          <Property Name="Username" Type="varchar(max)" />
-          <Property Name="Email" Type="varchar(max)" />
-          <Property Name="NationalId" Type="varchar(max)" />
-          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Username" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="NationalId" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="Phone" Type="int" />
-          <Property Name="Password" Type="varchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
           <Property Name="Lead" Type="int" />
           <Property Name="Rule" Type="int" />
           <Property Name="Status" Type="int" />
@@ -101,8 +101,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar(max)" />
-          <Property Name="Comment" Type="varchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Scheduale">
           <Key>
@@ -122,8 +122,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar(max)" />
-          <Property Name="Comment" Type="varchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="StartingPoints">
           <Key>
@@ -132,7 +132,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SchedualeId" Type="int" />
           <Property Name="Day" Type="int" />
-          <Property Name="Time" Type="varchar(max)" />
+          <Property Name="Time" Type="nvarchar(max)" />
           <Property Name="Month" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -150,7 +150,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Type" Type="varchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
           <Property Name="NoVisits" Type="int" />
           <Property Name="Condition" Type="int" />
           <Property Name="ColorId" Type="int" />
@@ -163,8 +163,8 @@
           <Property Name="VacationTypeId" Type="int" />
           <Property Name="FromDate" Type="date" />
           <Property Name="ToDate" Type="date" />
-          <Property Name="Deputy" Type="varchar(max)" />
-          <Property Name="Reason" Type="varchar(max)" />
+          <Property Name="Deputy" Type="nvarchar(max)" />
+          <Property Name="Reason" Type="nvarchar(max)" />
           <Property Name="RemoveId" Type="int" />
           <Property Name="EmployeeId" Type="int" />
           <Property Name="Status" Type="int" />
@@ -175,7 +175,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="VisitReports">
           <Key>
@@ -183,7 +183,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PlanId" Type="int" />
-          <Property Name="Report" Type="varchar(max)" />
+          <Property Name="Report" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_CustomerBridgeGrade_Customers">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
@@ -552,8 +552,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Area" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customers" Relationship="SalesModel.FK_Customers_Areas" FromRole="Areas" ToRole="Customers" />
         </EntityType>
         <EntityType Name="Colors">
@@ -561,8 +561,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Color" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Hexa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hexa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Types" Relationship="SalesModel.FK_Types_Colors" FromRole="Colors" ToRole="Types" />
         </EntityType>
         <EntityType Name="CustomerBridgeGrade">
@@ -584,18 +584,18 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="MobileP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="MobileS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Lang" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Lat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="NearestPharmacyP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="NearestPharmacyS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MobileP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MobileS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Lang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Lat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NearestPharmacyP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NearestPharmacyS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TypeId" Type="Int32" />
           <Property Name="SpecialId" Type="Int32" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AreaId" Type="Int32" />
           <Property Name="ManEmpId" Type="Int32" />
           <Property Name="Status" Type="Int32" />
@@ -613,8 +613,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Day" Type="Int32" />
-          <Property Name="Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CustomerId" Type="Int32" />
           <NavigationProperty Name="Customers" Relationship="SalesModel.FK_CusWork_Customers" FromRole="CusWork" ToRole="Customers" />
         </EntityType>
@@ -632,7 +632,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Grade" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Grade" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Quote" Type="Int32" />
           <NavigationProperty Name="CustomerBridgeGrade" Relationship="SalesModel.FK_CustomerBridgeGrade_Grades" FromRole="Grades" ToRole="CustomerBridgeGrade" />
         </EntityType>
@@ -641,13 +641,13 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="NationalId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NationalId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="Int32" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Lead" Type="Int32" />
           <Property Name="Rule" Type="Int32" />
           <Property Name="Status" Type="Int32" />
@@ -663,8 +663,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Scheduale">
           <Key>
@@ -687,8 +687,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customers" Relationship="SalesModel.FK_Customers_Specials" FromRole="Specials" ToRole="Customers" />
         </EntityType>
         <EntityType Name="StartingPoints">
@@ -698,7 +698,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SchedualeId" Type="Int32" />
           <Property Name="Day" Type="Int32" />
-          <Property Name="Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Month" Type="Int32" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -716,7 +716,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NoVisits" Type="Int32" />
           <Property Name="Condition" Type="Int32" />
           <Property Name="ColorId" Type="Int32" />
@@ -732,8 +732,8 @@
           <Property Name="VacationTypeId" Type="Int32" />
           <Property Name="FromDate" Type="DateTime" Precision="0" />
           <Property Name="ToDate" Type="DateTime" Precision="0" />
-          <Property Name="Deputy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Deputy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="RemoveId" Type="Int32" />
           <Property Name="EmployeeId" Type="Int32" />
           <Property Name="Status" Type="Int32" />
@@ -747,7 +747,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Vacations" Relationship="SalesModel.FK_Vacations_VacationTypes" FromRole="VacationTypes" ToRole="Vacations" />
         </EntityType>
         <EntityType Name="VisitReports">
@@ -756,7 +756,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PlanId" Type="Int32" />
-          <Property Name="Report" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Report" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Scheduale" Relationship="SalesModel.FK_VisitReports_Scheduale" FromRole="VisitReports" ToRole="Scheduale" />
         </EntityType>
         <Association Name="FK_Customers_Areas">
