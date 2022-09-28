@@ -184,7 +184,7 @@ namespace Sales.Controllers
         {
             int User = Convert.ToInt32(Session["UserID"]);
             int Lead = Convert.ToInt32(ManEmpBLL.Get(User).Lead);
-            List<Customers> custms = CustomersBLL.List().Where(e => e.Status == 0 && e.ManEmp.Lead == Lead ).ToList();
+            List<Customers> custms = CustomersBLL.List().Where(e => e.Status == null && e.ManEmp.Lead == Lead ).ToList();
             return View(custms);
         }
         [IsLogged]
