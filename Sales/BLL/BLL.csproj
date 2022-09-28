@@ -63,6 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchedualeBLL.cs" />
     <Compile Include="SpecialsBLL.cs" />
+    <Compile Include="StartingPointsBLL.cs" />
     <Compile Include="TypesBLL.cs" />
     <Compile Include="VacationsBLL.cs" />
     <Compile Include="VacationTypesBLL.cs" />
