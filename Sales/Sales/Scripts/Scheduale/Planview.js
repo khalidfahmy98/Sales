@@ -1,10 +1,18 @@
-﻿$(document).on('click', '.startpoint', function () {
-    var id = $(this).val();
-    $('.startpoint').not(this).prop('checked', false);
+﻿$(document).ready(function () {
+    $('.starttime').dateAndTime();
+});
+
+$(document).on('click', '.startpoint', function () {
+    var id = $(this).val(),
+        time = $(this).siblings(".starttime"),
+        date = $(this).siblings(".day").val().split("/"),
+        day = date[0],
+        model = { SchedualeId: id, Time: time, Day: day}
+    //$('.startpoint').not(this).prop('checked', false);
     $.ajax({
         url: "/Scheduale/UpdateStart",
         type: 'POST',
-        data: JSON.stringify({ Id: id  }),
+        data: JSON.stringify({ Model: model  }),
         async: false,
         contentType: 'application/json; charset=utf-8',
         cache: false,
@@ -18,7 +26,6 @@
             alert(errorThrown);
         }
     });
-
 });
 
 function ReloadView() {
@@ -26,9 +33,9 @@ function ReloadView() {
         month = $("#month").val(), 
         type = $("#type").val();
     $.ajax({
-        url: "/Scheduale/PlanView?emp=" + emp + "&month=" + month + "&type=" + type ,
+        url: "/Scheduale/PlanView?emp=" + emp + "&month=" + month + "&type=" + type  ,
         type: 'POST',
-        data: JSON.stringify({ Emp: emp, Month: month , Type : type}),
+        data: JSON.stringify({ Emp: emp, Month: month , Type : type  }),
         async: false,
         contentType: 'charset=utf-8',
         cache: false,

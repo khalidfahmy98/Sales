@@ -27,6 +27,7 @@
         }
         $("#days").text($("#workdays").val());
         $("#callmonth").text($("#avg").text() * $("#days").text());
+        ReloadView();
     });
     $("#type").change(function () {
         var id;
@@ -85,8 +86,10 @@ function Del(id, ele) {
     });
 }
 function ReloadView() {
+    var month = $("#month").val();
     $.ajax({
-        url: "/Scheduale/DataView",
+        url: "/Scheduale/DataView?Month=" + month,
+        data: JSON.stringify({ Month: month }),
         type: 'GET',
         async: false,
         contentType: 'charset=utf-8',

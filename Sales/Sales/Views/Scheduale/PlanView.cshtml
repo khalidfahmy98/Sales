@@ -18,13 +18,15 @@
         {
         <tr>
             <td>
-                @if (Convert.ToInt32(item.Start) == 1)
+                @if (Convert.ToInt32(item.Start) != 1)
                 {
-                    <input type="checkbox" class="startpoint" checked name="startpoint" value="@item.Id" />
+                    <input type="checkbox" class="startpoint" name="startpoint" value="@item.Id" />
+                    <input type="text" class="form-control input-sm starttime" />
+                    <input type="text" class="hide day" value="@Convert.ToDateTime(item.VisitDate).ToShortDateString()"/>
                 }
                 else
                 {
-                    <input type="checkbox" class="startpoint"  name="startpoint" value="@item.Id" />
+                    //Show the start point data here 
                 }
             </td>
             <td>@item.Customers.Name</td>
@@ -61,5 +63,6 @@
 <script>
     $(document).ready(function () {
         $('#datatable').DataTable();
+        $('.starttime').dateAndTime();
     });
 </script>

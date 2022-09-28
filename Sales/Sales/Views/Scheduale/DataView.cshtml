@@ -20,9 +20,8 @@
         <tr>
             @{ 
                 int UserId = Convert.ToInt32(Session["UserID"]);
-                int CountCalls = BLL.SchedualeBLL.List().Where(e => e.ManEmpId == UserId && e.CustomerId == item.customers.Id).Count();
-
-                
+                int sMonth = Convert.ToInt32(ViewBag.Monthh);
+                int CountCalls = BLL.SchedualeBLL.List().Where(e => e.ManEmpId == UserId && e.CustomerId == item.customers.Id && e.Month == sMonth).Count();
              }
             @{ int quote = Convert.ToInt32(item.customers.CustomerBridgeGrade.Where(e => e.CustomerId == item.customers.Id).FirstOrDefault().Grades.Quote); }
             <td>
@@ -37,7 +36,6 @@
             <td>@item.customers.CustomerBridgeGrade.Where(e => e.CustomerId == item.customers.Id).FirstOrDefault().Grades.Quote</td>
             <td>@item.customers.Specials.Name</td>
             <td>
-
                 @if (CountCalls < quote)
                 {
                     for (int i = 1; i <= quote; i++)

@@ -22,7 +22,7 @@ namespace Sales.Controllers
         [IsLogged]
         public ActionResult PlanView(int Emp , int Month , int Type )
         {
-            List<Scheduale> scheduales = SchedualeBLL.List().Where( e=> e.ManEmpId == Emp && e.Month == Month && e.Customers.TypeId == Type).ToList();
+            List<Scheduale> scheduales = SchedualeBLL.List().Where( e=> e.ManEmpId == Emp && e.Month == Month && e.Customers.TypeId == Type ).ToList();
             return View(scheduales);
         }
         [IsLogged]
@@ -38,7 +38,7 @@ namespace Sales.Controllers
             return View();
         }
         [IsLogged]
-        public ActionResult DataView()
+        public ActionResult DataView(String Month)
         {
             int UserId = Convert.ToInt32(Session["UserId"]);
             int Rule = Convert.ToInt32(Session["Rule"]);
@@ -48,6 +48,7 @@ namespace Sales.Controllers
                 Leader = Convert.ToInt32(ManEmpBLL.Get(UserId).Lead);
             }
             ViewBag.leader = Leader;
+            ViewBag.Monthh = Month;
             List<Customers> customers = CustomersBLL.List().ToList();
             List<ManEmp> manEmp = ManEmpBLL.List().ToList();
             List<EmpList> emplist = EmpListBLL.List().Where(e => e.EmployeeId == UserId).ToList();
