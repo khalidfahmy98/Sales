@@ -20,6 +20,7 @@ namespace Entity
             this.CustomerBridgeGrade = new HashSet<CustomerBridgeGrade>();
             this.Customers = new HashSet<Customers>();
             this.ManEmp1 = new HashSet<ManEmp>();
+            this.ReportHeader = new HashSet<ReportHeader>();
             this.Scheduale = new HashSet<Scheduale>();
             this.Vacations = new HashSet<Vacations>();
         }
@@ -43,6 +44,8 @@ namespace Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ManEmp> ManEmp1 { get; set; }
         public virtual ManEmp ManEmp2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ReportHeader> ReportHeader { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Scheduale> Scheduale { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

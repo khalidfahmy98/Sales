@@ -34,6 +34,9 @@ namespace Entity
         public virtual DbSet<Grades> Grades { get; set; }
         public virtual DbSet<ManEmp> ManEmp { get; set; }
         public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<ReportCustomerBody> ReportCustomerBody { get; set; }
+        public virtual DbSet<ReportHeader> ReportHeader { get; set; }
+        public virtual DbSet<ReportProductBody> ReportProductBody { get; set; }
         public virtual DbSet<Scheduale> Scheduale { get; set; }
         public virtual DbSet<Specials> Specials { get; set; }
         public virtual DbSet<StartingPoints> StartingPoints { get; set; }

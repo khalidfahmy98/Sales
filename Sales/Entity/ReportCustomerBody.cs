@@ -12,18 +12,26 @@ namespace Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Products
+    public partial class ReportCustomerBody
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Products()
+        public ReportCustomerBody()
         {
             this.ReportProductBody = new HashSet<ReportProductBody>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public Nullable<int> ReportHeaderId { get; set; }
+        public Nullable<int> CustomerId { get; set; }
+        public string CustomerAlternative { get; set; }
+        public Nullable<int> Coaching { get; set; }
+        public string ContactWays { get; set; }
+        public string Gifts { get; set; }
+        public Nullable<int> Avaliablity { get; set; }
         public string Comment { get; set; }
     
+        public virtual Customers Customers { get; set; }
+        public virtual ReportHeader ReportHeader { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReportProductBody> ReportProductBody { get; set; }
     }

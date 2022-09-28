@@ -19,6 +19,7 @@ namespace Entity
         {
             this.CustomerBridgeGrade = new HashSet<CustomerBridgeGrade>();
             this.CusWork = new HashSet<CusWork>();
+            this.ReportCustomerBody = new HashSet<ReportCustomerBody>();
             this.Scheduale = new HashSet<Scheduale>();
         }
     
@@ -47,6 +48,8 @@ namespace Entity
         public virtual Types Types { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CusWork> CusWork { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ReportCustomerBody> ReportCustomerBody { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Scheduale> Scheduale { get; set; }
     }
