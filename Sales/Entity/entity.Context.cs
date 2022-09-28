@@ -36,6 +36,7 @@ namespace Entity
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Scheduale> Scheduale { get; set; }
         public virtual DbSet<Specials> Specials { get; set; }
+        public virtual DbSet<StartingPoints> StartingPoints { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Types> Types { get; set; }
         public virtual DbSet<Vacations> Vacations { get; set; }
