@@ -24,5 +24,8 @@ namespace DAL
         public static GenericDAL<Vacations> Vacations = new GenericDAL<Vacations>();
         public static GenericDAL<VisitReports> VisitReports = new GenericDAL<VisitReports>();
         public static GenericDAL<StartingPoints> StartingPoints = new GenericDAL<StartingPoints>();
+        public static GenericDAL<ReportHeader> ReportHeader = new GenericDAL<ReportHeader>();
+        public static GenericDAL<ReportCustomerBody> ReportCustomerBody = new GenericDAL<ReportCustomerBody>();
+        public static GenericDAL<ReportProductBody> ReportProductBody = new GenericDAL<ReportProductBody>();
     }
 }
