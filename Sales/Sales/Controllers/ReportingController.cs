@@ -11,7 +11,6 @@ namespace Sales.Controllers
 {
     public class ReportingController : Controller
     {
-        // GET: Reporting
         [IsLogged]
         public ActionResult Index()
         {

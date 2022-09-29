@@ -224,6 +224,8 @@
     <Content Include="Scripts\Products\Add.js" />
     <Content Include="Scripts\Products\Operations.js" />
     <Content Include="Scripts\qrcode.min.js" />
+    <Content Include="Scripts\Reporting\Add.js" />
+    <Content Include="Scripts\Reporting\Operations.js" />
     <Content Include="Scripts\Reports\Operations.js" />
     <Content Include="Scripts\Requests\Accounts.js" />
     <Content Include="Scripts\Requests\Customers.js" />
