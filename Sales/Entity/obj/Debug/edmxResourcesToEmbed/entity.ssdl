@@ -99,6 +99,38 @@
     <Property Name="Name" Type="nvarchar(max)" />
     <Property Name="Comment" Type="nvarchar(max)" />
   </EntityType>
+  <EntityType Name="ReportCustomerBody">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportHeaderId" Type="int" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="CustomerAlternative" Type="nvarchar(max)" />
+    <Property Name="Coaching" Type="int" />
+    <Property Name="ContactWays" Type="nvarchar(max)" />
+    <Property Name="Gifts" Type="nvarchar(max)" />
+    <Property Name="Avaliablity" Type="int" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ReportHeader">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportDate" Type="date" />
+    <Property Name="ManEmpId" Type="int" />
+  </EntityType>
+  <EntityType Name="ReportProductBody">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportHeaderId" Type="int" />
+    <Property Name="ReportCustomerBodyId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
   <EntityType Name="Scheduale">
     <Key>
       <PropertyRef Name="Id" />
@@ -288,6 +320,78 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ReportCustomerBody_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="ReportCustomerBody" Type="Self.ReportCustomerBody" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportCustomerBody">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportCustomerBody_ReportHeader">
+    <End Role="ReportHeader" Type="Self.ReportHeader" Multiplicity="0..1" />
+    <End Role="ReportCustomerBody" Type="Self.ReportCustomerBody" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportHeader">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportCustomerBody">
+        <PropertyRef Name="ReportHeaderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportHeader_ManEmp">
+    <End Role="ManEmp" Type="Self.ManEmp" Multiplicity="0..1" />
+    <End Role="ReportHeader" Type="Self.ReportHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManEmp">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportHeader">
+        <PropertyRef Name="ManEmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportProductBody_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="ReportProductBody" Type="Self.ReportProductBody" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportProductBody">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportProductBody_ReportCustomerBody">
+    <End Role="ReportCustomerBody" Type="Self.ReportCustomerBody" Multiplicity="0..1" />
+    <End Role="ReportProductBody" Type="Self.ReportProductBody" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportCustomerBody">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportProductBody">
+        <PropertyRef Name="ReportCustomerBodyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportProductBody_ReportHeader">
+    <End Role="ReportHeader" Type="Self.ReportHeader" Multiplicity="0..1" />
+    <End Role="ReportProductBody" Type="Self.ReportProductBody" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportHeader">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportProductBody">
+        <PropertyRef Name="ReportHeaderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Scheduale_Customers">
     <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
     <End Role="Scheduale" Type="Self.Scheduale" Multiplicity="*" />
@@ -382,6 +486,9 @@
     <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ManEmp" EntityType="Self.ManEmp" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportCustomerBody" EntityType="Self.ReportCustomerBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportHeader" EntityType="Self.ReportHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportProductBody" EntityType="Self.ReportProductBody" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Scheduale" EntityType="Self.Scheduale" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Specials" EntityType="Self.Specials" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StartingPoints" EntityType="Self.StartingPoints" Schema="dbo" store:Type="Tables" />
@@ -425,6 +532,30 @@
     <AssociationSet Name="FK_ManEmp_ManEmp" Association="Self.FK_ManEmp_ManEmp">
       <End Role="ManEmp" EntitySet="ManEmp" />
       <End Role="ManEmp1" EntitySet="ManEmp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportCustomerBody_Customers" Association="Self.FK_ReportCustomerBody_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="ReportCustomerBody" EntitySet="ReportCustomerBody" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportCustomerBody_ReportHeader" Association="Self.FK_ReportCustomerBody_ReportHeader">
+      <End Role="ReportHeader" EntitySet="ReportHeader" />
+      <End Role="ReportCustomerBody" EntitySet="ReportCustomerBody" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportHeader_ManEmp" Association="Self.FK_ReportHeader_ManEmp">
+      <End Role="ManEmp" EntitySet="ManEmp" />
+      <End Role="ReportHeader" EntitySet="ReportHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportProductBody_Products" Association="Self.FK_ReportProductBody_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ReportProductBody" EntitySet="ReportProductBody" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportProductBody_ReportCustomerBody" Association="Self.FK_ReportProductBody_ReportCustomerBody">
+      <End Role="ReportCustomerBody" EntitySet="ReportCustomerBody" />
+      <End Role="ReportProductBody" EntitySet="ReportProductBody" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportProductBody_ReportHeader" Association="Self.FK_ReportProductBody_ReportHeader">
+      <End Role="ReportHeader" EntitySet="ReportHeader" />
+      <End Role="ReportProductBody" EntitySet="ReportProductBody" />
     </AssociationSet>
     <AssociationSet Name="FK_Scheduale_Customers" Association="Self.FK_Scheduale_Customers">
       <End Role="Customers" EntitySet="Customers" />

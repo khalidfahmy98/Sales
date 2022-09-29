@@ -109,6 +109,41 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ReportCustomerBody">
+      <EntityTypeMapping TypeName="SalesModel.ReportCustomerBody">
+        <MappingFragment StoreEntitySet="ReportCustomerBody">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Avaliablity" ColumnName="Avaliablity" />
+          <ScalarProperty Name="Gifts" ColumnName="Gifts" />
+          <ScalarProperty Name="ContactWays" ColumnName="ContactWays" />
+          <ScalarProperty Name="Coaching" ColumnName="Coaching" />
+          <ScalarProperty Name="CustomerAlternative" ColumnName="CustomerAlternative" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="ReportHeaderId" ColumnName="ReportHeaderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportHeader">
+      <EntityTypeMapping TypeName="SalesModel.ReportHeader">
+        <MappingFragment StoreEntitySet="ReportHeader">
+          <ScalarProperty Name="ManEmpId" ColumnName="ManEmpId" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportProductBody">
+      <EntityTypeMapping TypeName="SalesModel.ReportProductBody">
+        <MappingFragment StoreEntitySet="ReportProductBody">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ReportCustomerBodyId" ColumnName="ReportCustomerBodyId" />
+          <ScalarProperty Name="ReportHeaderId" ColumnName="ReportHeaderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Scheduale">
       <EntityTypeMapping TypeName="SalesModel.Scheduale">
         <MappingFragment StoreEntitySet="Scheduale">
