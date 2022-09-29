@@ -140,6 +140,7 @@
     <Compile Include="Controllers\ManagersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\ReportingController.cs" />
     <Compile Include="Controllers\RequestsController.cs" />
     <Compile Include="Controllers\SchedualeController.cs" />
     <Compile Include="Controllers\SpecialsController.cs" />
@@ -372,6 +373,7 @@
     <Content Include="Views\Requests\CustomersRequests.cshtml" />
     <Content Include="Views\Requests\CustomersView.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Reporting\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
