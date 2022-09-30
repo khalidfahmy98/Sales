@@ -9,18 +9,18 @@ namespace DAL
 {
     public class GenericDAL<T> where T : class
     {
-        protected static SalesEntities entity ;
+        protected static db_a8bcda_elgharibEntities entity ;
 
         public virtual T Create(T Model)
         {
-            entity = new SalesEntities();
+            entity = new db_a8bcda_elgharibEntities();
             entity.Set<T>().Add(Model);
             entity.SaveChanges();
             return Model;
         }
         public virtual bool Update(T Model)
         {
-            entity = new SalesEntities();
+            entity = new db_a8bcda_elgharibEntities();
             dynamic x = Model;
             var model = entity.Set<T>().Find(x.Id);
             entity.Entry(model).CurrentValues.SetValues(Model);
@@ -29,7 +29,7 @@ namespace DAL
         }
         public virtual IQueryable<T> List()
         {
-            entity = new SalesEntities();
+            entity = new db_a8bcda_elgharibEntities();
             var model = entity.Set<T>();
             return model;
 
@@ -37,7 +37,7 @@ namespace DAL
 
         public virtual T Get(int Id)
         {
-            entity = new SalesEntities();
+            entity = new db_a8bcda_elgharibEntities();
             var model = entity.Set<T>().Find(Id);
             return model;
 
@@ -47,7 +47,7 @@ namespace DAL
         {
             try
             {
-                entity = new SalesEntities();
+                entity = new db_a8bcda_elgharibEntities();
                 var model = entity.Set<T>().Find(id);
                 entity.Set<T>().Remove(model);
                 entity.SaveChanges();

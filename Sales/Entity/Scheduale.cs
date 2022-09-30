@@ -17,6 +17,7 @@ namespace Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Scheduale()
         {
+            this.StartingPoints = new HashSet<StartingPoints>();
             this.VisitReports = new HashSet<VisitReports>();
         }
     
@@ -31,6 +32,8 @@ namespace Entity
     
         public virtual Customers Customers { get; set; }
         public virtual ManEmp ManEmp { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StartingPoints> StartingPoints { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VisitReports> VisitReports { get; set; }
     }

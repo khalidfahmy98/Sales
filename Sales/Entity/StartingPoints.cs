@@ -19,5 +19,7 @@ namespace Entity
         public Nullable<int> Day { get; set; }
         public string Time { get; set; }
         public Nullable<int> Month { get; set; }
+    
+        public virtual Scheduale Scheduale { get; set; }
     }
 }

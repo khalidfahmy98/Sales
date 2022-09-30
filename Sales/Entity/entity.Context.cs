@@ -13,10 +13,10 @@ namespace Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SalesEntities : DbContext
+    public partial class db_a8bcda_elgharibEntities : DbContext
     {
-        public SalesEntities()
-            : base("name=SalesEntities")
+        public db_a8bcda_elgharibEntities()
+            : base("name=db_a8bcda_elgharibEntities")
         {
         }
     
