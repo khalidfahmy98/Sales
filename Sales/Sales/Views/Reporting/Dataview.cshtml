@@ -1,0 +1,68 @@
+﻿@{
+    Layout = null;
+}
+@model IEnumerable<Entity.Scheduale>
+<table id="datatable" class="table  table-hover table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Customer </th>
+            <th>Product</th>
+            <th>Coaching</th>
+            <th>Contact Ways</th>
+            <th>Gifts</th>
+            <th>Avaliability</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+
+                <input type="text" class="form-control input-sm altCustomer" placeholder="اسم الدكتور البديل" />
+            </td>
+            <td style="height:150px;overflow-y:scroll;">
+                @foreach (var product in BLL.ProductsBLL.List().ToList())
+                {
+                    <div class="form-group">
+                        <label> @product.Name </label>
+                        <input type="number" class="form-control input-sm productQuantity" data-product="@product.Id" min="0" max="3" />
+                    </div>
+                }
+            </td>
+            <td>
+                <select class="form-control input-sm coaching">
+                    <option value="0"> None </option>
+                    <option value="1"> DM </option>
+                    <option value="2"> LM </option>
+                    <option value="3"> Other </option>
+                </select>
+            </td>
+            <td>
+                <select class="form-control input-sm contactways">
+                    <option value="Face to Face "> Face to Face </option>
+                    <option value="Phone"> Phone </option>
+                    <option value="Meeting"> Meeting </option>
+                </select>
+            </td>
+            <td>
+                <input type="text" class="form-control input-sm gift" />
+            </td>
+            <td>
+                <select class="form-control input-sm availabilty">
+                    <option value="0"> Availabile   </option>
+                    <option value="1"> inVacation  </option>
+                    <option value="2"> inConference  </option>
+                    <option value="3"> Prohibiting Visit </option>
+                </select>
+            </td>
+            <td>
+                <input type="text" class="form-control input-sm comment" />
+            </td>
+        </tr>
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable();
+    });
+</script>
