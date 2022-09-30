@@ -18,10 +18,12 @@ namespace Sales.Controllers
             return View();
         }
         [IsLogged]
-        public ActionResult Dataview()
+        public ActionResult Dataview(String Date)
         {
-
-            return View();
+            DateTime datee = Convert.ToDateTime(Date);
+            int UserId = Convert.ToInt32(Session["UserID"]);
+            List<Scheduale> calls = SchedualeBLL.List().Where( e => e.VisitDate == datee && e.ManEmpId == UserId ).ToList();
+            return View(calls);
         }
     }
 }

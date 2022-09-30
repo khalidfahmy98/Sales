@@ -2,11 +2,10 @@
     ReloadView();
 });
 function ReloadView() {
-    var date = $("#monthTracker").text().split("/"),
-        month = date[1];
+    var date = $("#monthTracker").text();
     $.ajax({
-        url: "/Reporting/Dataview?Month=" + month,
-        data: JSON.stringify({ Month: month }),
+        url: "/Reporting/Dataview?Date=" + date,
+        data: JSON.stringify({ Date: date }),
         type: 'GET',
         async: false,
         contentType: 'charset=utf-8',
