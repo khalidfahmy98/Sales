@@ -15,6 +15,7 @@ namespace Sales.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Day Report ";
+
             return View();
         }
     }
