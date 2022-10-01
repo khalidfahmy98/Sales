@@ -18,48 +18,53 @@
         @foreach (var item in Model)
         {
             <tr class="datarecord">
-                <td>
-                    <span> @item.Customers.Name </span>
-                    <input type="text" class="form-control input-sm altCustomer" placeholder="اسم الدكتور البديل" />
+                <td> @* 0 *@
+                    <span data-customerid="@item.CustomerId" class=" customer"> @item.Customers.Name </span>
+                    <input type="text" class="form-control input-sm altCustomer Validate" placeholder="اسم الدكتور الموجود بالعيادة" />
                 </td>
                 <td style="height:150px;overflow-y:scroll;">
+                    @* 1 *@
                     @foreach (var product in BLL.ProductsBLL.List().ToList())
                     {
-                        <div class="form-group">
-                            <label> @product.Name </label>
-                            <input type="number" class="form-control input-sm productQuantity" data-product="@product.Id" min="0" max="3" />
-                        </div>
+                        <label> @product.Name </label>
+                        <input type="number" class="form-control input-sm productQuantity Validate" data-product="@product.Id" min="0" max="3" />
+                        <br />
                     }
                 </td>
                 <td>
-                    <select class="form-control input-sm coaching">
-                        <option value="0"> None </option>
-                        <option value="1"> DM </option>
-                        <option value="2"> LM </option>
-                        <option value="3"> Other </option>
-                    </select>
+                    @* 2 *@
+                                <select class="form-control input-sm coaching ">
+                                    <option value="0" selected> None </option>
+                                    <option value="1"> DM </option>
+                                    <option value="2"> LM </option>
+                                    <option value="3"> Other </option>
+                                </select>
+                            </td>
+                <td>
+                    @* 3*@
+                                <select class="form-control input-sm contactways">
+                                    <option value="Face to Face " selected> Face to Face </option>
+                                    <option value="Phone"> Phone </option>
+                                    <option value="Meeting"> Meeting </option>
+                                </select>
+                            </td>
+                <td>
+                    @* 4*@
+                    <input type="text" class="form-control input-sm gift Validate" />
                 </td>
                 <td>
-                    <select class="form-control input-sm contactways">
-                        <option value="Face to Face "> Face to Face </option>
-                        <option value="Phone"> Phone </option>
-                        <option value="Meeting"> Meeting </option>
-                    </select>
-                </td>
+                    @* 5*@
+                                <select class="form-control input-sm availabilty">
+                                    <option value="0" selected> Availabile   </option>
+                                    <option value="1"> inVacation  </option>
+                                    <option value="2"> inConference  </option>
+                                    <option value="3"> Prohibiting Visit </option>
+                                </select>
+                            </td>
                 <td>
-                    <input type="text" class="form-control input-sm gift" />
-                </td>
-                <td>
-                    <select class="form-control input-sm availabilty">
-                        <option value="0"> Availabile   </option>
-                        <option value="1"> inVacation  </option>
-                        <option value="2"> inConference  </option>
-                        <option value="3"> Prohibiting Visit </option>
-                    </select>
-                </td>
-                <td>
-                    <input type="text" class="form-control input-sm comment" />
-                </td>
+                    @* 6 *@
+                                <input type="text" class="form-control input-sm comment" />
+                            </td>
             </tr>
         }
     </tbody>
